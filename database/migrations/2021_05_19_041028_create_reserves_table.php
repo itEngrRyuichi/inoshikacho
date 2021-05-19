@@ -14,8 +14,23 @@ class CreateReservesTable extends Migration
     public function up()
     {
         Schema::create('reserves', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->bigInteger('user_id')->unsigned()->index();
+            $table->bigInteger('store_id')->unsigned()->index();
+            $table->bigInteger('plan_id')->unsigned()->index();
+            $table->bigInteger('room_id')->unsigned()->index();
+            $table->timestamps('check_in');
+            $table->timestamps('check_out');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')
+                  ->onDelete('cascade');
+            $table->foreign('store_id')->references('id')->on('stores')
+                  ->onDelete('cascade');
+            $table->foreign('plan_id')->references('id')->on('plans')
+                  ->onDelete('cascade');
+            $table->foreign('room_id')->references('id')->on('rooms')
+                  ->onDelete('cascade');
         });
     }
 
