@@ -8,6 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>nitta edit</h1>
+    <h1>nitta</h1>
 </body>
 </html>
