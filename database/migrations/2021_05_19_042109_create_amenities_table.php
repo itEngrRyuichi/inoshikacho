@@ -14,7 +14,7 @@ class CreateAmenitiesTable extends Migration
     public function up()
     {
         Schema::create('amenities', function (Blueprint $table) {
-            $table->bigIncrements('amenity_id');
+            $table->bigIncrements('id');
             $table->string('amenity_name');
             $table->timestamps();
         });
