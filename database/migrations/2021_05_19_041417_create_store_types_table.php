@@ -14,7 +14,7 @@ class CreateStoreTypesTable extends Migration
     public function up()
     {
         Schema::create('store_types', function (Blueprint $table) {
-            $table->bigIncrements('store_type_id');
+            $table->bigIncrements('id');
             $table->string('store_type_name');
             $table->date('created_at');
             $table->date('updated_at');
