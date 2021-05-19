@@ -19,8 +19,8 @@ class CreateReservesTable extends Migration
             $table->bigInteger('store_id')->unsigned()->index();
             $table->bigInteger('plan_id')->unsigned()->index();
             $table->bigInteger('room_id')->unsigned()->index();
-            $table->timestamps('check_in');
-            $table->timestamps('check_out');
+            $table->date('check_in');
+            $table->date('check_out');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')
