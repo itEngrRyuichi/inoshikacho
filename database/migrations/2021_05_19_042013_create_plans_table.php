@@ -14,7 +14,7 @@ class CreateStorePlansTable extends Migration
     public function up()
     {
         Schema::create('plans', function (Blueprint $table) {
-            $table->bigIncrements('plan_id');
+            $table->bigIncrements('id');
             $table->string('plan_name')->nullable();
             $table->text('plan_description')->nullable();
             $table->timestamps();
