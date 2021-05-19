@@ -22,8 +22,8 @@ class CreatePricesTable extends Migration
             $table->date('updated_at');
             $table->timestamps();
 
-            $table->foreign('person_type_id')->references('id')->on('person_type_table')->onDelete('cascade');
-            $table->foreign('plan_id')->references('id')->on('plans_table')->onDelete('cascade');
+            $table->foreign('person_type_id')->references('id')->on('person_types')->onDelete('cascade');
+            $table->foreign('plan_id')->references('id')->on('plans')->onDelete('cascade');
         });
     }
 
