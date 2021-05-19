@@ -17,12 +17,10 @@ class CreateCommentsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('store_id')->unsigned()->index();
             $table->bigInteger('user_id')->unsigned()->index(); 
-            $table->date('created_at');
-            $table->date('updated_at');
             $table->timestamps();
 
-            $table->foreign('store_id')->references('id')->on('stores_table')->onDelete('cascade');
-            $table->foreign('user_id')->references('id')->on('users_table')->onDelete('cascade');
+            $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
