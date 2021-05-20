@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css2?family=Train+One&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Stick&display=swap);
 /*!
  * Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
@@ -15436,5 +15438,25 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
+}
+/* font-family: 'Train One', cursive; */
+/* font-family: 'Stick', sans-serif; */
+.bg-default {
+  background-color: #3e2723;
+}
+
+nav a.navbar-brand {
+  font-family: "Stick", sans-serif;
+  color: #fff !important;
+}
+nav .nav-item a.nav-link {
+  font-family: "Stick", sans-serif;
+  color: #fff !important;
+}
+nav .nav-item a.nav-link:hover {
+  color: #d7ccc8 !important;
+}
+nav .nav-item i {
+  font-size: 10px;
 }
 
