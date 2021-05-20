@@ -14,7 +14,7 @@ class Plan extends Model
         return $this->belongsTo(Price::class);
     }
 
-    public function reserves()
+    public function reserve()
     {
         return $this->belongsTo(Reserve::class);
     }

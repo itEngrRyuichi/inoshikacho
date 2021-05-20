@@ -9,9 +9,9 @@ class Amenity extends Model
 {
     use HasFactory;
 
-    public function rooms()
+    public function room()
     {
-        return $this->hasMany(Room::class);
+        return $this->belongsTo(Room::class);
     }
 
     protected $fillable = ['amenity_name'];
