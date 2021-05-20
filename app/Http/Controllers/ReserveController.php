@@ -13,7 +13,7 @@ class ReserveController extends Controller
      */
     public function index()
     {
-        //
+        return view('reserves/index');
     }
 
     /**
@@ -23,7 +23,7 @@ class ReserveController extends Controller
      */
     public function create()
     {
-        //
+        return view('reserves/create');
     }
 
     /**
@@ -34,7 +34,7 @@ class ReserveController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return redirect(route('reserves/index'));
     }
 
     /**
@@ -45,7 +45,7 @@ class ReserveController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('reserves/show');
     }
 
     /**
@@ -56,7 +56,7 @@ class ReserveController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('reserves/edit');
     }
 
     /**
@@ -68,7 +68,7 @@ class ReserveController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return redirect(route('reserves.show'));
     }
 
     /**
@@ -79,6 +79,6 @@ class ReserveController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return redirect(route('reserves.index'));
     }
 }
