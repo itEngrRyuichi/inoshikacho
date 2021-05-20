@@ -13,18 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function(){
-    return view('welcome');
-});
-
 /* ----- ホーム画面 ----- */
-//Route::get('/', 'HomeController@index'); 
+Route::get('/', 'App\Http\Controllers\HomeController@index');
 
 /* ----- ユーザー関係 ----- */
-Route::resource('users', 'App\Http\Controllers\UserController'); 
+Route::resource('users', 'App\Http\Controllers\UserController');
 
 /* ----- 店舗関係 ----- */
-Route::resource('stores', 'App\Http\Controllers\StoreController'); 
+Route::resource('stores', 'App\Http\Controllers\StoreController');
 /* プラン */
 /* Route::get('stores/{store_id}/plans/create', 'StorePlanController@create');
 Route::post('stores/{store_id}/plans', 'StorePlanController@store');
