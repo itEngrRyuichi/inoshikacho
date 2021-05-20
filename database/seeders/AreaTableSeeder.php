@@ -28,6 +28,4 @@ class AreaTableSeeder extends Seeder
         DB::table('areas')->insert(['area_name' => '九州']);
         DB::table('areas')->insert(['area_name' => '沖縄']);
     }
-
-    /* php artisan db:seed --class=AreaTableSeeder  */
 }

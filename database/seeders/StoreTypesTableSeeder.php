@@ -21,6 +21,4 @@ class StoreTypesTableSeeder extends Seeder
         DB::table('store_types')->insert(['store_type_name' => '民宿']);
         DB::table('store_types')->insert(['store_type_name' => 'ペンション']);
     }
-
-    /* php artisan db:seed --class=StoreTypesTableSeeder */
 }
