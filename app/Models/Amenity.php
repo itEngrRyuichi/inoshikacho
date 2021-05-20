@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Amenity extends Model
 {
     use HasFactory;
+
+    public function room()
+    {
+        return $this->belongsTo(Room::class);
+    }
+
+    protected $fillable = ['amenity_name'];
 }
+

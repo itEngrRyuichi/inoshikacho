@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Plan extends Model
 {
     use HasFactory;
+
+    public function price()
+    {
+        return $this->belongsTo(Price::class);
+    }
+
+    public function reserve()
+    {
+        return $this->belongsTo(Reserve::class);
+    }
+
+    protected $fillable = ['plan_name', 'plan_description'];
 }
