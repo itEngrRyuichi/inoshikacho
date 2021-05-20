@@ -1,7 +1,7 @@
 @extends('layout.app')
 @section('content')
 
-<form  action="{{route('stores.comments.store')}}" method="POST">
+<form  action="" method="POST">
     @csrf
     <div class="mb-3">
         <br>
