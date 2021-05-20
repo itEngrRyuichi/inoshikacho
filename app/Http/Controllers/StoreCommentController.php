@@ -14,6 +14,7 @@ class StoreCommentController extends Controller
     public function create()
     {
         //
+        return view('stores.comments.create');
     }
 
     /**
@@ -25,5 +26,6 @@ class StoreCommentController extends Controller
     public function store(Request $request)
     {
         //
+        return redirect(route('stores.show'));
     }
 }
