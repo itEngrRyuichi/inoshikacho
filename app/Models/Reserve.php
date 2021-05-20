@@ -17,15 +17,15 @@ class Reserve extends Model
     {
         return $this->belongsTo(Store::class);
     }
-    public function plans()
+    public function plan()
     {
-        return $this->hasMany(Plan::class);
+        return $this->belongsTo(Plan::class);
     }
     public function room()
     {
         return $this->belongsTo(Room::class);
     }
-    public function people()
+    public function peoples()
     {
         return $this->hasMany(People::class);
     }

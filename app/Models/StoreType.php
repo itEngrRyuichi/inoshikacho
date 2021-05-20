@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class StoreType extends Model
 {
-    protected $fillable=['name',];
+    protected $fillable=['store_type_name'];
 
     public function store()
     {

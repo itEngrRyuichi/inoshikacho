@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Plan extends Model
 {
-    use HasFactory;
+    protected $fillable = ['plan_name'];
 
     public function price()
     {
@@ -19,5 +19,4 @@ class Plan extends Model
         return $this->belongsTo(Reserve::class);
     }
 
-    protected $fillable = ['plan_name', 'plan_description'];
 }

@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Store extends Model
 {
-    protected $fillable=['name','postal','address','phone','email','store_type_id','area_id'];
-    
+    protected $fillable=['store_name','postal','address','phone','store_type_id','area_id'];
+
     public function comments()
     {
         return $this->hasMany(Comment::class);
