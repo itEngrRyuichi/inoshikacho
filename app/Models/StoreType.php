@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class StoreType extends Model
 {
-    use HasFactory;
+    protected $fillable=['name',];
+
+    public function store()
+    {
+        return $this->belongsTo(Store::class);
+    }
 }
