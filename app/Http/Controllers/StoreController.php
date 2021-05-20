@@ -13,7 +13,7 @@ class StoreController extends Controller
      */
     public function index()
     {
-        //
+        return view('stores/index');
     }
 
     /**
@@ -23,7 +23,7 @@ class StoreController extends Controller
      */
     public function create()
     {
-        //
+        return view('stores/create');
     }
 
     /**
@@ -34,7 +34,7 @@ class StoreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return redirect(route('home'));
     }
 
     /**
@@ -45,7 +45,7 @@ class StoreController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('stores.show');
     }
 
     /**
@@ -56,7 +56,7 @@ class StoreController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('stores.edit');
     }
 
     /**
@@ -68,7 +68,7 @@ class StoreController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return redirect(route('stores.show'));
     }
 
     /**
@@ -79,6 +79,6 @@ class StoreController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return redirect(route('home'));
     }
 }
