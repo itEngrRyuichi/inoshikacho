@@ -21,7 +21,7 @@ Route::get('/', function(){
 //Route::get('/', 'HomeController@index'); 
 
 /* ----- ユーザー関係 ----- */
-/* Route::resource('users', 'UserController'); */
+Route::resource('users', 'App\Http\Controllers\UserController'); 
 
 /* ----- 店舗関係 ----- */
 Route::resource('stores', 'App\Http\Controllers\StoreController'); 
