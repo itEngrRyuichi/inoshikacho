@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Plan extends Model
 {
     use HasFactory;
+
+    public function price()
+    {
+        return $this->belongsTo(Price::class);
+    }
+
+    public function reserves()
+    {
+        return $this->belongsTo(Reserve::class);
+    }
 }
