@@ -23,7 +23,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('login/create');
+        return view('users/create');
     }
 
     /**
@@ -45,8 +45,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::where('id',$id)->get();
-        return view('users/show',['user'=>$user]);
+        return view('users/show');
     }
 
     /**

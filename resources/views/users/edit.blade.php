@@ -2,7 +2,7 @@
 @section('content')
 {{-- 会員情報編集画面 --}}
 <h1>会員情報編集</h1>
-<form  action="{{route('users.update',9)}}>{{--{{route('users.update',$users)}}" method="POST">
+<form  action="">{{--{{route('users.update',$users)}}" method="POST">
     @method('put')--}}
     @csrf
     <div class="mb-3">
