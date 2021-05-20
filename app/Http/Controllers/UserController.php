@@ -45,7 +45,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return view('users/show');
+        $user = User::where('id',$id)->get();
+        return view('users/show',['user'=>$user]);
     }
 
     /**
