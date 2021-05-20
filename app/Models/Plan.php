@@ -18,4 +18,6 @@ class Plan extends Model
     {
         return $this->belongsTo(Reserve::class);
     }
+
+    protected $fillable = ['plan_name', 'plan_description'];
 }

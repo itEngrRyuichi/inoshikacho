@@ -18,4 +18,6 @@ class PersonType extends Model
     {
         return $this->belongsTo(Price::class);
     }
+
+    protected $fillable = ['person_type'];
 }

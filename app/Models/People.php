@@ -19,4 +19,6 @@ class People extends Model
         return $this->belongsTo(Reserve::class);
     }
 
+    protected $fillable = ['person_type', 'number', 'reserve_id'];
+
 }

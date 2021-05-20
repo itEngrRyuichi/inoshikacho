@@ -13,5 +13,7 @@ class Amenity extends Model
     {
         return $this->belongsTo(Room::class);
     }
+
+    protected $fillable = ['amenity_name'];
 }
 

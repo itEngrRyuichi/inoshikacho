@@ -18,4 +18,6 @@ class Comment extends Model
     {
         return $this->belongsTo(Store::class);
     }
+
+    protected $fillable = ['comments', 'store_id', 'user_id'];
 }
