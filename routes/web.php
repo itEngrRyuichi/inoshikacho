@@ -34,9 +34,10 @@ Route::get('stores/{store_id}/rooms/{id}/edit', 'App\Http\Controllers\StoreRoomC
 Route::put('stores/{store_id}/rooms/{id}', 'App\Http\Controllers\StoreRoomController@update');
 Route::delete('stores/{store_id}/rooms/{id}', 'App\Http\Controllers\StoreRoomController@destroy');
 /* コメント */
-Route::get('stores/{store_id}/comments/create', 'App\Http\Controllers\StoreCommentController@create');
-Route::post('stores/{store_id}/comments', 'App\Http\Controllers\StoreCommentController@store');
-Route::delete('stores/{store_id}/comments/{id}', 'App\Http\Controllers\StoreCommentController@destroy');
+Route::resource('stores.comments', App\Http\Controllers\StoreCommentController::class);
+// Route::get('stores/{store_id}/comments/create', 'App\Http\Controllers\StoreCommentController@create');
+// Route::post('stores/{store_id}/comments', 'App\Http\Controllers\StoreCommentController@store');
+// Route::delete('stores/{store_id}/comments/{id}', 'App\Http\Controllers\StoreCommentController@destroy');
 
 /* ----- 予約関係 ----- */
 Route::resource('reserves', 'App\Http\Controllers\HomeController');
