@@ -15532,3 +15532,13 @@ nav .nav-item i {
   font-size: 10px;
 }
 
+.users-container p.title {
+  font-family: "Kosugi Maru", sans-serif;
+}
+.users-container th {
+  font-family: "Kosugi Maru", sans-serif;
+}
+.users-container td {
+  font-family: "Kosugi Maru", sans-serif;
+}
+
