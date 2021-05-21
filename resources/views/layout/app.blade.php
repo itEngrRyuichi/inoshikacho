@@ -11,9 +11,7 @@
 <body>
     @include('commons.nav')
     <main>
-        <div class="container">
-            @yield('content')
-        </div>
+        @yield('content')
     </main>
 </body>
 </html>
