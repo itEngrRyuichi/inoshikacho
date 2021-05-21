@@ -1,1 +1,25 @@
 
+// navigation bar
+
+.bg-default{
+    background-color: #3e2723;
+}
+
+nav{
+    a.navbar-brand{
+        font-family: 'Stick', sans-serif;
+        color: #fff !important;
+    }
+    .nav-item{
+        a.nav-link{
+            font-family: 'Stick', sans-serif;
+            color: #fff !important;
+        }
+        a.nav-link:hover{
+            color: #d7ccc8 !important;
+        }
+        i{
+            font-size: 10px;
+        }
+    }
+}

@@ -26,17 +26,18 @@ Route::get('stores/{store_id}/plans/create', 'App\Http\Controllers\StorePlanCont
 Route::post('stores/{store_id}/plans', 'App\Http\Controllers\StorePlanController@store');
 Route::get('stores/{store_id}/plans/{id}/edit', 'App\Http\Controllers\StorePlanController@edit');
 Route::put('stores/{store_id}/plans/{id}', 'App\Http\Controllers\StorePlanController@update');
-Route::delete('stores/{store_id}/plans/{id}', 'App\Http\Controllers\StorePlanController@destroy'); 
+Route::delete('stores/{store_id}/plans/{id}', 'App\Http\Controllers\StorePlanController@destroy');
 /* 部屋 */
-/* Route::get('stores/{store_id}/rooms/create', 'StoreRoomController@create');
-Route::post('stores/{store_id}/rooms', 'StoreRoomController@store');
-Route::get('stores/{store_id}/rooms/{id}/edit', 'StoreRoomController@edit');
-Route::put('stores/{store_id}/rooms/{id}', 'StoreRoomController@update');
-Route::delete('stores/{store_id}/rooms/{id}', 'StoreRoomController@destroy'); 
+Route::get('stores/{store_id}/rooms/create', 'App\Http\Controllers\StoreRoomController@create');
+Route::post('stores/{store_id}/rooms', 'App\Http\Controllers\StoreRoomController@store');
+Route::get('stores/{store_id}/rooms/{id}/edit', 'App\Http\Controllers\StoreRoomController@edit');
+Route::put('stores/{store_id}/rooms/{id}', 'App\Http\Controllers\StoreRoomController@update');
+Route::delete('stores/{store_id}/rooms/{id}', 'App\Http\Controllers\StoreRoomController@destroy');
 /* コメント */
-Route::get('stores/{store_id}/comments/create', 'App\Http\Controllers\StoreCommentController@create');
-Route::post('stores/{store_id}/comments', 'App\Http\Controllers\StoreCommentController@store');
-Route::delete('stores/{store_id}/comments/{id}', 'App\Http\Controllers\StoreCommentController@destroy'); 
+Route::resource('stores.comments', App\Http\Controllers\StoreCommentController::class);
+// Route::get('stores/{store_id}/comments/create', 'App\Http\Controllers\StoreCommentController@create');
+// Route::post('stores/{store_id}/comments', 'App\Http\Controllers\StoreCommentController@store');
+// Route::delete('stores/{store_id}/comments/{id}', 'App\Http\Controllers\StoreCommentController@destroy');
 
 /* ----- 予約関係 ----- */
-/* Route::resource('reserves', 'HomeController'); */
+Route::resource('reserves', 'App\Http\Controllers\HomeController');
