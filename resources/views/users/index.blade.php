@@ -1,7 +1,8 @@
 @extends('layout.app')
 @section('content')
 {{-- ここに書いてね～ --}}
-<p class="h3 mt-4">会員一覧</p>
+<div class="users-container">
+<p class="h3 mt-4 title">会員一覧</p>
 <table class="table table-striped mt-4">
   <thead>
     <tr>
@@ -49,5 +50,5 @@
     </tr>
   </tbody>
 </table>
-
+</div>
 @endsection
