@@ -14,6 +14,7 @@ class StoreCommentController extends Controller
     public function create()
     {
         //
+        return view('stores.comments.create');
     }
 
     /**
@@ -25,5 +26,11 @@ class StoreCommentController extends Controller
     public function store(Request $request)
     {
         //
+        $comment = new \App\Comment;
+        $comment->comment = $request->comment;
+        $comment->store_id = 0;
+        $comment->user_id = 9;
+        $comment->save();
+        return redirect(route('stores.show'));
     }
 }

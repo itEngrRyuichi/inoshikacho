@@ -13,7 +13,7 @@ class StoreRoomController extends Controller
      */
     public function create()
     {
-        //
+        return view('stores/rooms');
     }
 
     /**
@@ -24,7 +24,7 @@ class StoreRoomController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return redirect(route('stores'));
     }
 
     /**
@@ -35,7 +35,7 @@ class StoreRoomController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('stores/rooms');
     }
 
     /**
@@ -47,6 +47,6 @@ class StoreRoomController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return redirect(route('stores'));
     }
 }

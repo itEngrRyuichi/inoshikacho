@@ -14,6 +14,7 @@ class StorePlanController extends Controller
     public function create()
     {
         //
+        return view('stores.plans.create');
     }
 
     /**
@@ -25,6 +26,7 @@ class StorePlanController extends Controller
     public function store(Request $request)
     {
         //
+        return redirect(route('stores.show'));
     }
 
     /**
@@ -36,6 +38,7 @@ class StorePlanController extends Controller
     public function edit($id)
     {
         //
+        return view('stores.plans.edit');
     }
 
     /**
@@ -48,5 +51,6 @@ class StorePlanController extends Controller
     public function update(Request $request, $id)
     {
         //
+        return redirect(route('stores.show'));
     }
 }
