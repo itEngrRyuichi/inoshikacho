@@ -1,5 +1,8 @@
 @import url(https://fonts.googleapis.com/css2?family=Train+One&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Stick&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap);
 /*!
  * Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
@@ -15441,16 +15444,85 @@ textarea.form-control-lg {
 }
 /* font-family: 'Train One', cursive; */
 /* font-family: 'Stick', sans-serif; */
+/* font-family: 'Noto Sans JP', sans-serif; */
+/* font-family: 'Dosis', sans-serif; */
+/* font-family: 'Kosugi Maru', sans-serif; */
+main {
+  background-image: url(/images/background.jpg?325479824bcf752c14c38e4b18aed9da);
+  /* background-repeat: repeat-y; */
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.home-container {
+  min-height: 300vh;
+}
+.home-container .main-container {
+  background-image: url(/images/bg-home.jpg?7c864547d55f12bb83d16b0929b617cc);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  width: 100%;
+}
+.home-container .main-container .inoshikacho-wrapper {
+  background: rgba(0, 0, 0, 0.527);
+}
+.home-container .main-container .inoshikacho-wrapper h1, .home-container .main-container .inoshikacho-wrapper .h1 {
+  margin-top: 20vh;
+  margin-left: 3vw;
+  color: #cfd8dc;
+}
+.home-container .main-container .inoshikacho-wrapper h1 .span1, .home-container .main-container .inoshikacho-wrapper .h1 .span1 {
+  font-size: 65px;
+  font-family: "Stick", sans-serif;
+}
+.home-container .main-container .inoshikacho-wrapper h1 .span2, .home-container .main-container .inoshikacho-wrapper .h1 .span2 {
+  font-size: 45px;
+  font-weight: bold;
+  font-family: "Dosis", sans-serif;
+}
+.home-container .main-container .inoshikacho-wrapper .inoshikacho-item {
+  padding-top: 5vh;
+}
+.home-container .main-container .inoshikacho-wrapper .inoshikacho-item i, .home-container .main-container .inoshikacho-wrapper .inoshikacho-item label {
+  cursor: pointer;
+  text-align: center;
+  color: #cfd8dc;
+}
+.home-container .main-container .inoshikacho-wrapper .inoshikacho-item i {
+  font-size: 100px;
+}
+.home-container .main-container .inoshikacho-wrapper .inoshikacho-item label {
+  font-size: 25px;
+  font-family: "Dosis", sans-serif;
+}
+.home-container .main-container .inoshikacho-wrapper .inoshikacho-item label span {
+  margin-left: 50px;
+}
+.home-container .main-container .inoshikacho-wrapper .inoshikacho-item:hover i, .home-container .main-container .inoshikacho-wrapper .inoshikacho-item:hover label {
+  text-align: center;
+  color: #94a8b1;
+}
+
 .bg-default {
   background-color: #3e2723;
 }
 
 nav a.navbar-brand {
-  font-family: "Stick", sans-serif;
   color: #fff !important;
 }
-nav .nav-item a.nav-link {
+nav a.navbar-brand .span1 {
+  font-size: 25px;
   font-family: "Stick", sans-serif;
+}
+nav a.navbar-brand .span2 {
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "Dosis", sans-serif;
+}
+nav .nav-item a.nav-link {
+  font-family: "Kosugi Maru", sans-serif;
   color: #fff !important;
 }
 nav .nav-item a.nav-link:hover {
@@ -15463,5 +15535,15 @@ nav .nav-item i {
 .store-index-container .store-list .card {
   width: 100%;
   height: 33vh;
+}
+
+.users-container p.title {
+  font-family: "Kosugi Maru", sans-serif;
+}
+.users-container th {
+  font-family: "Kosugi Maru", sans-serif;
+}
+.users-container td {
+  font-family: "Kosugi Maru", sans-serif;
 }
 
