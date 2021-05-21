@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Comment;
+
 class StoreCommentController extends Controller
 {
     /**
@@ -26,7 +28,7 @@ class StoreCommentController extends Controller
     public function store(Request $request)
     {
         //
-        $comment = new \App\Comment;
+        $comment = new Comment;
         $comment->comment = $request->comment;
         $comment->store_id = 0;
         $comment->user_id = 9;

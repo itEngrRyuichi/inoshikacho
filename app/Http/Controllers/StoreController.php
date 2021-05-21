@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Store;
+use App\Models\Store;
 use Illuminate\Http\Request;
 
 class StoreController extends Controller
@@ -46,8 +46,8 @@ class StoreController extends Controller
      */
     public function show($id)
     {
-        $store = Store::find($id);
-        return view('stores.show',['store'=>$store]);
+        /* $store = Store::find($id); */
+        return view('stores.show'/* ,['store'=>$store] */);
     }
 
     /**

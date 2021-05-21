@@ -13,7 +13,7 @@ class StoreRoomController extends Controller
      */
     public function create()
     {
-        return view('stores/rooms');
+        return view('stores.rooms.create');
     }
 
     /**
@@ -35,7 +35,7 @@ class StoreRoomController extends Controller
      */
     public function edit($id)
     {
-        return view('stores/rooms');
+        return view('stores.rooms.edit');
     }
 
     /**
