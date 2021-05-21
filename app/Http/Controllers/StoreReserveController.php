@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Store;
 use Illuminate\Http\Request;
 
-class StoreController extends Controller
+class StoreReserveController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +13,7 @@ class StoreController extends Controller
      */
     public function index()
     {
-        return view('stores/index');
+        return view('stores/reserves/index');
     }
 
     /**
@@ -24,7 +23,7 @@ class StoreController extends Controller
      */
     public function create()
     {
-        return view('stores/create');
+        return view('stores/reserves/create');
     }
 
     /**
@@ -35,7 +34,7 @@ class StoreController extends Controller
      */
     public function store(Request $request)
     {
-        return redirect(route('home'));
+        return redirect(route('stores/reserves/index'));
     }
 
     /**
@@ -46,8 +45,7 @@ class StoreController extends Controller
      */
     public function show($id)
     {
-        /* $store = Store::find($id); */
-        return view('stores.show');
+        return view('stores.reserves.show');
     }
 
     /**
@@ -58,7 +56,7 @@ class StoreController extends Controller
      */
     public function edit($id)
     {
-        return view('stores.edit');
+        return view('stores.reserves.edit');
     }
 
     /**
@@ -70,7 +68,7 @@ class StoreController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return redirect(route('stores.show'));
+        return redirect(route('stores/reserves/index'));
     }
 
     /**
@@ -81,6 +79,6 @@ class StoreController extends Controller
      */
     public function destroy($id)
     {
-        return redirect(route('home'));
+        return redirect(route('stores/reserves/index'));
     }
 }
