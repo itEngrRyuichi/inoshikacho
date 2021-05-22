@@ -12,15 +12,15 @@
             h1{
                 margin-top: 20vh;
                 margin-left: 3vw;
-                color: #cfd8dc;
+                color: $default-fontcolor;
                 .span1{
                     font-size: 65px;
-                    font-family: 'Stick', sans-serif;
+                    font-family: $title-nihongo-fontfamily;
                 }
                 .span2{
                     font-size: 45px;
                     font-weight: bold;
-                    font-family: 'Dosis', sans-serif;
+                    font-family: $title-alphabet-fontfamily;
                 }
             }
             .inoshikacho-item{
@@ -28,14 +28,14 @@
                 i, label{
                     cursor: pointer;
                     text-align: center;
-                    color: #cfd8dc;
+                    color: $default-fontcolor;
                 }
                 i{
                     font-size: 100px;
                 }
                 label{
                     font-size: 25px;
-                    font-family: 'Dosis', sans-serif;
+                    font-family: $default-alphabet-fontfamily;
                     span{
                         margin-left: 50px;
                     }
@@ -44,7 +44,7 @@
             .inoshikacho-item:hover{
                 i, label{
                     text-align: center;
-                    color: darken($color: #cfd8dc, $amount: 20%);
+                    color: $default-fontcolor-hover;
                 }
             }
         }

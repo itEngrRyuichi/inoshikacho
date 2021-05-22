@@ -1,0 +1,18 @@
+/* ------ variables ------ */
+
+// backgrounds
+$default-bgcolor: #3e2723;
+$default-bgcolor-hover: darken($color: $default-bgcolor, $amount: 20%);
+
+// fonts
+$default-fontcolor: #fff8e1;
+$default-fontcolor-hover: darken($color: $default-fontcolor, $amount: 20%);
+
+
+$title-alphabet-fontfamily: 'Dosis', sans-serif;
+$title-nihongo-fontfamily: 'Stick', sans-serif;
+$default-alphabet-fontfamily: 'Dosis', sans-serif;
+$default-nihongo-fontfamily: 'Kosugi Maru', sans-serif;
+
+
+// buttons

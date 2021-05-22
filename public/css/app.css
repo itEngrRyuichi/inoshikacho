@@ -15447,7 +15447,7 @@ textarea.form-control-lg {
 /* font-family: 'Noto Sans JP', sans-serif; */
 /* font-family: 'Dosis', sans-serif; */
 /* font-family: 'Kosugi Maru', sans-serif; */
-/* variables */
+/* ------ variables ------ */
 main {
   background-image: url(/images/background.jpg?325479824bcf752c14c38e4b18aed9da);
   /* background-repeat: repeat-y; */
@@ -15476,7 +15476,7 @@ main {
 .home-container .main-container .inoshikacho-wrapper h1, .home-container .main-container .inoshikacho-wrapper .h1 {
   margin-top: 20vh;
   margin-left: 3vw;
-  color: #cfd8dc;
+  color: #fff8e1;
 }
 .home-container .main-container .inoshikacho-wrapper h1 .span1, .home-container .main-container .inoshikacho-wrapper .h1 .span1 {
   font-size: 65px;
@@ -15493,7 +15493,7 @@ main {
 .home-container .main-container .inoshikacho-wrapper .inoshikacho-item i, .home-container .main-container .inoshikacho-wrapper .inoshikacho-item label {
   cursor: pointer;
   text-align: center;
-  color: #cfd8dc;
+  color: #fff8e1;
 }
 .home-container .main-container .inoshikacho-wrapper .inoshikacho-item i {
   font-size: 100px;
@@ -15507,7 +15507,7 @@ main {
 }
 .home-container .main-container .inoshikacho-wrapper .inoshikacho-item:hover i, .home-container .main-container .inoshikacho-wrapper .inoshikacho-item:hover label {
   text-align: center;
-  color: #94a8b1;
+  color: #ffe07b;
 }
 
 nav a.navbar-brand {
@@ -15522,19 +15522,19 @@ nav a.navbar-brand .span2 {
   font-weight: bold;
   font-family: "Dosis", sans-serif;
 }
-nav .nav-item a.nav-link {
+nav a.nav-link {
   font-family: "Kosugi Maru", sans-serif;
   color: #fff8e1 !important;
 }
-nav .nav-item a.nav-link:hover {
-  color: #ffc815 !important;
+nav a.nav-link:hover {
+  color: #ffe07b !important;
 }
-nav .nav-item i {
+nav i {
   font-size: 10px;
 }
 
 .users-container p.title, .users-container th, .users-container td {
-  font-family: "Stick", sans-serif;
+  font-family: "Kosugi Maru", sans-serif;
 }
 
 .store-index-container .store-list .card {
@@ -15549,4 +15549,3 @@ footer.footer span {
   color: #fff8e1 !important;
   font-family: "Dosis", sans-serif;
 }
-
