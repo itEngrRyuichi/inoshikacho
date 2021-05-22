@@ -15585,7 +15585,39 @@ nav .profileDropdown ul.dropdown-menu .dropdown-item.user-type:hover {
   cursor: default;
 }
 
+.users-container form {
+  font-family: "Kosugi Maru", sans-serif;
+  color: #3e2723;
+}
+.users-container form button {
+  margin-top: 30px;
+}
+.users-container tbody tr {
+  cursor: pointer;
+}
 .users-container th, .users-container td {
+  font-family: "Kosugi Maru", sans-serif;
+}
+.users-container img {
+  height: 25px;
+  width: 25px;
+  border: 2px solid #546e7a;
+}
+
+.show-user-container img {
+  padding: 0;
+  width: 100px;
+  height: 100px;
+  border: 2px solid #546e7a;
+  cursor: pointer;
+}
+.show-user-container label {
+  font-size: 20px;
+  font-family: "Kosugi Maru", sans-serif;
+  color: #3e2723;
+}
+.show-user-container .user-type {
+  font-size: 18px;
   font-family: "Kosugi Maru", sans-serif;
 }
 
@@ -15595,6 +15627,11 @@ nav .profileDropdown ul.dropdown-menu .dropdown-item.user-type:hover {
   height: 100px;
   border: 2px solid #546e7a;
   cursor: pointer;
+}
+.create-user-container label {
+  font-size: 20px;
+  font-family: "Kosugi Maru", sans-serif;
+  color: #3e2723;
 }
 
 .login-container form label {

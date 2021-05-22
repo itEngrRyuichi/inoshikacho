@@ -4,7 +4,7 @@
     <div class="row">
         <p class="my-4 text-center title">会員登録</p>
         <div class="col-6 offset-3">
-            <div class="input-group mb-3 row justify-content-center">
+            <div class="mb-3 row justify-content-center">
                 <label for="user-image">画像を選択してください</label>
                 <img src="{{asset('images/users/no_user_image.png')}}" class="rounded-circle" alt="user-image">
             </div>

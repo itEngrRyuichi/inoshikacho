@@ -1,6 +1,42 @@
 
 .users-container{
+    form{
+        font-family: $default-nihongo-fontfamily;
+        color: $default-dark-color;
+        button{
+            margin-top: 30px;
+        }
+    }
+    tbody{
+        tr{
+            cursor: pointer;
+        }
+    }
     th, td{
+        font-family: $default-nihongo-fontfamily;
+    }
+    img{
+        height: 25px;
+        width: 25px;
+        border: $default-dark-border;
+    }
+}
+
+.show-user-container{
+    img{
+        padding: 0;
+        width: 100px;
+        height: 100px;
+        border: $default-dark-border;
+        cursor: pointer;
+    }
+    label{
+        font-size: 20px;
+        font-family: $default-nihongo-fontfamily;
+        color: $default-dark-color;
+    }
+    .user-type{
+        font-size: 18px;
         font-family: $default-nihongo-fontfamily;
     }
 }
@@ -12,6 +48,11 @@
         height: 100px;
         border: $default-dark-border;
         cursor: pointer;
+    }
+    label{
+        font-size: 20px;
+        font-family: $default-nihongo-fontfamily;
+        color: $default-dark-color;
     }
 }
 

@@ -2,9 +2,9 @@
     <div class="container">
         <a class="navbar-brand" href="/"><span class="span1">猪鹿蝶</span><span class="span2">.travel</span></a>
         {{-- ゲストユーザ --}}
-        @include('commons.guestnav')
+        {{-- @include('commons.guestnav') --}}
         {{-- 会員ユーザ --}}
-        {{-- @include('commons.membersnav') --}}
+        @include('commons.membersnav')
         {{-- 店舗管理ユーザ --}}
         {{-- @include('commons.storeadminnav') --}}
         {{-- サイト管理ユーザ --}}
