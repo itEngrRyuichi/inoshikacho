@@ -1,6 +1,6 @@
 {{----- 会員 -----}}
-<div class="collapse navbar-collapse storeSearchDropdown" id="navbarSupportedContent">
-    {{-- <a class="nav-link dropdown-toggle" href="#" id="storeSearchDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+{{-- <div class="collapse navbar-collapse storeSearchDropdown" id="navbarSupportedContent">
+    <a class="nav-link dropdown-toggle" href="#" id="storeSearchDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         <span>宿を検索する</span>
     </a>
     <form action="#" class="dropdown-menu" aria-labelledby="storeSearchDropdown">
@@ -86,7 +86,9 @@
             </div>
         </div>
         <button type="submit" class="btn btn-outline-primary ax-auto">検索</button>
-    </form> --}}
+    </form>
+</div> --}}
+<div class="navbar-nav ml-auto mb-2 mb-lg-0 storeSearch">
     <a href="#" class="nav-link"><i class="fas fa-search"></i> 宿を検索する</a>
 </div>
 <ul class="navbar-nav mr-auto mb-2 mb-lg-0 profileDropdown">
@@ -95,7 +97,7 @@
         <span> 奈良 シカマル</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="profileDropdown">
-        <li class="text-center account-list pt-2"><img src="{{ asset('images/users/shikamaru.jpg') }}" alt="account-img" class="rounded-circle mx-auto"></li>
+        <li class="text-center account-list py-2"><img src="{{ asset('images/users/shikamaru.jpg') }}" alt="account-img" class="rounded-circle mx-auto"></li>
         <li class="account-list"><span class="dropdown-item text-muted user-type">会員:</span></li>
         <li class="account-list"><a class="dropdown-item user-name" href="#">奈良 シカマル</a></li>
         <li class="account-list"><hr class="dropdown-divider"></li>

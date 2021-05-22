@@ -14,7 +14,7 @@ nav{
     }
 
 
-    .storeSearchDropdown{
+    /* .storeSearchDropdown{
         font-family: $default-nihongo-fontfamily;
         a.nav-link{
             color: $default-fontcolor;
@@ -38,9 +38,27 @@ nav{
                 }
             }
         }
+    } */
+
+    .storeSearch{
+        font-family: $default-nihongo-fontfamily;
+        a.nav-link{
+            color: $default-fontcolor !important;
+        }
+        a.nav-link:hover{
+            color: $default-fontcolor-hover !important;
+        }
     }
 
-
+    .guestuser{
+        font-family: $default-nihongo-fontfamily;
+        a.nav-link{
+            color: $default-fontcolor !important;
+        }
+        a.nav-link:hover{
+            color: $default-fontcolor-hover !important;
+        }
+    }
 
 
     .profileDropdown{

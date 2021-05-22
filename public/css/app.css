@@ -15510,6 +15510,33 @@ main {
   color: #ffe07b;
 }
 
+nav {
+  /* .storeSearchDropdown{
+      font-family: $default-nihongo-fontfamily;
+      a.nav-link{
+          color: $default-fontcolor;
+      }
+      form.dropdown-menu{
+          margin-top: 600px;
+          padding-top: 20px;
+          padding-bottom: 20px;
+          padding-left: 30px;
+          padding-right: 30px;
+          background: #cfd8dc;
+          label{
+              color: $default-dark-color !important;
+          }
+          .form-check{
+              label{
+                  cursor: pointer;
+              }
+              label:hover{
+                  color: darken($color: $default-dark-color, $amount: 20%) !important;
+              }
+          }
+      }
+  } */
+}
 nav a.navbar-brand {
   color: #fff8e1 !important;
 }
@@ -15522,28 +15549,23 @@ nav a.navbar-brand .span2 {
   font-weight: bold;
   font-family: "Dosis", sans-serif;
 }
-nav .storeSearchDropdown {
+nav .storeSearch {
   font-family: "Kosugi Maru", sans-serif;
 }
-nav .storeSearchDropdown a.nav-link {
-  color: #fff8e1;
+nav .storeSearch a.nav-link {
+  color: #fff8e1 !important;
 }
-nav .storeSearchDropdown form.dropdown-menu {
-  margin-top: 600px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 30px;
-  padding-right: 30px;
-  background: #cfd8dc;
+nav .storeSearch a.nav-link:hover {
+  color: #ffe07b !important;
 }
-nav .storeSearchDropdown form.dropdown-menu label {
-  color: #3e2723 !important;
+nav .guestuser {
+  font-family: "Kosugi Maru", sans-serif;
 }
-nav .storeSearchDropdown form.dropdown-menu .form-check label {
-  cursor: pointer;
+nav .guestuser a.nav-link {
+  color: #fff8e1 !important;
 }
-nav .storeSearchDropdown form.dropdown-menu .form-check label:hover {
-  color: black !important;
+nav .guestuser a.nav-link:hover {
+  color: #ffe07b !important;
 }
 nav .profileDropdown {
   font-family: "Kosugi Maru", sans-serif;
