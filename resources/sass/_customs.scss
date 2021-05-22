@@ -6,9 +6,20 @@ main{
     background-position: center;
 }
 
+.content{
+    min-height: 100vh;
+}
+
+.title{
+    font-size: 30px;
+    font-family: $default-nihongo-fontfamily;
+    color: $default-dark-color;
+}
+
 .bg-default{
     background-color: $default-bgcolor;
 }
+
 
 @import './home';
 @import './navigation';

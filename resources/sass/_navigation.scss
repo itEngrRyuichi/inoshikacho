@@ -13,33 +13,6 @@ nav{
         }
     }
 
-
-    /* .storeSearchDropdown{
-        font-family: $default-nihongo-fontfamily;
-        a.nav-link{
-            color: $default-fontcolor;
-        }
-        form.dropdown-menu{
-            margin-top: 600px;
-            padding-top: 20px;
-            padding-bottom: 20px;
-            padding-left: 30px;
-            padding-right: 30px;
-            background: #cfd8dc;
-            label{
-                color: $default-dark-color !important;
-            }
-            .form-check{
-                label{
-                    cursor: pointer;
-                }
-                label:hover{
-                    color: darken($color: $default-dark-color, $amount: 20%) !important;
-                }
-            }
-        }
-    } */
-
     .storeSearch{
         font-family: $default-nihongo-fontfamily;
         a.nav-link{

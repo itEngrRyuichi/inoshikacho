@@ -1,6 +1,26 @@
-// user index
+
 .users-container{
-    p.title, th, td{
+    th, td{
         font-family: $default-nihongo-fontfamily;
+    }
+}
+
+.create-user-container{
+    img{
+        padding: 0;
+        width: 100px;
+        height: 100px;
+        border: $default-dark-border;
+        cursor: pointer;
+    }
+}
+
+.login-container{
+    form{
+        label{
+            font-size: 20px;
+            font-family: $default-nihongo-fontfamily;
+            color: $default-dark-color;
+        }
     }
 }

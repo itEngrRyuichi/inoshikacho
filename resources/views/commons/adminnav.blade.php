@@ -10,10 +10,10 @@
     <ul class="dropdown-menu" aria-labelledby="profileDropdown">
         <li class="text-center account-list py-2"><img src="{{ asset('images/users/choji.png') }}" alt="account-img" class="rounded-circle mx-auto"></li>
         <li class="account-list"><span class="dropdown-item text-muted user-type">サイト管理:</span></li>
-        <li class="account-list"><a class="dropdown-item user-name" href="#">秋道 チョウジ</a></li>
+        <li class="account-list"><a class="dropdown-item user-name" href="/profile">秋道 チョウジ</a></li>
         <li class="account-list"><hr class="dropdown-divider"></li>
-        <li class="account-list"><a class="dropdown-item" href="#"><i class="fas fa-list"></i> 全店舗一覧</a></li>
-        <li class="account-list"><a class="dropdown-item" href="#"><i class="fas fa-list"></i> 全ユーザ一覧</a></li>
+        <li class="account-list"><a class="dropdown-item" href="/stores"><i class="fas fa-list"></i> 全店舗一覧</a></li>
+        <li class="account-list"><a class="dropdown-item" href="/users"><i class="fas fa-list"></i> 全ユーザ一覧</a></li>
         <li class="account-list"><hr class="dropdown-divider"></li>
         <li class="account-list"><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> ログアウト</a></li>
     </ul>

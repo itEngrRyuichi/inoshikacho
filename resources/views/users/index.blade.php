@@ -2,7 +2,7 @@
 @section('content')
 {{-- ここに書いてね～ --}}
 <div class="users-container">
-<p class="h3 mt-4 title">会員一覧</p>
+<p class="mt-4 title">会員一覧</p>
 <table class="table table-striped mt-4">
   <thead>
     <tr>
@@ -19,7 +19,7 @@
       <th scope="row">1</th>
       <td>
         <img src="{{asset('images/user1.png')}}" class="rounded-circle" alt="..." style="height: 23px; width: 23px;">
-        <span class="mx-2">猿飛アスマ</span> 
+        <span class="mx-2">猿飛アスマ</span>
       </td>
       <td>1983/10/18</td>
       <td>東京都新宿区</td>
@@ -30,7 +30,7 @@
       <th scope="row">2</th>
       <td>
         <img src="{{asset('...')}}" class="rounded-circle" alt="..." style="height: 23px; width: 23px;">
-        <span class="mx-2">鈴木</span> 
+        <span class="mx-2">鈴木</span>
       </td>
       <td>2021/05/21</td>
       <td>東京都新宿区</td>
@@ -41,7 +41,7 @@
       <th scope="row">3</th>
       <td>
         <img src="{{asset('...')}}" class="rounded-circle" alt="..." style="height: 23px; width: 23px;">
-        <span class="mx-2">山田</span> 
+        <span class="mx-2">山田</span>
       </td>
       <td>2000/12/25</td>
       <td>東京都千代田区</td>
