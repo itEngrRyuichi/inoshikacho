@@ -15522,15 +15522,62 @@ nav a.navbar-brand .span2 {
   font-weight: bold;
   font-family: "Dosis", sans-serif;
 }
-nav a.nav-link {
+nav .storeSearchDropdown {
   font-family: "Kosugi Maru", sans-serif;
+}
+nav .storeSearchDropdown a.nav-link {
+  color: #fff8e1;
+}
+nav .storeSearchDropdown form.dropdown-menu {
+  margin-top: 600px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background: #cfd8dc;
+}
+nav .storeSearchDropdown form.dropdown-menu label {
+  color: #3e2723 !important;
+}
+nav .storeSearchDropdown form.dropdown-menu .form-check label {
+  cursor: pointer;
+}
+nav .storeSearchDropdown form.dropdown-menu .form-check label:hover {
+  color: black !important;
+}
+nav .profileDropdown {
+  font-family: "Kosugi Maru", sans-serif;
+}
+nav .profileDropdown a.nav-link {
   color: #fff8e1 !important;
 }
-nav a.nav-link:hover {
-  color: #ffe07b !important;
+nav .profileDropdown a.nav-link img {
+  width: 28px;
+  height: 28px;
+  border: 2px solid #546e7a;
 }
-nav i {
-  font-size: 10px;
+nav .profileDropdown ul.dropdown-menu {
+  margin-top: 50px;
+  background: #cfd8dc;
+}
+nav .profileDropdown ul.dropdown-menu li.account-list img {
+  width: 80px;
+  height: 80px;
+  border: 2px solid #3e2723;
+}
+nav .profileDropdown ul.dropdown-menu li.account-list a.dropdown-item {
+  color: #3e2723 !important;
+}
+nav .profileDropdown ul.dropdown-menu li.account-list a.dropdown-item:hover {
+  background: #94a8b1 !important;
+  color: black !important;
+}
+nav .profileDropdown ul.dropdown-menu .user-type {
+  font-size: smaller;
+}
+nav .profileDropdown ul.dropdown-menu .dropdown-item.user-type:hover {
+  background: #cfd8dc !important;
+  cursor: default;
 }
 
 .users-container p.title, .users-container th, .users-container td {

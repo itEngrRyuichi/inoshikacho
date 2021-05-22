@@ -1,11 +1,14 @@
 /* ------ variables ------ */
+// color
+$default-light-color: #fff8e1;
+$default-dark-color: #3e2723;
 
 // backgrounds
-$default-bgcolor: #3e2723;
+$default-bgcolor: $default-dark-color;
 $default-bgcolor-hover: darken($color: $default-bgcolor, $amount: 20%);
 
 // fonts
-$default-fontcolor: #fff8e1;
+$default-fontcolor: $default-light-color;
 $default-fontcolor-hover: darken($color: $default-fontcolor, $amount: 20%);
 
 
@@ -14,5 +17,8 @@ $title-nihongo-fontfamily: 'Stick', sans-serif;
 $default-alphabet-fontfamily: 'Dosis', sans-serif;
 $default-nihongo-fontfamily: 'Kosugi Maru', sans-serif;
 
+// border
+$default-dark-border: 2px solid #546e7a;
+$default-light-border: 2px solid #fff8e1;
 
 // buttons

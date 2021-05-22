@@ -12,14 +12,71 @@ nav{
             font-family: $title-alphabet-fontfamily;
         }
     }
-    a.nav-link{
+
+
+    .storeSearchDropdown{
         font-family: $default-nihongo-fontfamily;
-        color: $default-fontcolor !important;
+        a.nav-link{
+            color: $default-fontcolor;
+        }
+        form.dropdown-menu{
+            margin-top: 600px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            padding-left: 30px;
+            padding-right: 30px;
+            background: #cfd8dc;
+            label{
+                color: $default-dark-color !important;
+            }
+            .form-check{
+                label{
+                    cursor: pointer;
+                }
+                label:hover{
+                    color: darken($color: $default-dark-color, $amount: 20%) !important;
+                }
+            }
+        }
     }
-    a.nav-link:hover{
-        color: $default-fontcolor-hover !important;
-    }
-    i{
-        font-size: 10px;
+
+
+
+
+    .profileDropdown{
+        font-family: $default-nihongo-fontfamily;
+        a.nav-link{
+            color: $default-fontcolor !important;
+            img{
+                width: 28px;
+                height: 28px;
+                border: $default-dark-border;
+            }
+        }
+        ul.dropdown-menu{
+            margin-top: 50px;
+            background: #cfd8dc;
+            li.account-list{
+                img{
+                    width: 80px;
+                    height: 80px;
+                    border: 2px solid $default-dark-color;;
+                }
+                a.dropdown-item{
+                    color: $default-dark-color !important;
+                }
+                a.dropdown-item:hover{
+                    background: darken($color: #cfd8dc, $amount: 20%) !important;
+                    color: darken($color: $default-dark-color, $amount: 20%) !important;
+                }
+            }
+            .user-type{
+                font-size: smaller;
+            }
+            .dropdown-item.user-type:hover{
+                background: #cfd8dc !important;
+                cursor: default;
+            }
+        }
     }
 }
