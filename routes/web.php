@@ -19,14 +19,10 @@ Route::get('/', 'HomeController@index');
 /* ----- ログイン画面 ----- */
 Route::get('/login', 'LoginController@index');
 
-/* ----- プロフィール画面 ----- */
-Route::get('/profile', 'ProfileController@index');
-
 /* ----- ユーザー関係 ----- */
 Route::resource('users', 'UserController');
-
-/* 予約関係(会員側) ----- */
-Route::get('users/{user_id}/reserves', 'UserReserveController@index');
+/* プロフィール画面*/
+Route::get('/profile', 'ProfileController@index');
 
 /* ----- 店舗関係 ----- */
 Route::resource('stores', 'StoreController');
@@ -46,8 +42,11 @@ Route::delete('stores/{store_id}/rooms/{id}', 'StoreRoomController@destroy');
 Route::get('stores/{store_id}/comments/create', 'StoreCommentController@create');
 Route::post('stores/{store_id}/comments', 'StoreCommentController@store');
 Route::delete('stores/{store_id}/comments/{id}', 'StoreCommentController@destroy');
-/* 店舗内宿泊予約関係 */
-Route::resource('stores/{store_id}/reserves', "StoreReserveController");
 
-/* ----- 予約関係(サイト管理側) ----- */
-Route::get('reserves', 'ReserveController@index');
+/* ----- 予約関係 ----- */
+/* 宿泊予約一覧 / 宿泊履歴(サイト管理側) */
+Route::resource('reserves', 'ReserveController');
+/* 宿泊予約履歴 / 宿泊履歴(会員側) */
+Route::get('users/{user_id}/reserves', 'UserReserveController@index');
+/* 宿泊予約履歴 / 宿泊履歴(店舗側) */
+Route::get('stores/{store_id}/reserves', "StoreReserveController@index");
