@@ -15645,6 +15645,20 @@ nav .profileDropdown ul.dropdown-menu .dropdown-item.user-type:hover {
   height: 33vh;
 }
 
+.create-store-container form {
+  font-family: "Kosugi Maru", sans-serif;
+}
+.create-store-container form label {
+  color: #3e2723 !important;
+}
+.create-store-container form img.main-store-pic, .create-store-container form img.sub-store-pic {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  border: 2px solid #546e7a;
+}
+
 footer.footer {
   text-align: center;
 }

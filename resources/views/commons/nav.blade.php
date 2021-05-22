@@ -6,8 +6,8 @@
         {{-- 会員ユーザ --}}
         {{-- @include('commons.membersnav') --}}
         {{-- 店舗管理ユーザ --}}
-        {{-- @include('commons.storeadminnav') --}}
+        @include('commons.storeadminnav')
         {{-- サイト管理ユーザ --}}
-        @include('commons.adminnav')
+        {{-- @include('commons.adminnav') --}}
     </div>
   </nav>

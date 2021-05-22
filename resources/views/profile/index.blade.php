@@ -9,8 +9,8 @@
         @include('commons.usercontents')
 
         <div class="btn-group col-2 offset-5 py-4" role="group">
-            <button type="submit" class="btn btn-success">編集する</button>
-            <button type="submit" class="btn btn-danger ">退会する</button>
+            <button type="submit" class="btn btn-outline-success">編集する</button>
+            <button type="submit" class="btn btn-outline-danger ">退会する</button>
         </div>
     </div>
 </div>

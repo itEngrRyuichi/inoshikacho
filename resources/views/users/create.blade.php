@@ -1,7 +1,7 @@
 @extends('layout.app')
 @section('content')
 <div class="container content create-user-container">
-    <div class="row">
+    <form action="#" class="row">
         <p class="my-4 text-center title">会員登録</p>
         <div class="col-6 offset-3">
             <div class="mb-3 row justify-content-center">
@@ -38,9 +38,9 @@
             </div>
         </div>
         <div class="col-2 offset-5 my-4">
-            <button class="btn btn-outline-primary w-100" type="button">新規登録</button>
+            <button class="btn btn-outline-primary w-100" type="submit">新規登録</button>
         </div>
-    </div>
+    </form>
 </div>
 @endsection
 
