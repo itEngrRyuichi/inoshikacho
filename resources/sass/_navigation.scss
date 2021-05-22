@@ -1,0 +1,27 @@
+// navigation bar
+nav{
+    a.navbar-brand{
+        color: $default-fontcolor !important;
+        .span1{
+            font-size: 25px;
+            font-family: $default-nihongo-fontfamily;
+        }
+        .span2{
+            font-size: 18px;
+            font-weight: bold;
+            font-family: $default-alphabet-fontfamily;
+        }
+    }
+    .nav-item{
+        a.nav-link{
+            font-family: 'Kosugi Maru', sans-serif;
+            color: $default-fontcolor !important;
+        }
+        a.nav-link:hover{
+            color: darken($color: $default-fontcolor, $amount: 40%) !important;
+        }
+        i{
+            font-size: 10px;
+        }
+    }
+}

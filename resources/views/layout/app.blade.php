@@ -13,5 +13,6 @@
     <main>
         @yield('content')
     </main>
+    @include('commons.footer')
 </body>
 </html>

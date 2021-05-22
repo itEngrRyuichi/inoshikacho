@@ -15447,12 +15447,17 @@ textarea.form-control-lg {
 /* font-family: 'Noto Sans JP', sans-serif; */
 /* font-family: 'Dosis', sans-serif; */
 /* font-family: 'Kosugi Maru', sans-serif; */
+/* variables */
 main {
   background-image: url(/images/background.jpg?325479824bcf752c14c38e4b18aed9da);
   /* background-repeat: repeat-y; */
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
+}
+
+.bg-default {
+  background-color: #3e2723;
 }
 
 .home-container {
@@ -15505,12 +15510,8 @@ main {
   color: #94a8b1;
 }
 
-.bg-default {
-  background-color: #3e2723;
-}
-
 nav a.navbar-brand {
-  color: #fff !important;
+  color: #fff8e1 !important;
 }
 nav a.navbar-brand .span1 {
   font-size: 25px;
@@ -15523,13 +15524,17 @@ nav a.navbar-brand .span2 {
 }
 nav .nav-item a.nav-link {
   font-family: "Kosugi Maru", sans-serif;
-  color: #fff !important;
+  color: #fff8e1 !important;
 }
 nav .nav-item a.nav-link:hover {
-  color: #d7ccc8 !important;
+  color: #ffc815 !important;
 }
 nav .nav-item i {
   font-size: 10px;
+}
+
+.users-container p.title, .users-container th, .users-container td {
+  font-family: "Stick", sans-serif;
 }
 
 .store-index-container .store-list .card {
@@ -15537,13 +15542,11 @@ nav .nav-item i {
   height: 33vh;
 }
 
-.users-container p.title {
-  font-family: "Kosugi Maru", sans-serif;
+footer.footer {
+  text-align: center;
 }
-.users-container th {
-  font-family: "Kosugi Maru", sans-serif;
-}
-.users-container td {
-  font-family: "Kosugi Maru", sans-serif;
+footer.footer span {
+  color: #fff8e1 !important;
+  font-family: "Dosis", sans-serif;
 }
 
