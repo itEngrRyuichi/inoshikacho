@@ -21,6 +21,8 @@ Route::get('/login', 'LoginController@index');
 
 /* ----- ユーザー関係 ----- */
 Route::resource('users', 'UserController');
+Route::get('users/{user_id}/stores', 'UserStoreController@index');
+
 /* プロフィール画面*/
 Route::get('/profile', 'ProfileController@index');
 

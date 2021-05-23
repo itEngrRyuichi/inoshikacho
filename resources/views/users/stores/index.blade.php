@@ -2,57 +2,7 @@
 
 @section('content')
 <div class="store-index-container py-4">
-    <form class="store-search-wrapper row py-4 mx-0 mb-4">
-        <div class="col-2">
-            <label for="area" class="form-label">エリア選択</label>
-            <select name="area" id="area" class="form-select">
-                <option value="1">北海道</option>
-                <option value="2">東北</option>
-                <option value="3">北関東</option>
-                <option value="4">首都圏</option>
-                <option value="5">甲信越</option>
-                <option value="6">東海</option>
-                <option value="7">伊豆・箱根</option>
-                <option value="8">北陸</option>
-                <option value="9">近畿</option>
-                <option value="10">四国</option>
-                <option value="11">山陽・山陰</option>
-                <option value="12">九州</option>
-                <option value="13">沖縄</option>
-            </select>
-        </div>
-        <div class="col-2">
-            <label for="name" class="form-label">宿泊施設名</label>
-            <input type="text" class="form-control" id="name" placeholder="宿泊施設名" required>
-        </div>
-        <div class="col-2">
-            <label for="checkin" class="form-label">チェックイン</label>
-            <input type="date" class="form-control" placeholder="checkin" aria-label="checkin" aria-describedby="checkin">
-        </div>
-        <div class="col-2">
-            <label for="checkout" class="form-label">チェックアウト</label>
-            <input type="date" class="form-control" placeholder="checkout" aria-label="checkout" aria-describedby="checkout">
-        </div>
-        <div class="col-1">
-            <label for="adult" class="form-label">大人</label>
-            <input type="number" name="adult" id="adult" class="form-control" value="2">
-        </div>
-        <div class="col-1">
-            <label for="middle" class="form-label">小学生</label>
-            <input type="number" name="middle" id="middle" class="form-control" value="0">
-        </div>
-        <div class="col-1">
-            <label for="child" class="form-label">未就学児</label>
-            <input type="number" name="child" id="child" class="form-control" value="0">
-        </div>
-        <div class="col-1">
-            <label for="baby" class="form-label">幼児</label>
-            <input type="number" name="baby" id="baby" class="form-control" value="0">
-        </div>
-        <div class="d-flex justify-content-center mt-4">
-            <button class="btn btn-outline-secondary" type="submit">検索</button>
-        </div>
-    </form>
+    <p class="py-4 text-center title">管理店舗一覧</p>
     <div class="row store-wrapper mx-0 mb-2 py-4">
         <div class="col-6 mx-0">
             <a href="/stores/1" class="sub-title">アスマホテル</a>
