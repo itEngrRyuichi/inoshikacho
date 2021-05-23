@@ -15815,8 +15815,6 @@ nav .profileDropdown ul.dropdown-menu .dropdown-item.user-type:hover {
 }
 .show-store-container .comment-wrapper form {
   border-radius: 10px;
-  min-height: 30vh;
-  max-height: 30vh;
 }
 .show-store-container .comment-wrapper form .form-floating {
   height: 20vh;
