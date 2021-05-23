@@ -164,5 +164,26 @@
             }
         }
     }
+    .comment-wrapper{
+        padding-right: 15vw;
+        padding-left: 15vw;
+        min-height: 38vh;
+        form{
+            border-radius: 10px;
+            min-height: 30vh;
+            max-height: 30vh;
+            .form-floating{
+                height: 20vh;
+                textarea{
+                    min-height: 100%;
+                }
+            }
+        }
+        img{
+            height: 25px;
+            width: 25px;
+            border: $default-dark-border;
+        }
+    }
 }
 

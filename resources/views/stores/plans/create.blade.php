@@ -67,7 +67,7 @@
             </div>
             <div class="input-group mb-3 row">
                 <span class="input-group-text col-4" id="baby">幼児</span>
-                <input type="number" class="form-control col-4 aria-label="baby" aria-describedby="baby"  value="0">
+                <input type="number" class="form-control col-4" aria-label="baby" aria-describedby="baby"  value="0">
                 <span class="input-group-text col-2">円</span>
             </div>
         </div>

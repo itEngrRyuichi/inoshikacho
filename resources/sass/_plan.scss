@@ -16,3 +16,22 @@
         }
     }
 }
+
+.room-create-container{
+    padding-right: 20vw;
+    padding-left: 20vw;
+    .room-content-wrapper{
+        border: 1px #CCCCCC solid;
+        margin: 0 auto;
+        padding: 10px;
+    }
+    label{
+        font-size: 13px;
+        font-family: $default-nihongo-fontfamily;
+        color: $default-dark-color !important;
+    }
+    i, img{
+        width: 13px;
+        height: 13px;
+    }
+}

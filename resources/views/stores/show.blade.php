@@ -69,8 +69,9 @@
                 <p class="text3">6,050<span class="text2">円～</span> 20,350<span class="text2">円</span></p>
             </div>
             <div class="d-flex mt-auto mb-3 justify-content-end">
-                <a href="/store/1/edit" class="btn btn-outline-success btn-sm">編集</a>
-                <a href="/store/1/delete" class="btn btn-outline-danger btn-sm">削除</a>
+                <a href="/stores/1#comment" class="btn btn-outline-primary btn-sm">口コミを見る</a>
+                <a href="/stores/1/edit" class="btn btn-outline-success btn-sm">編集</a>
+                <a href="/stores/1/delete" class="btn btn-outline-danger btn-sm">削除</a>
             </div>
         </div>
     </div>
@@ -109,6 +110,7 @@
         <a href="/stores/1/rooms/create" class="btn btn-outline-primary d-inline">部屋を追加する</a>
         <a href="/stores/1/plans/create" class="btn btn-outline-primary d-inline">プランを追加する</a>
     </div>
+    <p class="pt-4 sub-title">プラン一覧</p>
     <div class="row plan-wrapper mx-0 mb-2 py-4">
         <div class="col-4">
             <div id="carouselRoom1" class="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -165,8 +167,8 @@
                 </div>
                 <div class="col-6 d-flex mt-auto mb-3 justify-content-end">
                     <a href="/reserve" class="btn btn-outline-primary btn-sm">予約</a>
-                    <a href="/reserve" class="btn btn-outline-success btn-sm">編集</a>
-                    <a href="/reserve" class="btn btn-outline-danger btn-sm">削除</a>
+                    <a href="/stores/1/plans/1/edit" class="btn btn-outline-success btn-sm">編集</a>
+                    <a href="/stores/1/plans/1/delete" class="btn btn-outline-danger btn-sm">削除</a>
                 </div>
             </div>
         </div>
@@ -232,8 +234,8 @@
                 </div>
                 <div class="col-6 d-flex mt-auto mb-3 justify-content-end">
                     <a href="/reserve" class="btn btn-outline-primary btn-sm">予約</a>
-                    <a href="/reserve" class="btn btn-outline-success btn-sm">編集</a>
-                    <a href="/reserve" class="btn btn-outline-danger btn-sm">削除</a>
+                    <a href="/stores/1/plans/1/edit" class="btn btn-outline-success btn-sm">編集</a>
+                    <a href="/stores/1/plans/1/delete" class="btn btn-outline-danger btn-sm">削除</a>
                 </div>
             </div>
         </div>
@@ -304,8 +306,8 @@
                 </div>
                 <div class="col-6 d-flex mt-auto mb-3 justify-content-end">
                     <a href="/reserve" class="btn btn-outline-primary btn-sm">予約</a>
-                    <a href="/reserve" class="btn btn-outline-success btn-sm">編集</a>
-                    <a href="/reserve" class="btn btn-outline-danger btn-sm">削除</a>
+                    <a href="/stores/1/plans/1/edit" class="btn btn-outline-success btn-sm">編集</a>
+                    <a href="/stores/1/plans/1/delete" class="btn btn-outline-danger btn-sm">削除</a>
                 </div>
             </div>
         </div>
@@ -372,8 +374,8 @@
                 </div>
                 <div class="col-6 d-flex mt-auto mb-3 justify-content-end">
                     <a href="/reserve" class="btn btn-outline-primary btn-sm">予約</a>
-                    <a href="/reserve" class="btn btn-outline-success btn-sm">編集</a>
-                    <a href="/reserve" class="btn btn-outline-danger btn-sm">削除</a>
+                    <a href="/stores/1/plans/1/edit" class="btn btn-outline-success btn-sm">編集</a>
+                    <a href="/stores/1/plans/1/delete" class="btn btn-outline-danger btn-sm">削除</a>
                 </div>
             </div>
         </div>
@@ -436,8 +438,8 @@
                 </div>
                 <div class="col-6 d-flex mt-auto mb-3 justify-content-end">
                     <a href="/reserve" class="btn btn-outline-primary btn-sm">予約</a>
-                    <a href="/reserve" class="btn btn-outline-success btn-sm">編集</a>
-                    <a href="/reserve" class="btn btn-outline-danger btn-sm">削除</a>
+                    <a href="/stores/1/plans/1/edit" class="btn btn-outline-success btn-sm">編集</a>
+                    <a href="/stores/1/plans/1/delete" class="btn btn-outline-danger btn-sm">削除</a>
                 </div>
             </div>
         </div>
@@ -496,9 +498,56 @@
                 </div>
                 <div class="col-6 d-flex mt-auto mb-3 justify-content-end">
                     <a href="/reserve" class="btn btn-outline-primary btn-sm">キャンセル待ち予約</a>
-                    <a href="/reserve" class="btn btn-outline-success btn-sm">編集</a>
-                    <a href="/reserve" class="btn btn-outline-danger btn-sm">削除</a>
+                    <a href="/stores/1/plans/1/edit" class="btn btn-outline-success btn-sm">編集</a>
+                    <a href="/stores/1/plans/1/delete" class="btn btn-outline-danger btn-sm">削除</a>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="comment-wrapper mx-0 mb-4 py-4 row">
+        <p class="pt-4 sub-title" id="comment">口コミ</p>
+        <form action="#" class="py-4">
+            <p class="text2">コメントする</p>
+            <div class="form-floating">
+                <textarea class="form-control" id="description" name="description"></textarea>
+                <label for="description" class="form-label">ご感想を入力してください</label>
+            </div>
+        </form>
+        <div class="row comments">
+            <div class="col-4">
+                <img src="{{asset('images/users/asuma.png')}}" class="rounded-circle" alt="user-image">
+                <span class="mx-2">猿飛 アスマ</span>
+            </div>
+            <div class="col-6">
+                <p>温泉気持ちよかったです。また、任務の帰りに寄りたいなと思います。</p>
+            </div>
+            <div class="col-2">
+                <a href="/stores/1/comment/delete" class="btn btn-outline-danger btn-sm">削除</a>
+            </div>
+        </div>
+        <div class="row comments">
+            <div class="col-4">
+                <img src="{{asset('images/users/naruto.png')}}" class="rounded-circle" alt="user-image">
+                <span class="mx-2">うずまき ナルト</span>
+            </div>
+            <div class="col-6">
+                <p>また、俺の師匠が女湯覗いてたってばよ。皆も気を付けるってばよ。</p>
+            </div>
+            <div class="col-2">
+                <a href="/stores/1/comment/delete" class="btn btn-outline-danger btn-sm">削除</a>
+            </div>
+        </div>
+        <div class="row comments">
+            <div class="col-4">
+                <img src="{{asset('images/users/shikamaru.jpg')}}" class="rounded-circle" alt="user-image">
+                <span class="mx-2">奈良 シカマル</span>
+            </div>
+            <div class="col-6">
+                <p>ここまで来るのは正直めんどくせぇけど、来たかいのあるホテルって感じがしていいんじゃないかな</p>
+            </div>
+            <div class="col-2">
+                <a href="/stores/1/comment/delete" class="btn btn-outline-danger btn-sm">削除</a>
             </div>
         </div>
     </div>
