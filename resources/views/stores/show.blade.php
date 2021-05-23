@@ -104,6 +104,11 @@
             <button type="submit" class="btn btn-outline-primary">検索する</button>
         </div>
     </form>
+    <p class="pt-4 sub-title">内容追加</p>
+    <div class="add-action-wrapper mx-0 mb-4 py-4 d-block">
+        <a href="/stores/1/rooms/create" class="btn btn-outline-primary d-inline">部屋を追加する</a>
+        <a href="/stores/1/plans/create" class="btn btn-outline-primary d-inline">プランを追加する</a>
+    </div>
     <div class="row plan-wrapper mx-0 mb-2 py-4">
         <div class="col-4">
             <div id="carouselRoom1" class="carousel slide carousel-fade" data-bs-ride="carousel">
