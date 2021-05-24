@@ -12,7 +12,7 @@
             <div class="mb-3 row">
                 <div class="col-6">
                     <div class="input-group row">
-                        <span class="input-group-text col-5" id="name">エリア選択</span>
+                        <span class="input-group-text col-5" id="area">エリア選択</span>
                         <select name="area" id="area" class="form-select col-6">
                             <option value="1">北海道</option>
                             <option value="2">東北</option>
@@ -33,7 +33,7 @@
                 <div class="col-6">
                     <div class="input-group row">
                         <span class="input-group-text col-5" id="storetype">店舗種類</span>
-                        <select name="area" id="storetype" class="form-select col-7">
+                        <select name="storeType" id="storetype" class="form-select col-7">
                             <option value="1">シティーホテル</option>
                             <option value="2">リゾートホテル</option>
                             <option value="3">ビジネスホテル</option>
@@ -77,7 +77,7 @@
                 <input type="text" class="form-control col-10" placeholder="静岡県伊東市岡1111-1" aria-label="addess" aria-describedby="addess">
             </div>
             <div class="form-floating mb-3">
-                <textarea class="form-control" id="accesss" placeholder="静岡駅から徒歩5分" style="height: 100px"></textarea>
+                <textarea class="form-control" id="access" placeholder="静岡駅から徒歩5分" style="height: 100px"></textarea>
                 <label class="form-label" id="access">アクセス情報記入</label>
             </div>
             <div class="form-floating mb-3">
