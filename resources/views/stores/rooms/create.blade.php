@@ -11,7 +11,7 @@
                 <input type="text" class="form-control" id="name" name="name" placeholder="洋室 スイート 301号室">
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-6 amenity-select-wrapper">
             <div class="mb-3">
                 <label for="amenities" class="form-label">アメニティーを選択する</label>
                 <div class="form-check">
@@ -55,24 +55,38 @@
         <div class="col-6">
             <label for="people" class="form-label">制限人数を選択する</label>
             <div class="input-group mb-3 row">
-                <span class="input-group-text col-4" id="adult">大人</span>
-                <input type="number" class="form-control col-3" aria-label="adult" aria-describedby="adult" value="2">
-                <span class="input-group-text col-5">人まで</span>
+                <span class="input-group-text col-4 offset-1" id="adult">大人</span>
+                <input type="number" class="form-control col-2" aria-label="adult" aria-describedby="adult" value="2">
+                <span class="input-group-text col-4">人まで</span>
             </div>
             <div class="input-group mb-3 row">
-                <span class="input-group-text col-4" id="middle">小学生</span>
-                <input type="number" class="form-control col-3" aria-label="middle" aria-describedby="middle" value="2">
-                <span class="input-group-text col-5">人まで</span>
+                <span class="input-group-text col-4 offset-1" id="middle">小学生</span>
+                <input type="number" class="form-control col-2" aria-label="middle" aria-describedby="middle" value="2">
+                <span class="input-group-text col-4">人まで</span>
             </div>
             <div class="input-group mb-3 row">
-                <span class="input-group-text col-4" id="child">未就学児</span>
-                <input type="number" class="form-control col-3" aria-label="child" aria-describedby="child"  value="6">
-                <span class="input-group-text col-5">人まで</span>
+                <span class="input-group-text col-4 offset-1" id="child">未就学児</span>
+                <input type="number" class="form-control col-2" aria-label="child" aria-describedby="child"  value="6">
+                <span class="input-group-text col-4">人まで</span>
             </div>
             <div class="input-group mb-3 row">
-                <span class="input-group-text col-4" id="baby">幼児</span>
-                <input type="number" class="form-control col-3" aria-label="baby" aria-describedby="baby"  value="0">
-                <span class="input-group-text col-5">人まで</span>
+                <span class="input-group-text col-4 offset-1" id="baby">幼児</span>
+                <input type="number" class="form-control col-2" aria-label="baby" aria-describedby="baby"  value="0">
+                <span class="input-group-text col-4">人まで</span>
+            </div>
+        </div>
+        <div class="img-select-wrapper">
+            <div class="col-4">
+                <label for="room-pic1">写真1</label>
+                <img src="{{ asset('images/rooms/room1.jpg') }}" alt="room-pic" class="room-pic">
+            </div>
+            <div class="col-4">
+                <label for="room-pic2">写真2</label>
+                <img src="{{ asset('images/rooms/room2.jpg') }}" alt="room-pic" class="room-pic">
+            </div>
+            <div class="col-4">
+                <label for="room-pic3">写真3</label>
+                <img src="{{ asset('images/rooms/room3.jpg') }}" alt="room-pic" class="room-pic">
             </div>
         </div>
         <div class="d-flex justify-content-center mt-4">

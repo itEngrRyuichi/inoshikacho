@@ -71,6 +71,20 @@
                 <span class="input-group-text col-2">円</span>
             </div>
         </div>
+        <div class="img-plan-wrapper row">
+            <div class="col-4">
+                <label for="room-pic1">写真1</label>
+                <img src="{{ asset('images/rooms/room1.jpg') }}" alt="plan-pic" class="plan-pic">
+            </div>
+            <div class="col-4">
+                <label for="room-pic2">写真2</label>
+                <img src="{{ asset('images/rooms/room2.jpg') }}" alt="plan-pic" class="plan-pic">
+            </div>
+            <div class="col-4">
+                <label for="room-pic3">写真3</label>
+                <img src="{{ asset('images/rooms/room3.jpg') }}" alt="plan-pic" class="plan-pic">
+            </div>
+        </div>
         <div class="d-flex justify-content-center mt-4">
             <button class="btn btn-outline-primary" type="submit">作成</button>
         </div>

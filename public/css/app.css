@@ -15844,10 +15844,18 @@ nav .profileDropdown ul.dropdown-menu .dropdown-item.user-type:hover {
 .plan-create-container .form-floating textarea {
   min-height: 100%;
 }
+.plan-create-container img.plan-pic {
+  width: auto;
+  height: 40vh;
+  max-width: 100%;
+  max-height: 100%;
+  border: 2px solid #546e7a;
+  cursor: pointer;
+}
 
 .room-create-container {
-  padding-right: 20vw;
-  padding-left: 20vw;
+  padding-right: 25vw;
+  padding-left: 25vw;
 }
 .room-create-container .room-content-wrapper {
   border: 1px #CCCCCC solid;
@@ -15859,7 +15867,15 @@ nav .profileDropdown ul.dropdown-menu .dropdown-item.user-type:hover {
   font-family: "Kosugi Maru", sans-serif;
   color: #3e2723 !important;
 }
-.room-create-container i, .room-create-container img {
+.room-create-container img.room-pic {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  border: 2px solid #546e7a;
+  cursor: pointer;
+}
+.room-create-container .amenity-select-wrapper i, .room-create-container .amenity-select-wrapper img {
   width: 13px;
   height: 13px;
 }
