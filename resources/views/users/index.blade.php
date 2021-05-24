@@ -39,66 +39,30 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr onclick="frameClick(1)">
-                        <th scope="row">1</th>
-                        <td>サイト管理</td>
+                    @foreach($users as $user)
+                    <tr onclick="frameClick({{$user->id}})">
+                        <th scope="row">{{$user->id}}</th>
+                        <td>
+                            @if ($user->type == 1)
+                            サイト管理
+                            @endif
+                            @if ($user->type == 2)
+                            店舗管理
+                            @endif
+                            @if ($user->type == 3)
+                            会員
+                            @endif
+                        </td>
                         <td>
                             <img src="{{asset('images/users/asuma.png')}}" class="rounded-circle" alt="user-image">
-                            <span class="mx-2">猿飛 アスマ</span>
+                            <span class="mx-2">{{$user->name}}</span>
                         </td>
-                        <td>1983/10/18</td>
-                        <td>東京都新宿区</td>
-                        <td>090-1234-5678</td>
-                        <td>asuma@shippuden.jp</td>
+                        <td>{{ $user->birthday }}</td>
+                        <td>{{ $user->address }}</td>
+                        <td>{{ $user->phone }}</td>
+                        <td>{{ $user->email }}</td>
                     </tr>
-                    <tr onclick="frameClick(2)">
-                        <th scope="row">2</th>
-                        <td>店舗管理</td>
-                        <td>
-                            <img src="{{asset('images/users/ino.jpg')}}" class="rounded-circle" alt="user-image">
-                            <span class="mx-2">山中 いの</span>
-                        </td>
-                        <td>1990/09/23</td>
-                        <td>東京都新宿区</td>
-                        <td>080-1423-1666</td>
-                        <td>ino@shippuden.jp</td>
-                    </tr>
-                    <tr onclick="frameClick(3)">
-                        <th scope="row">3</th>
-                        <td>会員</td>
-                        <td>
-                            <img src="{{asset('images/users/shikamaru.jpg')}}" class="rounded-circle" alt="user-image">
-                            <span class="mx-2">奈良 シカマル</span>
-                        </td>
-                        <td>1990/09/22</td>
-                        <td>東京都新宿区</td>
-                        <td>080-1432-6345</td>
-                        <td>shikamaru@shippuden.jp</td>
-                    </tr>
-                    <tr onclick="frameClick(4)">
-                        <th scope="row">4</th>
-                        <td>会員</td>
-                        <td>
-                            <img src="{{asset('images/users/choji.png')}}" class="rounded-circle" alt="user-image">
-                            <span class="mx-2">秋道 チョウジ</span>
-                        </td>
-                        <td>1990/05/01</td>
-                        <td>東京都新宿区</td>
-                        <td>090-0002-6005</td>
-                        <td>choji@shippuden.jp</td>
-                    </tr>
-                    <tr onclick="frameClick(5)">
-                        <th scope="row">5</th>
-                        <td>会員</td>
-                        <td>
-                            <img src="{{asset('images/users/naruto.png')}}" class="rounded-circle" alt="user-image">
-                            <span class="mx-2">うずまき ナルト</span>
-                        </td>
-                        <td>1990/01/02</td>
-                        <td>東京都新宿区</td>
-                        <td>090-7777-7777</td>
-                        <td>naruto@shippuden.jp</td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

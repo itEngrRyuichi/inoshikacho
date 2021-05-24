@@ -18,7 +18,7 @@ class UsersTableSeeder extends Seeder
         //サイト管理ユーザ
         DB::table('users')->insert(['name'=>'admin',
                                     'type'=>1,
-                                    'age'=>'22',
+                                    'birthday'=>'2021-05-24',
                                     'email'=>'admin@example.com',
                                     'phone'=>'000-0000-0000',
                                     'password'=>'admin',
@@ -28,7 +28,7 @@ class UsersTableSeeder extends Seeder
         //店管理ユーザ
         DB::table('users')->insert(['name'=>'asuma',
                                     'type'=>2,
-                                    'age'=>'22',
+                                    'birthday'=>'2021-05-24',
                                     'email'=>'asuma@example.com',
                                     'phone'=>'000-0000-0000',
                                     'password'=>'asuma',
@@ -38,7 +38,7 @@ class UsersTableSeeder extends Seeder
         //会員ユーザ
         DB::table('users')->insert(['name'=>'test',
                                     'type'=>3,
-                                    'age'=>'22',
+                                    'birthday'=>'2021-05-24',
                                     'email'=>'test@example.com',
                                     'phone'=>'000-0000-0000',
                                     'password'=>'test',
