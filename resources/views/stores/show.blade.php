@@ -166,8 +166,12 @@
                     <p class="text3">10,050<span class="text2">円</span></p>
                 </div>
                 <div class="col-6 d-flex mt-auto mb-3 justify-content-end">
-                    <a href="/reserves/create" class="btn btn-outline-primary btn-sm">予約</a>
+                    <form action="/reserves/create">
+                        <input type="hidden" name="store_id" value="asumahotel">
+                        <button class="btn btn-outline-primary btn-sm">予約</button>
+                    </form>
                     <a href="{{route('stores.plans.edit',['store_id'=>$store_id,'id'=>4]/*$room->id*/)}}" class="btn btn-outline-success btn-sm">編集</a>
+
                     <a href="/stores/1/plans/1/delete" class="btn btn-outline-danger btn-sm">削除</a>
                 </div>
             </div>
@@ -233,7 +237,10 @@
                     <p class="text3">15,050<span class="text2">円</span></p>
                 </div>
                 <div class="col-6 d-flex mt-auto mb-3 justify-content-end">
-                    <a href="/reserves/create" class="btn btn-outline-primary btn-sm">予約</a>
+                    <form action="/reserves/create">
+                        <input type="hidden" name="store_id" value="asumahotel">
+                        <button class="btn btn-outline-primary btn-sm">予約</button>
+                    </form>
                     <a href="/stores/1/plans/1/edit" class="btn btn-outline-success btn-sm">編集</a>
                     <a href="/stores/1/plans/1/delete" class="btn btn-outline-danger btn-sm">削除</a>
                 </div>
@@ -305,7 +312,10 @@
                     <p class="text3">20,350<span class="text2">円</span></p>
                 </div>
                 <div class="col-6 d-flex mt-auto mb-3 justify-content-end">
-                    <a href="/reserves/create" class="btn btn-outline-primary btn-sm">予約</a>
+                    <form action="/reserves/create">
+                        <input type="hidden" name="store_id" value="asumahotel">
+                        <button class="btn btn-outline-primary btn-sm">予約</button>
+                    </form>
                     <a href="/stores/1/plans/1/edit" class="btn btn-outline-success btn-sm">編集</a>
                     <a href="/stores/1/plans/1/delete" class="btn btn-outline-danger btn-sm">削除</a>
                 </div>
@@ -373,7 +383,10 @@
                     <p class="text3">10,350<span class="text2">円</span></p>
                 </div>
                 <div class="col-6 d-flex mt-auto mb-3 justify-content-end">
-                    <a href="/reserves/create" class="btn btn-outline-primary btn-sm">予約</a>
+                    <form action="/reserves/create">
+                        <input type="hidden" name="store_id" value="asumahotel">
+                        <button class="btn btn-outline-primary btn-sm">予約</button>
+                    </form>
                     <a href="/stores/1/plans/1/edit" class="btn btn-outline-success btn-sm">編集</a>
                     <a href="/stores/1/plans/1/delete" class="btn btn-outline-danger btn-sm">削除</a>
                 </div>
@@ -437,7 +450,10 @@
                     <p class="text3">6,350<span class="text2">円</span></p>
                 </div>
                 <div class="col-6 d-flex mt-auto mb-3 justify-content-end">
-                    <a href="/reserves/create" class="btn btn-outline-primary btn-sm">予約</a>
+                    <form action="/reserves/create">
+                        <input type="hidden" name="store_id" value="asumahotel">
+                        <button class="btn btn-outline-primary btn-sm">予約</button>
+                    </form>
                     <a href="/stores/1/plans/1/edit" class="btn btn-outline-success btn-sm">編集</a>
                     <a href="/stores/1/plans/1/delete" class="btn btn-outline-danger btn-sm">削除</a>
                 </div>
