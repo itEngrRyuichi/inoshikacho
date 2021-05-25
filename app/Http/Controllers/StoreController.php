@@ -3,12 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Store;
-use App\Models\Amenity;
-use App\Models\Area;
-use App\Models\StoreType;
-use App\Models\Room;
-use App\Models\Comment;
-use App\Models\Image;
 use Illuminate\Http\Request;
 
 class StoreController extends Controller
@@ -20,8 +14,7 @@ class StoreController extends Controller
      */
     public function index()
     {
-        $stores = Store::orderBy('id','desc')->get();
-        return view('stores/index',['stores'=>$stores]);
+        return view('stores/index');
     }
 
     /**
@@ -31,8 +24,7 @@ class StoreController extends Controller
      */
     public function create()
     {
-        $store = new Store;
-        return view('stores/create',['store'=>$store]);
+        return view('stores/create');
     }
 
     /**
@@ -43,17 +35,7 @@ class StoreController extends Controller
      */
     public function store(Request $request)
     {
-        $store = new Store;
-        $store->store_name = $request->store_name;
-        $store->postal = $request->postal;
-        $store->phone = $request->phone;
-        $store->area_id = $request->area_id;
-        $store->store_type_id = $request->store_type_id;
-        $store->address = $request->address;
-        $store->access = $request->access;
-        $store->description = $request->description;
-        $store->save();
-        return redirect(route('stores.index', $store->id));
+        return redirect(route('home'));
     }
 
     /**
@@ -64,8 +46,8 @@ class StoreController extends Controller
      */
     public function show($id)
     {
-        $store = Store::find($id);
-        return view('stores.show', ['store'=>$store]);
+        /* $store = Store::find($id); */
+        return view('stores.show');
     }
 
     /**
@@ -76,8 +58,7 @@ class StoreController extends Controller
      */
     public function edit($id)
     {
-        $store = Store::find($id);
-        return view('stores.edit', ['store'=>$store]);
+        return view('stores.edit');
     }
 
     /**
@@ -89,17 +70,7 @@ class StoreController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $store = Store::find($id);
-        $store->store_name = $request->store_name;
-        $store->postal = $request->postal;
-        $store->phone = $request->phone;
-        $store->area_id = $request->area_id;
-        $store->store_type_id = $request->store_type_id;
-        $store->address = $request->address;
-        $store->access = $request->access;
-        $store->description = $request->description;
-        $store->save();
-        return redirect(route('stores.show', $id));
+        return redirect(route('stores.show'));
     }
 
     /**
@@ -110,8 +81,6 @@ class StoreController extends Controller
      */
     public function destroy($id)
     {
-        $store = Store::find($id);
-        $store->delete();
-        return redirect(route('stores.index'));
+        return redirect(route('home'));
     }
 }
