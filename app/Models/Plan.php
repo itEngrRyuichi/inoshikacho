@@ -19,4 +19,8 @@ class Plan extends Model
         return $this->belongsTo(Reserve::class);
     }
 
+    public function images(){
+        return $this->hasMany(Image::class);
+    }
+
 }

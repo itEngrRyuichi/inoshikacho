@@ -2,17 +2,18 @@
 @section('content')
 
 <div class="container content login-container">
-    <form action="#">
+    <form action="{{ route('login') }}" method="post">
+        @csrf
         <div class="row">
             <p class="py-4 text-center title">ログイン</p>
             <div class="col-4 offset-4">
                 <div class="my-3">
                     <label class="form-label" id="name">名前</label>
-                    <input type="text" class="form-control col-8" aria-describedby="name">
+                    <input type="text" class="form-control col-8" aria-describedby="name" value="{{ old('name') }}">
                 </div>
                 <div class="my-3">
                     <label class="form-label" id="password">パスワード</label>
-                    <input type="password" class="form-control col-8" aria-describedby="password">
+                    <input type="password" class="form-control col-8" aria-describedby="password" value="">
                 </div>
             </div>
             <div class="col-2 offset-5 my-4">

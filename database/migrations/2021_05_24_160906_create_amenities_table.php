@@ -15,8 +15,14 @@ class CreateAmenitiesTable extends Migration
     {
         Schema::create('amenities', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('amenity_name', 100);
+            $table->string('amenity_name',100);
+            $table->string('icon',100);
+            $table->bigInteger('room_id')->unsigned()->index()->nullable();
+            $table->bigInteger('store_id')->unsigned()->index()->nullable();
             $table->timestamps();
+
+            $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade');
+            $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade');
         });
     }
 

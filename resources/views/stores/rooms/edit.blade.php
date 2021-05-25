@@ -8,7 +8,7 @@
         <div class="d-inline">
             <div class="mb-3">
                 <label for="name" class="form-label">部屋名</label>
-                <input type="text" class="form-control" id="name" name="name" value="洋室 スイート 301号室">
+                <input type="text" class="form-control" id="name" name="name" value="{{}}">
             </div>
         </div>
         <div class="col-6">
