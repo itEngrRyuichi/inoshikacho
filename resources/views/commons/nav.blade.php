@@ -4,7 +4,7 @@
         {{-- ゲストユーザ --}}
         {{-- @include('commons.guestnav') --}}
         {{-- 会員ユーザ --}}
-        {{-- @include('commons.membersnav') --}}
+        {{--@include('commons.membersnav') --}} 
         {{-- 店舗管理ユーザ --}}
         @include('commons.storeadminnav')
         {{-- サイト管理ユーザ --}}
