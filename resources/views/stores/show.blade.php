@@ -1,8 +1,7 @@
 @extends('layout.app')
 @section('content')
-
 <div class="container content show-store-container">
-    <p class="pt-4 title">アスマホテル</p>
+    <p class="pt-4 title">{{$store->store_name}}</p>
     <div class="row store-wrapper mx-0 mb-2 py-4">
         <div class="col-6 mx-0">
             <div id="carouselStore" class="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -34,12 +33,12 @@
         </div>
         <div class="col-6 mx-0">
             <div class="mx-0 d-block">
-                <span class="text-muted type">甲信越</span>
+                <span class="text-muted type">{{$store->area->area_name}}</span>
             </div>
             <div class="row mb-4 mx-0 d-inline">
-                <span class="text1 col-3">123-4567</span>
-                <span class="text2 col-7">長野県下高井郡山ノ内町大字平穏２２０２, 湯田中</span>
-                <a href="https://www.google.com/maps/search/長野県下高井郡山ノ内町大字平穏２２０２" target="_blank" class="btn btn-outline-secondary btn-sm col-2">
+                <span class="text1 col-3">{{$store->postal}}</span>
+                <span class="text2 col-7">{{$store->address}}</span>
+                <a href="https://www.google.com/maps/search/{{$store->address}}" target="_blank" class="btn btn-outline-secondary btn-sm col-2">
                     <i class="fas fa-map-marker-alt"></i> 地図
                 </a>
             </div>
@@ -54,14 +53,12 @@
                 </p>
             </div>
             <div class="mb-4 mx-0 d-flex">
-                <span class="text2">名湯の名にふさわしい泉質、その開放感に身も心もとけてゆくようです。ゆったりとした時をお過ごし下さい。</span>
+                <span class="text2">{{$store->description}}</span>
             </div>
             <div class="mb-4 mx-0 d-flex">
                 <label for="access"><i class="fas fa-walking"></i> アクセス:</label>
                 <span class="text1" id="access">
-                    ＪＲ各線長野駅善光寺出口→私鉄長野電鉄山ノ内線湯田中行き約５０分<br>
-                    湯田中駅下車→長電バス渋・上林温泉行き約１０分渋和合橋下車→徒歩約２分 <br>
-                    長電バス線渋・上林温泉行き10分渋和合橋下車: 徒歩約2分
+                    {{$store->access}}   
                 </span>
             </div>
             <div class="mb-4 mx-0 d-inline">
@@ -70,12 +67,26 @@
             </div>
             <div class="d-flex mt-auto mb-3 justify-content-end">
                 <a href="/stores/1#comment" class="btn btn-outline-primary btn-sm">口コミを見る</a>
-                <a href="/stores/1/edit" class="btn btn-outline-success btn-sm">編集</a>
-                <a href="/stores/1/delete" class="btn btn-outline-danger btn-sm">削除</a>
+                <a href="/stores/{{$store->id}}/edit" class="btn btn-outline-success btn-sm">編集</a>
+                <a href="#" class="btn btn-outline-danger btn-sm" id="btn_delete_store">削除</a>
+                <form action="{{ route('stores.destroy', $store->id) }}" method="post" id="delete-form">
+                    @csrf
+                    @method('delete')
+                </form>
+                <script type="text/javascript">
+                        const delete_btn = document.getElementById('btn_delete_store');
+                        const delete_form = document.getElementById('delete-form');
+                        delete_btn.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            if(window.confirm('本当に店舗を削除しますか？')){
+                            delete_form.submit();
+                        }
+                        });
+                </script>
             </div>
         </div>
     </div>
-    <p class="pt-4 sub-title">アスマホテルの宿泊プランを探す</p>
+    <p class="pt-4 sub-title">{{$store->store_name}}の宿泊プランを探す</p>
     <form class="reserve-search-wrapper mx-0 mb-4 py-4 px-2 row">
         <div class="col-2 offset-1">
             <label for="checkin">チェックイン</label>

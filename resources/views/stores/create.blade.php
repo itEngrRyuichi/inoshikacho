@@ -2,18 +2,19 @@
 
 @section('content')
 <div class="container content create-store-container">
-    <form class="row">
+    <form class="row" action ="{{route('stores.store')}}" method="post">
+        @csrf
         <p class="py-4 text-center title">新規店舗登録</p>
         <div class="col-6">
             <div class="input-group mb-3 row">
-                <span class="input-group-text col-3" id="name">店舗名</span>
-                <input type="text" class="form-control col-9" placeholder="アスマホテル" aria-label="name" aria-describedby="name">
+                <span class="input-group-text col-3" id="store_name">店舗名</span>
+                <input type="text" class="form-control col-9" name="store_name" required>
             </div>
             <div class="mb-3 row">
                 <div class="col-6">
                     <div class="input-group row">
-                        <span class="input-group-text col-5" id="area">エリア選択</span>
-                        <select name="area" id="area" class="form-select col-6">
+                        <span class="input-group-text col-5" id="name">エリア選択</span>
+                        <select name="area_id" id="area" class="form-select col-6">
                             <option value="1">北海道</option>
                             <option value="2">東北</option>
                             <option value="3">北関東</option>
@@ -33,13 +34,13 @@
                 <div class="col-6">
                     <div class="input-group row">
                         <span class="input-group-text col-5" id="storetype">店舗種類</span>
-                        <select name="storeType" id="storetype" class="form-select col-7">
-                            <option value="1">シティーホテル</option>
-                            <option value="2">リゾートホテル</option>
-                            <option value="3">ビジネスホテル</option>
-                            <option value="4">旅館</option>
-                            <option value="5">民宿</option>
-                            <option value="6">ペンション</option>
+                        <select name="store_type_id" id="store_type_id" class="form-select col-7">
+                            <option value="1" >シティーホテル</option>
+                            <option value="2" >リゾートホテル</option>
+                            <option value="3" >ビジネスホテル</option>
+                            <option value="4" >旅館</option>
+                            <option value="5" >民宿</option>
+                            <option value="6" >ペンション</option>
                         </select>
                     </div>
                 </div>
@@ -62,34 +63,34 @@
                 <div class="col-4">
                     <div class="input-group row">
                         <span class="input-group-text col-3" id="postal">〒</span>
-                        <input type="text" class="form-control col-9" placeholder="1234567" aria-label="postal" aria-describedby="postal">
+                        <input type="text" class="form-control col-9" name="postal" required>
                     </div>
                 </div>
                 <div class="col-8">
                     <div class="input-group row">
-                        <span class="input-group-text col-3" id="phone">電話番号</span>
-                        <input type="text" class="form-control col-9" placeholder="123-4567-8912" aria-label="phone" aria-describedby="phone">
+                        <span class="input-group-text col-3" id="phone">電話番号</span> 
+                        <input type="text" class="form-control col-9" name="phone"  required>
                     </div>
                 </div>
             </div>
             <div class="input-group mb-3 row">
-                <span class="input-group-text col-2" id="addess">住所</span>
-                <input type="text" class="form-control col-10" placeholder="静岡県伊東市岡1111-1" aria-label="addess" aria-describedby="addess">
+                <span class="input-group-text col-2" id="address">住所</span>
+                <input type="text" class="form-control col-10" name="address"  required>
             </div>
             <div class="form-floating mb-3">
-                <textarea class="form-control" id="access" placeholder="静岡駅から徒歩5分" style="height: 100px"></textarea>
+                <textarea class="form-control" id="accesss" style="height: 100px" name="access"></textarea>
                 <label class="form-label" id="access">アクセス情報記入</label>
             </div>
             <div class="form-floating mb-3">
-                <textarea class="form-control" id="description" placeholder="ようそこアスマホテルへ" style="height: 200px"></textarea>
+                <textarea class="form-control" id="description" style="height: 200px" name="description"></textarea>
                 <label class="form-label" id="description">ホテル情報記入</label>
             </div>
         </div>
         <div class="col-2 offset-5 my-4">
-            <button class="btn btn-outline-primary w-100" type="submit">新規登録</button>
+            <button class="btn btn-outline-primary w-100" type="submit">登録</button>
         </div>
+    </form>
     </div>
-
 </div>
 
 @endsection

@@ -20,8 +20,7 @@ class StoreController extends Controller
      */
     public function index()
     {
-        $stores=Store::orderBy('id','desc')->get();
-        /* dd($stores); */
+        $stores = Store::orderBy('id','desc')->get();
         return view('stores/index',['stores'=>$stores]);
     }
 
@@ -32,7 +31,7 @@ class StoreController extends Controller
      */
     public function create()
     {
-        $store=new Store;
+        $store = new Store;
         return view('stores/create',['store'=>$store]);
     }
 
@@ -44,17 +43,17 @@ class StoreController extends Controller
      */
     public function store(Request $request)
     {
-        $store=new Store;
-        $store->name=$request->name;
-        $store->area=$request->area;
-        $store->storeType=$request->storeType;
-        $store->postal=$request->postal;
-        $store->phone=$request->phone;
-        $store->address=$request->address;
-        $store->access=$request->access;
-        $store->description=$request->description;
+        $store = new Store;
+        $store->store_name = $request->store_name;
+        $store->postal = $request->postal;
+        $store->phone = $request->phone;
+        $store->area_id = $request->area_id;
+        $store->store_type_id = $request->store_type_id;
+        $store->address = $request->address;
+        $store->access = $request->access;
+        $store->description = $request->description;
         $store->save();
-        return redirect(route('home'));
+        return redirect(route('stores.index', $store->id));
     }
 
     /**
@@ -65,8 +64,8 @@ class StoreController extends Controller
      */
     public function show($id)
     {
-        /* $store = Store::find($id); */
-        return view('stores.show');
+        $store = Store::find($id);
+        return view('stores.show', ['store'=>$store]);
     }
 
     /**
@@ -77,7 +76,8 @@ class StoreController extends Controller
      */
     public function edit($id)
     {
-        return view('stores.edit');
+        $store = Store::find($id);
+        return view('stores.edit', ['store'=>$store]);
     }
 
     /**
@@ -89,7 +89,17 @@ class StoreController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return redirect(route('stores.show'));
+        $store = Store::find($id);
+        $store->store_name = $request->store_name;
+        $store->postal = $request->postal;
+        $store->phone = $request->phone;
+        $store->area_id = $request->area_id;
+        $store->store_type_id = $request->store_type_id;
+        $store->address = $request->address;
+        $store->access = $request->access;
+        $store->description = $request->description;
+        $store->save();
+        return redirect(route('stores.show', $id));
     }
 
     /**
@@ -100,6 +110,8 @@ class StoreController extends Controller
      */
     public function destroy($id)
     {
-        return redirect(route('home'));
+        $store = Store::find($id);
+        $store->delete();
+        return redirect(route('stores.index'));
     }
 }
