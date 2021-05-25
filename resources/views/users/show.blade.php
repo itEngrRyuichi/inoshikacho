@@ -6,7 +6,7 @@
     <p class="pt-4 text-center title">会員情報</p>
 
     <div class="row">
-       
+
     <div class="mb-3 row justify-content-center">
         <img src="{{asset('images/users/shikamaru.jpg')}}" class="rounded-circle" alt="user-image">
         <span class="text-muted user-type text-center">
@@ -49,26 +49,26 @@
     </div>
 
         <div class="btn-group col-2 offset-5 py-4" role="group">
-            
+
 
             <a href="{{route('users.edit', $user->id)}}" type="submit" class="btn btn-outline-success">編集する</a>
             <a href="#"  class="btn btn-outline-danger" id="btn_delete_user" >退会させる</a>
             <form action="{{ route('users.destroy', $user->id) }}" method="post" id="delete-form">
-                @csrf 
+                @csrf
                 @method('delete')
             </form>
             <script type="text/javascript">
-                    
+
                     const delete_btn = document.getElementById('btn_delete_user');
                     const delete_form = document.getElementById('delete-form');
                     delete_btn.addEventListener('click', (e) => {
                         e.preventDefault();
-                        if(window.confirm('本当に削除しますか？')){
+                        if(window.confirm('本当にユーザ削除しますか？')){
                         delete_form.submit();
-                    }     
+                    }
                     });
             </script>
-                
+
         </div>
     </div>
 </div>

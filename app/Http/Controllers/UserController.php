@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Image;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -15,7 +16,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::orderBy('id' , 'asc')->get();
-        return view('users/index' , ['users' => $users]);
+        return view('users/index', ['users' => $users]);
     }
 
     /**
@@ -28,7 +29,8 @@ class UserController extends Controller
         $title = '会員登録';
         $pagetype = 'create';
         $user = new User;
-        return view('users/create' ,['user' => $user, 'title' => $title, 'pagetype' => $pagetype]);
+        $image = new Image;
+        return view('users/create', ['user' => $user, 'image' => $image, 'title' => $title, 'pagetype' => $pagetype]);
     }
 
     /**
@@ -39,7 +41,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user=new User;
+        $user = new User;
         $user->name = $request->name;
         $user->type = 3;
         $user->birthday = $request->birthday;
@@ -48,6 +50,11 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->password = $request->password;
         $user->save();
+
+        $image = new Image;
+        $image->user_id = $user->id;
+        $image->url = $request->url;
+
         return redirect(route('users.index'));
     }
 
@@ -60,7 +67,7 @@ class UserController extends Controller
     public function show($id)
     {
         $user=User::find($id);
-        return view('users/show' , ['user' => $user]);
+        return view('users/show', ['user' => $user]);
     }
      /**
      * Show the form for editing the specified resource.
@@ -73,7 +80,7 @@ class UserController extends Controller
         $title = '会員情報を編集する';
         $pagetype = 'edit';
         $user=User::find($id);
-        return view('users/create' ,['user' => $user , 'title' => $title, 'pagetype' => $pagetype]);
+        return view('users/create', ['user' => $user , 'title' => $title, 'pagetype' => $pagetype]);
     }
     /**
      * Update the specified resource in storage.
