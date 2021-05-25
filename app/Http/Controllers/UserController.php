@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Image;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -13,7 +15,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('users/index');
+        $users = User::orderBy('id' , 'asc')->get();
+        return view('users/index', ['users' => $users]);
     }
 
     /**
@@ -23,7 +26,11 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users/create');
+        $title = '会員登録';
+        $pagetype = 'create';
+        $user = new User;
+        $image = new Image;
+        return view('users/create', ['user' => $user, 'image' => $image, 'title' => $title, 'pagetype' => $pagetype]);
     }
 
     /**
@@ -34,7 +41,21 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        return redirect(route('home'));
+        $user = new User;
+        $user->name = $request->name;
+        $user->type = 3;
+        $user->birthday = $request->birthday;
+        $user->phone = $request->phone;
+        $user->address = $request->address;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->save();
+
+        $image = new Image;
+        $image->user_id = $user->id;
+        $image->url = $request->url;
+
+        return redirect(route('users.index'));
     }
 
     /**
@@ -45,9 +66,22 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return view('users/show');
+        $user=User::find($id);
+        return view('users/show', ['user' => $user]);
     }
-
+     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $title = '会員情報を編集する';
+        $pagetype = 'edit';
+        $user=User::find($id);
+        return view('users/create', ['user' => $user , 'title' => $title, 'pagetype' => $pagetype]);
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -57,7 +91,16 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return redirect(route('users.show'));
+            $user=User::find($id);
+            $user->name = $request->name;
+            $user->type = $request->type;
+            $user->birthday = $request->birthday;
+            $user->phone = $request->phone;
+            $user->address = $request->address;
+            $user->email = $request->email;
+            $user->password = $request->password;
+            $user->save();
+        return redirect(route('users.show', $user->id));
     }
 
     /**
@@ -68,6 +111,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        return redirect(route('home'));
+        $user=User::find($id);
+        $user->delete();
+        return redirect(route('users.index'));
     }
 }
