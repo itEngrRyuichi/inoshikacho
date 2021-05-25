@@ -25,8 +25,10 @@ class UserController extends Controller
      */
     public function create()
     {
+        $title = '会員登録';
+        $pagetype = 'create';
         $user = new User;
-        return view('users/create' ,['user' => $user]);
+        return view('users/create' ,['user' => $user, 'title' => $title, 'pagetype' => $pagetype]);
     }
 
     /**
@@ -37,7 +39,16 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        return redirect(route('home'));
+        $user=new User;
+        $user->name = $request->name;
+        $user->type = 3;
+        $user->birthday = $request->birthday;
+        $user->phone = $request->phone;
+        $user->address = $request->address;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->save();
+        return redirect(route('users.index'));
     }
 
     /**
@@ -59,9 +70,10 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $this->authorize($user);
+        $title = '会員情報を編集する';
+        $pagetype = 'edit';
         $user=User::find($id);
-        return view('users/create' ,['user' => $user]);
+        return view('users/create' ,['user' => $user , 'title' => $title, 'pagetype' => $pagetype]);
     }
     /**
      * Update the specified resource in storage.
@@ -70,11 +82,18 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-        $this->authorize($user);
-        $user->update($request->all());
-        return redirect(route('users.show', $user));
+            $user=User::find($id);
+            $user->name = $request->name;
+            $user->type = $request->type;
+            $user->birthday = $request->birthday;
+            $user->phone = $request->phone;
+            $user->address = $request->address;
+            $user->email = $request->email;
+            $user->password = $request->password;
+            $user->save();
+        return redirect(route('users.show', $user->id));
     }
 
     /**
@@ -83,9 +102,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
+        $user=User::find($id);
         $user->delete();
-        return redirect(route('home'));
+        return redirect(route('users.index'));
     }
 }

@@ -49,21 +49,24 @@
     </div>
 
         <div class="btn-group col-2 offset-5 py-4" role="group">
-            <a href="/users/{{$user->id}}/edit" type="submit" class="btn btn-outline-success">編集する</a>
-            {{-- <button type="submit" class="btn btn-outline-danger ">退会させる</button> --}}
+            
 
-            <a href="{{ route('users.destroy', $user)}}" type="submit" class="btn btn-outline-danger" onclick="deleteUser()">退会させる</a>
-            <form action="{{ route('users.destroy', $user) }}" method="post" id="delete-form">
+            <a href="{{route('users.edit', $user->id)}}" type="submit" class="btn btn-outline-success">編集する</a>
+            <a href="#"  class="btn btn-outline-danger" id="btn_delete_user" >退会させる</a>
+            <form action="{{ route('users.destroy', $user->id) }}" method="post" id="delete-form">
                 @csrf 
                 @method('delete')
             </form>
             <script type="text/javascript">
-                function deleteUser(){
-                    event.preventDafault();
-                    if(window.confirm('本当に削除しますか？')){
-                        document.getElementById('delete-form').submit();
-                    }
-                } 
+                    
+                    const delete_btn = document.getElementById('btn_delete_user');
+                    const delete_form = document.getElementById('delete-form');
+                    delete_btn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        if(window.confirm('本当に削除しますか？')){
+                        delete_form.submit();
+                    }     
+                    });
             </script>
                 
         </div>
