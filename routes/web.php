@@ -29,17 +29,17 @@ Route::get('/profile', 'ProfileController@index');
 /* ----- 店舗関係 ----- */
 Route::resource('stores', 'StoreController');
 /* 店舗内プラン */
-Route::get('stores/{store_id}/plans/create', 'StorePlanController@create');
-Route::post('stores/{store_id}/plans', 'StorePlanController@store');
-Route::get('stores/{store_id}/plans/{id}/edit', 'StorePlanController@edit');
-Route::put('stores/{store_id}/plans/{id}', 'StorePlanController@update');
-Route::delete('stores/{store_id}/plans/{id}', 'StorePlanController@destroy');
+Route::get('stores/{store_id}/plans/create', 'StorePlanController@create')->name('stores.plans.create');
+Route::post('stores/{store_id}/plans', 'StorePlanController@store')->name('stores.plans.store');
+Route::get('stores/{store_id}/plans/{id}/edit', 'StorePlanController@edit')->name('stores.plans.edit');
+Route::put('stores/{store_id}/plans/{id}', 'StorePlanController@update')->name('stores.plans.update');
+Route::delete('stores/{store_id}/plans/{id}', 'StorePlanController@destroy')->name('stores.plans.destroy');
 /* 店舗内部屋 */
-Route::get('stores/{store_id}/rooms/create', 'StoreRoomController@create');
-Route::post('stores/{store_id}/rooms', 'StoreRoomController@store');
-Route::get('stores/{store_id}/rooms/{id}/edit', 'StoreRoomController@edit');
-Route::put('stores/{store_id}/rooms/{id}', 'StoreRoomController@update');
-Route::delete('stores/{store_id}/rooms/{id}', 'StoreRoomController@destroy');
+Route::get('stores/{store_id}/rooms/create', 'StoreRoomController@create')->name('stores.rooms.create');
+Route::post('stores/{store_id}/rooms', 'StoreRoomController@store')->name('stores.rooms.store');
+Route::get('stores/{store_id}/rooms/{id}/edit', 'StoreRoomController@edit')->name('stores.rooms.edit');
+Route::put('stores/{store_id}/rooms/{id}', 'StoreRoomController@update')->name('stores.rooms.update');
+Route::delete('stores/{store_id}/rooms/{id}', 'StoreRoomController@destroy')->name('stores.rooms.destroy');
 /* 店舗内コメント */
 Route::get('stores/{store_id}/comments/create', 'StoreCommentController@create');
 Route::post('stores/{store_id}/comments', 'StoreCommentController@store');

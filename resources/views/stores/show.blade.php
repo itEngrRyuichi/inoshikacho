@@ -107,8 +107,8 @@
     </form>
     <p class="pt-4 sub-title">内容追加</p>
     <div class="add-action-wrapper mx-0 mb-4 py-4 d-block">
-        <a href="/stores/1/rooms/create" class="btn btn-outline-primary d-inline">部屋を追加する</a>
-        <a href="/stores/1/plans/create" class="btn btn-outline-primary d-inline">プランを追加する</a>
+        <a href="{{route('stores.rooms.create',$store_id)}}" class="btn btn-outline-primary d-inline">部屋を追加する</a>
+        <a href="{{route('stores.plans.create',$store_id)}}" class="btn btn-outline-primary d-inline">プランを追加する</a>
     </div>
     <p class="pt-4 sub-title">プラン一覧</p>
     <div class="row plan-wrapper mx-0 mb-2 py-4">
@@ -170,7 +170,8 @@
                         <input type="hidden" name="store_id" value="asumahotel">
                         <button class="btn btn-outline-primary btn-sm">予約</button>
                     </form>
-                    <a href="/stores/1/plans/1/edit" class="btn btn-outline-success btn-sm">編集</a>
+                    <a href="{{route('stores.plans.edit',['store_id'=>$store_id,'id'=>4]/*$room->id*/)}}" class="btn btn-outline-success btn-sm">編集</a>
+
                     <a href="/stores/1/plans/1/delete" class="btn btn-outline-danger btn-sm">削除</a>
                 </div>
             </div>

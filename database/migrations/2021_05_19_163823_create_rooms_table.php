@@ -18,11 +18,11 @@ class CreateRoomsTable extends Migration
             $table->string('room_name', 100);
             $table->integer('capacity');
             $table->bigInteger('store_id')->unsigned()->index();
-            $table->bigInteger('amenity_id')->unsigned()->index();
+            $table->bigInteger('plan_id')->unsigned()->index()->nullable();
             $table->timestamps();
 
             $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade');
-            $table->foreign('amenity_id')->references('id')->on('amenities')->onDelete('cascade');
+            $table->foreign('plan_id')->references('id')->on('plans')->onDelete('cascade');
         });
     }
 

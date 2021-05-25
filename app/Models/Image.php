@@ -24,5 +24,9 @@ class Image extends Model
         return $this->belongsTo(Store::class);
     }
 
+    public function plan(){
+        return $this->belongsTo(Plan::class);
+    }
+
     protected $fillable = ['url'];
 }
