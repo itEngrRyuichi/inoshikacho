@@ -15692,6 +15692,7 @@ nav .profileDropdown ul.dropdown-menu .dropdown-item.user-type:hover {
   border-radius: 10px;
   min-height: 58vh;
   max-height: 58vh;
+  overflow-y: scroll;
   cursor: pointer;
 }
 .store-index-container .store-wrapper a {
@@ -15773,6 +15774,13 @@ nav .profileDropdown ul.dropdown-menu .dropdown-item.user-type:hover {
   padding-left: 5vw;
   padding-bottom: 100px;
 }
+.show-store-container .store-wrapper {
+  background-color: #fff8e1;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+  min-height: 58vh;
+  max-height: 58vh;
+}
 .show-store-container .carousel-inner {
   max-width: auto;
   max-height: 45vh;
@@ -15816,13 +15824,6 @@ nav .profileDropdown ul.dropdown-menu .dropdown-item.user-type:hover {
 .show-store-container .amenity i, .show-store-container .amenity img {
   width: 13px;
   height: 13px;
-}
-.show-store-container .store-wrapper {
-  background-color: #fff8e1;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border-radius: 10px;
-  min-height: 58vh;
-  max-height: 58vh;
 }
 .show-store-container .reserve-search-wrapper {
   border: 2px solid #3e2723;

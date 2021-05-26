@@ -54,7 +54,7 @@
                             @endif
                         </td>
                         <td>
-                            <img src="{{ asset('storage/'.$user->url) }}" class="rounded-circle" alt="user-image">
+                            <img src="{{ asset('storage/'.$user->images[0]->url) }}" class="rounded-circle" alt="user-image">
                             <span class="mx-2">{{$user->name}}</span>
                         </td>
                         <td>{{ $user->birthday->format('Y年m月d日') }}</td>

@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Store;
+use App\Models\Area;
+use App\Models\StoreType;
+use App\Models\Image;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class StoreController extends Controller
@@ -14,7 +18,9 @@ class StoreController extends Controller
      */
     public function index()
     {
-        return view('stores/index');
+        $stores = Store::with('images')->get();
+        $areas = Area::all();
+        return view('stores.index', ['stores' => $stores, 'areas' => $areas]);
     }
 
     /**
@@ -24,7 +30,9 @@ class StoreController extends Controller
      */
     public function create()
     {
-        return view('stores/create');
+        $areas = Area::all();
+        $store_types = StoreType::all();
+        return view('stores/create', ['areas' => $areas, 'store_types' => $store_types]);
     }
 
     /**
@@ -35,7 +43,52 @@ class StoreController extends Controller
      */
     public function store(Request $request)
     {
-        return redirect(route('home'));
+        // 店舗追加
+        $store = new Store;
+        $store->store_name = $request->store_name;
+        $store->postal = $request->postal;
+        $store->address = $request->address;
+        $store->phone = $request->phone;
+        $store->email = $request->email;
+        $store->description = $request->description;
+        $store->access = $request->access;
+        $store->store_type_id = $request->store_type_id;
+        $store->area_id = $request->area_id;
+        $store->save();
+
+        // 一枚目の写真追加
+        $image = $request->file('select-image');
+        if( isset($image) === true ){
+            $path = $image->store('images/stores', 'public');
+        } else {
+            $path = 'images/stores/no_store_image.png';
+        }
+        $image = new Image;
+        $image->store_id = $store->id;
+        $image->url = $path;
+        $image->save();
+
+        // 二枚目の写真追加
+        $image1 = $request->file('select-image1');
+        if( isset($image1) === true ){
+            $path1 = $image1->store('images/stores', 'public');
+            $image1 = new Image;
+            $image1->store_id = $store->id;
+            $image1->url = $path1;
+            $image1->save();
+        }
+        
+        // 三枚目の写真追加
+        $image2 = $request->file('select-image2');
+        if( isset($image2) === true ){
+            $path2 = $image2->store('images/stores', 'public');
+            $image2 = new Image;
+            $image2->store_id = $store->id;
+            $image2->url = $path2;
+            $image2->save();
+        }
+        
+        return redirect(route('stores.index'));
     }
 
     /**
@@ -46,8 +99,9 @@ class StoreController extends Controller
      */
     public function show($id)
     {
-        /* $store = Store::find($id); */
-        return view('stores.show');
+        $store = Store::find($id);
+        $images = Image::where('store_id', '=', $id)->get();
+        return view('stores.show', ['store' => $store, 'images' => $images]);
     }
 
     /**
@@ -58,7 +112,11 @@ class StoreController extends Controller
      */
     public function edit($id)
     {
-        return view('stores.edit');
+        $store = Store::find($id);
+        $images = Image::where('store_id', '=', $id)->get();
+        $areas = Area::all();
+        $store_types = StoreType::all();
+        return view('stores.edit', ['store' => $store, 'images' => $images, 'areas' => $areas, 'store_types' => $store_types]);
     }
 
     /**
@@ -70,7 +128,57 @@ class StoreController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return redirect(route('stores.show'));
+        $store = Store::find($id);
+        $store->store_name = $request->store_name;
+        $store->postal = $request->postal;
+        $store->address = $request->address;
+        $store->phone = $request->phone;
+        $store->email = $request->email;
+        $store->description = $request->description;
+        $store->access = $request->access;
+        $store->store_type_id = $request->store_type_id;
+        $store->area_id = $request->area_id;
+        $store->save();
+
+        // 一枚目の写真編集
+        $image = $request->file('select-image');
+        if( isset($image) === true ){
+            $path = $image->store('images/stores', 'public');
+        } else {
+            $path = 'images/stores/no_store_image.png';
+        }
+        $image = Image::where('store_id', '=', $id)
+                            ->skip(0)->take(0)->first();
+        $image->store_id = $store->id;
+        $image->url = $path;
+        $image->save();
+
+
+        // 二枚目の写真編集
+        $image1 = $request->file('select-image1');
+        if( isset($image1) === true ){
+            $path1 = $image1->store('images/stores', 'public');
+            
+            $image1 = Image::where('store_id', '=', $id)
+                                ->skip(0)->take(1)->first();
+            $image1->store_id = $store->id;
+            $image1->url = $path1;
+            $image1->save();
+        }
+        
+        // 三枚目の写真編集
+        $image2 = $request->file('select-image2');
+        if( isset($image2) === true ){
+            $path2 = $image2->store('images/stores', 'public');
+            
+            $image2 = Image::where('store_id', '=', $id)
+                                ->skip(0)->take(2)->first();
+            $image2->store_id = $store->id;
+            $image2->url = $path2;
+            $image2->save();
+        }
+
+        return redirect(route('stores.show', ['store' => $store]));
     }
 
     /**

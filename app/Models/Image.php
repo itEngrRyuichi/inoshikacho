@@ -19,9 +19,9 @@ class Image extends Model
         return $this->belongsTo(Room::class);
     }
 
-    public function store()
+    public function stores()
     {
-        return $this->belongsTo(Store::class);
+        return $this->belongsToMany(Store::class);
     }
 
     public function plan(){

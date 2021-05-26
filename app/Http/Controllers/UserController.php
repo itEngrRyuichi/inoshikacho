@@ -17,12 +17,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::
-                    select('users.id', 'users.name', 'users.birthday', 'users.address', 'users.phone', 'users.email', 'images.url')
-                    ->orderBy('users.id' , 'asc')
-                    ->join('images','images.user_id','=','users.id')
-                    ->get();
-        return view('users/index', ['users' => $users]);
+        $users = User::with('images')->get();
+        return view('users.index', ['users' => $users]);
     }
 
     /**
@@ -36,7 +32,7 @@ class UserController extends Controller
         $pagetype = 'create';
         $user = new User;
         $image = new Image;
-        return view('users/create', ['user' => $user, 'image' => $image, 'title' => $title, 'pagetype' => $pagetype]);
+        return view('users.create', ['user' => $user, 'image' => $image, 'title' => $title, 'pagetype' => $pagetype]);
     }
 
     /**
@@ -84,7 +80,7 @@ class UserController extends Controller
         $page = 'show';
         $user = User::find($id);
         $image = Image::where('user_id', '=', $id)->first();
-        return view('users/show', ['user' => $user, 'page' => $page, 'image' => $image]);
+        return view('users.show', ['user' => $user, 'page' => $page, 'image' => $image]);
     }
      /**
      * Show the form for editing the specified resource.
