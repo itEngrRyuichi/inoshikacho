@@ -66,8 +66,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
+        $page = 'show';
         $user=User::find($id);
-        return view('users/show', ['user' => $user]);
+        return view('users/show', ['user' => $user, 'page' => $page]);
     }
      /**
      * Show the form for editing the specified resource.
@@ -77,10 +78,11 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+        $page = 'show';
         $title = '会員情報を編集する';
         $pagetype = 'edit';
         $user=User::find($id);
-        return view('users/create', ['user' => $user , 'title' => $title, 'pagetype' => $pagetype]);
+        return view('users/create', ['user' => $user , 'title' => $title, 'pagetype' => $pagetype, 'page' => $page]);
     }
     /**
      * Update the specified resource in storage.
@@ -91,16 +93,17 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-            $user=User::find($id);
-            $user->name = $request->name;
-            $user->type = $request->type;
-            $user->birthday = $request->birthday;
-            $user->phone = $request->phone;
-            $user->address = $request->address;
-            $user->email = $request->email;
-            $user->password = $request->password;
-            $user->save();
-        return redirect(route('users.show', $user->id));
+        $page = 'show';
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->type = $request->type;
+        $user->birthday = $request->birthday;
+        $user->phone = $request->phone;
+        $user->address = $request->address;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->save();
+        return redirect(route('users.show', ['user' => $user, 'page' => $page]));
     }
 
     /**

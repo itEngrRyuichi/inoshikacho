@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="container content login-container">
-    <form action="{{ route('login') }}" method="post">
+    <form action="/" method="post">
         @csrf
         <div class="row">
             <p class="py-4 text-center title">ログイン</p>
