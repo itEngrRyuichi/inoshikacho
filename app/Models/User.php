@@ -19,7 +19,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'type',
-        'age',
+        'birthday',
         'email',
         'phone',
         'address',
@@ -44,6 +44,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected $dates = [
+        'birthday'
+    ];
     public function comments()
     {
         return $this->hasMany(Comment::class);
@@ -52,9 +56,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Reserve::class);
     }
-    public function image()
+    public function images()
     {
-        return $this->belongsTo(Image::class);
+        return $this->hasMany(Image::class);
     }
 
 }

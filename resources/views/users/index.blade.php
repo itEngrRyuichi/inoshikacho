@@ -30,7 +30,7 @@
                 <thead>
                     <tr onclick="frameClick(1)">
                         <th scope="col">ID</th>
-                        <th scope="col">ユーザ種類</th>
+                        <th scope="col">種類</th>
                         <th scope="col">名前</th>
                         <th scope="col">生年月日</th>
                         <th scope="col">住所</th>
@@ -54,10 +54,10 @@
                             @endif
                         </td>
                         <td>
-                            <img src="{{asset('images/users/asuma.png')}}" class="rounded-circle" alt="user-image">
+                            <img src="{{ asset('storage/'.$user->url) }}" class="rounded-circle" alt="user-image">
                             <span class="mx-2">{{$user->name}}</span>
                         </td>
-                        <td>{{ $user->birthday }}</td>
+                        <td>{{ $user->birthday->format('Y年m月d日') }}</td>
                         <td>{{ $user->address }}</td>
                         <td>{{ $user->phone }}</td>
                         <td>{{ $user->email }}</td>

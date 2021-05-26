@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Image;
+use Illuminate\Database\Query\JoinClause;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -15,7 +17,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('id' , 'asc')->get();
+        $users = User::
+                    select('users.id', 'users.name', 'users.birthday', 'users.address', 'users.phone', 'users.email', 'images.url')
+                    ->orderBy('users.id' , 'asc')
+                    ->join('images','images.user_id','=','users.id')
+                    ->get();
         return view('users/index', ['users' => $users]);
     }
 
@@ -43,7 +49,7 @@ class UserController extends Controller
     {
         $user = new User;
         $user->name = $request->name;
-        $user->type = 3;
+        $user->type = $request->type;
         $user->birthday = $request->birthday;
         $user->phone = $request->phone;
         $user->address = $request->address;
@@ -51,9 +57,18 @@ class UserController extends Controller
         $user->password = $request->password;
         $user->save();
 
+        $image = $request->file('select-image');
+
+        if( isset($image) === true ){
+            $path = $image->store('images/users', 'public');
+        } else {
+            $path = 'images/users/no_user_image.png';
+        }
+
         $image = new Image;
         $image->user_id = $user->id;
-        $image->url = $request->url;
+        $image->url = $path;
+        $image->save();
 
         return redirect(route('users.index'));
     }
@@ -67,8 +82,9 @@ class UserController extends Controller
     public function show($id)
     {
         $page = 'show';
-        $user=User::find($id);
-        return view('users/show', ['user' => $user, 'page' => $page]);
+        $user = User::find($id);
+        $image = Image::where('user_id', '=', $id)->first();
+        return view('users/show', ['user' => $user, 'page' => $page, 'image' => $image]);
     }
      /**
      * Show the form for editing the specified resource.
@@ -81,8 +97,9 @@ class UserController extends Controller
         $page = 'show';
         $title = '会員情報を編集する';
         $pagetype = 'edit';
-        $user=User::find($id);
-        return view('users/create', ['user' => $user , 'title' => $title, 'pagetype' => $pagetype, 'page' => $page]);
+        $user = User::find($id);
+        $image = Image::where('user_id', '=', $id)->first();
+        return view('users/create', ['user' => $user , 'title' => $title, 'pagetype' => $pagetype, 'page' => $page, 'image' => $image]);
     }
     /**
      * Update the specified resource in storage.
@@ -103,6 +120,17 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->password = $request->password;
         $user->save();
+
+        $image = $request->file('select-image');
+        $user_image = Image::where('user_id', '=', $id)->first();
+        $recentPath = $user_image->url;
+
+        if( isset($image) === true ){
+            Storage::delete('/images/users' . $recentPath);
+            $user_image->url = $image->store('images/users', 'public');
+        }
+        $user_image->save();
+
         return redirect(route('users.show', ['user' => $user, 'page' => $page]));
     }
 
@@ -114,7 +142,12 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user=User::find($id);
+        $user_image = Image::where('user_id', '=', $id)->first();
+        $recentPath = $user_image->url;
+        Storage::delete('/images/users' . $recentPath);
+        $user_image->delete();
+
+        $user = User::find($id);
         $user->delete();
         return redirect(route('users.index'));
     }

@@ -15448,6 +15448,10 @@ textarea.form-control-lg {
 /* font-family: 'Dosis', sans-serif; */
 /* font-family: 'Kosugi Maru', sans-serif; */
 /* ------ variables ------ */
+label.select-img {
+  cursor: pointer;
+}
+
 main {
   background-image: url(/images/background.jpg?325479824bcf752c14c38e4b18aed9da);
   /* background-repeat: repeat-y; */
@@ -15635,7 +15639,6 @@ nav .profileDropdown ul.dropdown-menu .dropdown-item.user-type:hover {
   width: 100px;
   height: 100px;
   border: 2px solid #546e7a;
-  cursor: pointer;
 }
 .show-user-container label {
   font-size: 20px;
@@ -15647,17 +15650,22 @@ nav .profileDropdown ul.dropdown-menu .dropdown-item.user-type:hover {
   font-family: "Kosugi Maru", sans-serif;
 }
 
+.create-user-container .text1 {
+  font-size: 13px;
+}
 .create-user-container img {
   padding: 0;
   width: 100px;
   height: 100px;
   border: 2px solid #546e7a;
-  cursor: pointer;
 }
 .create-user-container label {
   font-size: 20px;
   font-family: "Kosugi Maru", sans-serif;
   color: #3e2723;
+}
+.create-user-container select.form-select {
+  cursor: pointer;
 }
 
 .login-container form label {
