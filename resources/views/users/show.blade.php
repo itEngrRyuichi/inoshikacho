@@ -13,7 +13,7 @@
     <div class="row">
 
     <div class="mb-3 row justify-content-center">
-        <img src="{{asset('images/users/shikamaru.jpg')}}" class="rounded-circle" alt="user-image">
+        <img src="{{ asset('storage/'.$image->url) }}" class="rounded-circle" alt="user-image">
         <span class="text-muted user-type text-center type">
             <td>
                 @if ($user->type == 1)
