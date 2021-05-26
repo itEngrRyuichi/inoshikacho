@@ -126,7 +126,6 @@ class UserController extends Controller
         $recentPath = $user_image->url;
 
         if( isset($image) === true ){
-            Storage::delete('/images/users' . $recentPath);
             $user_image->url = $image->store('images/users', 'public');
         }
         $user_image->save();
@@ -143,8 +142,6 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user_image = Image::where('user_id', '=', $id)->first();
-        $recentPath = $user_image->url;
-        Storage::delete('/images/users' . $recentPath);
         $user_image->delete();
 
         $user = User::find($id);

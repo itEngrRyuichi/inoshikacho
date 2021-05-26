@@ -15664,6 +15664,9 @@ nav .profileDropdown ul.dropdown-menu .dropdown-item.user-type:hover {
   font-family: "Kosugi Maru", sans-serif;
   color: #3e2723;
 }
+.create-user-container label.select-img {
+  cursor: pointer;
+}
 .create-user-container select.form-select {
   cursor: pointer;
 }
@@ -15742,6 +15745,9 @@ nav .profileDropdown ul.dropdown-menu .dropdown-item.user-type:hover {
   height: 13px;
 }
 
+.create-store-container .select-label {
+  cursor: pointer;
+}
 .create-store-container form {
   font-family: "Kosugi Maru", sans-serif;
 }
@@ -15754,6 +15760,12 @@ nav .profileDropdown ul.dropdown-menu .dropdown-item.user-type:hover {
   max-width: 100%;
   max-height: 100%;
   border: 2px solid #546e7a;
+}
+.create-store-container form textarea.access {
+  height: 100px;
+}
+.create-store-container form textarea.description {
+  height: 200px;
 }
 
 .show-store-container {

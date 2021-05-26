@@ -28,7 +28,7 @@
             </form>
             <table class="table table-striped">
                 <thead>
-                    <tr onclick="frameClick(1)">
+                    <tr>
                         <th scope="col">ID</th>
                         <th scope="col">種類</th>
                         <th scope="col">名前</th>

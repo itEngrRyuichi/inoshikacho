@@ -19,13 +19,12 @@
         <div class="col-6 offset-3">
             <div class="mb-3 row justify-content-center">
                 @if ($pagetype =='create')
-                    <img src="{{asset('images/users/no_user_image.png')}}" class="rounded-circle" alt="user-image" id="file-preview">
+                    <img src="{{asset('storage/images/users/no_user_image.png')}}" class="rounded-circle" alt="user-image" id="file-preview">
                 @endif
                 @if ($pagetype =='edit')
                     <img src="{{asset('storage/'.$image->url)}}" class="rounded-circle" alt="user-image" id="file-preview">
                 @endif
-                <label for="select-image" class="text1 select-img text-center">画像を選択してください</label>
-                <input type="file" id="select-image" multiple accept="image/*" class="d-none" name="select-image">
+                <label for="select-image" class="text1 text-center select-img">画像を選択してください <input type="file" id="select-image" accept="image/*" class="d-none" name="select-image"></label>
 
                 <script type="text/javascript">
                     document.getElementById('select-image').addEventListener('change', function (e) {
@@ -49,6 +48,7 @@
                     @endif
                     @if () --}}
                         <select name="type" id="type" class="form-select" required>
+                            <option value=""></option>
                             <option value="1">サイト管理</option>
                             <option value="2">店舗管理</option>
                             <option value="3">会員</option>
