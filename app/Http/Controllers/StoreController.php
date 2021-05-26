@@ -6,6 +6,7 @@ use App\Models\Store;
 use App\Models\Area;
 use App\Models\StoreType;
 use App\Models\Image;
+use App\Models\Room;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
@@ -77,7 +78,7 @@ class StoreController extends Controller
             $image1->url = $path1;
             $image1->save();
         }
-        
+
         // 三枚目の写真追加
         $image2 = $request->file('select-image2');
         if( isset($image2) === true ){
@@ -87,7 +88,7 @@ class StoreController extends Controller
             $image2->url = $path2;
             $image2->save();
         }
-        
+
         return redirect(route('stores.index'));
     }
 
@@ -100,8 +101,9 @@ class StoreController extends Controller
     public function show($id)
     {
         $store = Store::find($id);
+        $rooms = Room::where('store_id', '=', $id)->get();
         $images = Image::where('store_id', '=', $id)->get();
-        return view('stores.show', ['store' => $store, 'images' => $images]);
+        return view('stores.show', ['store' => $store, 'rooms' => $rooms, 'images' => $images]);
     }
 
     /**
@@ -148,7 +150,7 @@ class StoreController extends Controller
             $path = 'images/stores/no_store_image.png';
         }
         $image = Image::where('store_id', '=', $id)
-                            ->skip(0)->take(0)->first();
+                            ->skip(0)->take(1)->first();
         $image->store_id = $store->id;
         $image->url = $path;
         $image->save();
@@ -158,21 +160,21 @@ class StoreController extends Controller
         $image1 = $request->file('select-image1');
         if( isset($image1) === true ){
             $path1 = $image1->store('images/stores', 'public');
-            
+
             $image1 = Image::where('store_id', '=', $id)
-                                ->skip(0)->take(1)->first();
+                                ->skip(1)->take(1)->first();
             $image1->store_id = $store->id;
             $image1->url = $path1;
             $image1->save();
         }
-        
+
         // 三枚目の写真編集
         $image2 = $request->file('select-image2');
         if( isset($image2) === true ){
             $path2 = $image2->store('images/stores', 'public');
-            
+
             $image2 = Image::where('store_id', '=', $id)
-                                ->skip(0)->take(2)->first();
+                                ->skip(2)->take(1)->first();
             $image2->store_id = $store->id;
             $image2->url = $path2;
             $image2->save();

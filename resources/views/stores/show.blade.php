@@ -102,10 +102,58 @@
             <button type="submit" class="btn btn-outline-primary">検索する</button>
         </div>
     </form>
-    <p class="pt-4 sub-title">内容追加</p>
+    <p class="pt-4 sub-title">店舗管理</p>
     <div class="add-action-wrapper mx-0 mb-4 py-4 d-block">
         <a href="{{route('stores.rooms.create', $store->id)}}" class="btn btn-outline-primary d-inline">部屋を追加する</a>
+        <button type="button" class="btn btn-outline-primary d-inline" data-bs-toggle="modal" data-bs-target="#roomsModal">
+            部屋一覧
+        </button>
         <a href="{{route('stores.plans.create', $store->id)}}" class="btn btn-outline-primary d-inline">プランを追加する</a>
+
+        <div class="modal fade" id="roomsModal" tabindex="-1" aria-labelledby="roomsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <p class="modal-title text2" id="roomsModalLabel">{{$store->store_name}}の部屋一覧</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">部屋名</th>
+                                <th scope="col">最大収容人数</th>
+                                <th scope="col">追加日</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($rooms as $room)
+                            <tr>
+                                <th scope="row">{{$room->id}}</th>
+                                <td>{{$room->room_name}}</td>
+                                <td>{{$room->capacity}}</td>
+                                <td>{{$room->created_at->format('Y年m月d日')}}</td>
+                                <td>
+                                    <a href="/stores/{{$store->id}}/rooms/{{$room->id}}/edit" class="btn btn-outline-success btn-sm">編集</a>
+                                    <form action="{{ route('stores.rooms.destroy', ['store_id' => $store->id, 'id' => $room->id]) }}" method="post" id="delete-form">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-outline-danger btn-sm" id="btn_delete_room">削除</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+                </div>
+            </div>
+        </div>
+        </div>
     </div>
     {{-- <p class="pt-4 sub-title">プラン一覧</p>
     <div class="row plan-wrapper mx-0 mb-2 py-4">
