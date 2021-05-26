@@ -110,7 +110,21 @@
                     <p class="text3 mb-4 mx-0 d-flex justify-content-end">6,050<span class="text2 pt-2">円～</span> 20,350<span class="text2 pt-2">円</span></p>
                 <div class="d-flex mt-auto mb-3 justify-content-end">
                     <a href="/stores/{{$store->id}}/edit" class="btn btn-outline-success btn-sm">編集</a>
-                    <a href="/stores/{{$store->id}}/delete" class="btn btn-outline-danger btn-sm">削除</a>
+                    <a href="#" class="btn btn-outline-danger btn-sm" id="btn_delete_store">削除</a>
+                    <form action="{{ route('stores.destroy', $store->id) }}" method="post" id="delete-form">
+                        @csrf
+                        @method('delete')
+                    </form>
+                    <script type="text/javascript">
+                        const delete_btn = document.getElementById('btn_delete_store');
+                        const delete_form = document.getElementById('delete-form');
+                        delete_btn.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            if(window.confirm('本当に店舗を削除しますか？')){
+                            delete_form.submit();
+                        }
+                        });
+                    </script>
                 </div>
             </div>
         </div>

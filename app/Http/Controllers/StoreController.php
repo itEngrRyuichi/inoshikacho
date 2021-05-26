@@ -189,6 +189,11 @@ class StoreController extends Controller
      */
     public function destroy($id)
     {
-        return redirect(route('home'));
+        $images = Image::where('user_id', '=', $id);
+        $images->delete();
+
+        $store = Store::find($id);
+        $store->delete();
+        return redirect(route('stores.index'));
     }
 }
