@@ -14,17 +14,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 /* ----- ホーム画面 ----- */
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('index');
 
 /* ----- ログイン画面 ----- */
-Route::get('/login', 'LoginController@index');
+Route::get('login', 'LoginController@index')->name('login.index');
 
 /* ----- ユーザー関係 ----- */
 Route::resource('users', 'UserController');
-Route::get('users/{user_id}/stores', 'UserStoreController@index');
+Route::get('users/{user_id}/stores', 'UserStoreController@index')->name('users.stores.index');
 
 /* プロフィール画面*/
-Route::get('/profile', 'ProfileController@index');
+Route::get('profile', 'ProfileController@index')->name('profile');
+Route::get('profile/{id}/edit', 'ProfileController@edit')->name('profile.edit');
+Route::put('profile/{id}', 'ProfileController@update')->name('profile.update');;
 
 /* ----- 店舗関係 ----- */
 Route::resource('stores', 'StoreController');
@@ -41,14 +43,14 @@ Route::get('stores/{store_id}/rooms/{id}/edit', 'StoreRoomController@edit')->nam
 Route::put('stores/{store_id}/rooms/{id}', 'StoreRoomController@update')->name('stores.rooms.update');
 Route::delete('stores/{store_id}/rooms/{id}', 'StoreRoomController@destroy')->name('stores.rooms.destroy');
 /* 店舗内コメント */
-Route::get('stores/{store_id}/comments/create', 'StoreCommentController@create');
-Route::post('stores/{store_id}/comments', 'StoreCommentController@store');
-Route::delete('stores/{store_id}/comments/{id}', 'StoreCommentController@destroy');
+Route::get('stores/{store_id}/comments/create', 'StoreCommentController@create')->name('stores.comments.create');
+Route::post('stores/{store_id}/comments', 'StoreCommentController@store')->name('stores.comments.store');
+Route::delete('stores/{store_id}/comments/{id}', 'StoreCommentController@destroy')->name('stores.comments.destroy');
 
 /* ----- 予約関係 ----- */
 /* 宿泊予約一覧 / 宿泊履歴(サイト管理側) */
 Route::resource('reserves', 'ReserveController');
 /* 宿泊予約履歴 / 宿泊履歴(会員側) */
-Route::get('users/{user_id}/reserves', 'UserReserveController@index');
+Route::get('users/{user_id}/reserves', 'UserReserveController@index')->name('users.reserves.index');
 /* 宿泊予約履歴 / 宿泊履歴(店舗側) */
-Route::get('stores/{store_id}/reserves', "StoreReserveController@index");
+Route::get('stores/{store_id}/reserves', "StoreReserveController@index")->name('stores.reserves.index');
