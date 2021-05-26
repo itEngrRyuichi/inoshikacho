@@ -24,7 +24,7 @@ Route::resource('users', 'UserController');
 Route::get('users/{user_id}/stores', 'UserStoreController@index')->name('users.stores.index');
 
 /* プロフィール画面*/
-Route::get('profile', 'ProfileController@index')->name('profile');
+Route::get('profile', 'ProfileController@index')->name('profile.index');
 Route::get('profile/{id}/edit', 'ProfileController@edit')->name('profile.edit');
 Route::put('profile/{id}', 'ProfileController@update')->name('profile.update');;
 
