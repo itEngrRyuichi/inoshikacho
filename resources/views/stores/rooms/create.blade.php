@@ -9,7 +9,7 @@
         <div class="d-inline">
             <div class="mb-3">
                 <label for="name" class="form-label">部屋名</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="洋室 スイート 301号室">
+                <input type="text" class="form-control" id="name" name="name" placeholder="洋室 スイート 301号室" required>
             </div>
         </div>
         <div class="col-6 amenity-select-wrapper">
