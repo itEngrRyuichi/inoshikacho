@@ -14,13 +14,13 @@ class Plan extends Model
         return $this->belongsTo(Price::class);
     }
 
-    public function reserve()
-    {
-        return $this->belongsTo(Reserve::class);
-    }
-
     public function images(){
         return $this->hasMany(Image::class);
+    }
+
+    public function provide()
+    {
+        return $this->belongsTo(Provide::class);
     }
 
 }

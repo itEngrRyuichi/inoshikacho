@@ -17,13 +17,9 @@ class Reserve extends Model
     {
         return $this->belongsTo(Store::class);
     }
-    public function plan()
+    public function provides()
     {
-        return $this->belongsTo(Plan::class);
-    }
-    public function room()
-    {
-        return $this->belongsTo(Room::class);
+        return $this->hasMany(Provide::class);
     }
     public function peoples()
     {

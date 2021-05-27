@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 @section('content')
-<div class="store-index-container py-4">
+<div class="container content store-index-container py-4">
     <form class="store-search-wrapper row py-4 mx-0 mb-4">
         <div class="col-2">
             <label for="area" class="form-label">エリア選択</label>

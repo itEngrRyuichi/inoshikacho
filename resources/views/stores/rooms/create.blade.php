@@ -4,7 +4,7 @@
 
 <div class="container content room-create-container">
     <p class="py-4 text-center title">部屋を追加する</p>
-    <form class="room-content-wrapper row" action="{{route('stores.rooms.store', $store_id)}}" method="POST" enctype="multipart/form-data">
+    <form class="room-content-wrapper" action="{{route('stores.rooms.store', $store_id)}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="d-inline">
             <div class="mb-3">
