@@ -4,11 +4,11 @@
 </div>
 <ul class="navbar-nav mr-auto mb-2 mb-lg-0 profileDropdown">
     <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        <img src="{{ asset('images/users/shikamaru.jpg') }}" alt="account-img" class="rounded-circle">
+        <img src="{{ asset(Auth::user()->images[0]->url) }}" alt="account-img" class="rounded-circle">
         <span> {{Auth::user()->name}}</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="profileDropdown">
-        <li class="text-center account-list py-2"><img src="{{ asset('images/users/shikamaru.jpg') }}" alt="account-img" class="rounded-circle mx-auto"></li>
+        <li class="text-center account-list py-2"><img src="{{ asset(Auth::user()->images[0]->url) }}" alt="account-img" class="rounded-circle mx-auto"></li>
         <li class="account-list"><span class="dropdown-item text-muted user-type">会員:</span></li>
         <li class="account-list"><a class="dropdown-item user-name" href="/profile">{{Auth::user()->name}}</a></li>
         <li class="account-list"><hr class="dropdown-divider"></li>

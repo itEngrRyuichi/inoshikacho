@@ -16,33 +16,48 @@ class UsersTableSeeder extends Seeder
     {
         //
         //サイト管理ユーザ
-        DB::table('users')->insert(['name'=>'admin',
-                                    'type'=>1,
-                                    'birthday'=>'2021-05-24',
-                                    'email'=>'admin@example.com',
-                                    'phone'=>'000-0000-0000',
-                                    'password'=>'admin',
-                                    'address'=>'東京都新宿区',
+        DB::table('users')->insert([
+            'name'=>'shikamaru',
+            'type'=>1,
+            'birthday'=>'2021-05-24',
+            'email'=>'shikamaru@shippuden.com',
+            'phone'=>'000-0000-0000',
+            'password'=>'shikamaru',
+            'address'=>'東京都新宿区',
+        ]);
+        DB::table('images')->insert([
+            'url' => 'images/users/shikamaru.jpg',
+            'user_id' => 1
         ]);
 
         //店管理ユーザ
-        DB::table('users')->insert(['name'=>'asuma',
-                                    'type'=>2,
-                                    'birthday'=>'2021-05-24',
-                                    'email'=>'asuma@example.com',
-                                    'phone'=>'000-0000-0000',
-                                    'password'=>'asuma',
-                                    'address'=>'東京都新宿区',
+        DB::table('users')->insert([
+            'name'=>'ino',
+            'type'=>2,
+            'birthday'=>'2021-05-24',
+            'email'=>'ino@shippuden.com',
+            'phone'=>'000-0000-0000',
+            'password'=>'ino',
+            'address'=>'東京都新宿区',
+        ]);
+        DB::table('images')->insert([
+            'url' => 'images/users/ino.jpg',
+            'user_id' => 2
         ]);
 
         //会員ユーザ
-        DB::table('users')->insert(['name'=>'test',
-                                    'type'=>3,
-                                    'birthday'=>'2021-05-24',
-                                    'email'=>'test@example.com',
-                                    'phone'=>'000-0000-0000',
-                                    'password'=>'test',
-                                    'address'=>'東京都新宿区',
+        DB::table('users')->insert([
+            'name'=>'choji',
+            'type'=>3,
+            'birthday'=>'2021-05-24',
+            'email'=>'choji@shippuden.com',
+            'phone'=>'000-0000-0000',
+            'password'=>'choji',
+            'address'=>'東京都新宿区',
+        ]);
+        DB::table('images')->insert([
+            'url' => 'images/users/choji.png',
+            'user_id' => 3
         ]);
     }
 }
