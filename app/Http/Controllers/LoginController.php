@@ -15,4 +15,15 @@ class LoginController extends Controller
     {
         return view('login/index');
     }
+
+    public function login(Request $request)
+    {
+        // dd($request);
+        return redirect(route('index'));
+    }
+
+    public function logout(Request $request)
+    {
+        return redirect(route('index'));
+    }
 }
