@@ -42,18 +42,17 @@
             </div>
             <div class="input-group mb-3 row">
                 @if ($pagetype =='create')
-                    {{-- TODO Auth --}}
-                    {{-- @if ()
+                    {{-- Auth ログインされてたら表示 --}}
+                    @auth
                         <input type="hidden" name="type" value="3" required>
-                    @endif
-                    @if () --}}
+                    @else
                         <select name="type" id="type" class="form-select" required>
                             <option value=""></option>
                             <option value="1">サイト管理</option>
                             <option value="2">店舗管理</option>
                             <option value="3">会員</option>
                         </select>
-                    {{-- @endif --}}
+                    @endauth
                 @endif
                 @if ($pagetype =='edit')
                     @if ($page == 'profile')
