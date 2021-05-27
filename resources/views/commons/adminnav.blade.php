@@ -1,6 +1,6 @@
 {{-- サイト管理ユーザ --}}
 <div class="navbar-nav ml-auto mb-2 mb-lg-0 storeSearch">
-    <a href="#" class="nav-link"><i class="fas fa-search"></i> 宿を検索する</a>
+    <a href="{{route('stores.index')}}" class="nav-link"><i class="fas fa-search"></i> 宿を検索する</a>
 </div>
 <ul class="navbar-nav mr-auto mb-2 mb-lg-0 profileDropdown">
     <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
