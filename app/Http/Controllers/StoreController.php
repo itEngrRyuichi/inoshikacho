@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Amenity;
 use App\Models\Store;
 use App\Models\Area;
 use App\Models\StoreType;
 use App\Models\Image;
 use App\Models\Room;
+use App\Models\Plan;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
@@ -103,7 +105,34 @@ class StoreController extends Controller
         $store = Store::find($id);
         $rooms = Room::where('store_id', '=', $id)->get();
         $images = Image::where('store_id', '=', $id)->get();
-        return view('stores.show', ['store' => $store, 'rooms' => $rooms, 'images' => $images]);
+
+        // プラン一覧
+        $plans = Plan::with('provides')->get();
+
+        // 各プランの部屋写真とプラン写真
+        /* foreach ($provides as $provide) {
+            $provide = Provide::find($provide->id);
+            $plan = Plan::find($provide->plan_id)->with('images')->get();
+            $amenity = Room::find($provide->room_id)->with('amenities')->get();
+            $room = Room::find($provide->room_id)->with('images')->get();
+        } */
+
+        $answer = [
+            'store' => $store,
+            'rooms' => $rooms,
+            'images' => $images,
+            'plans' => $plans
+            /* 'provides' => [
+                $provides,
+                'plan' => $plan,
+                'room' => $room,
+                'amenitie' => $amenity,
+                ] */
+            ];
+
+
+        // 各プランの値段
+        return view('stores.show', $answer);
     }
 
     /**
