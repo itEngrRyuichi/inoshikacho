@@ -19,7 +19,8 @@
         <li class="account-list">
             <form action="{{route('logout')}}" method="POST">
                 @csrf
-                <i class="fas fa-sign-out-alt"></i> <input type="submit" value="ログアウト">
+                　
+                <i class="fas fa-sign-out-alt"></i><input type="submit" value="ログアウト" style="background-color: transparent;border:none;outline:none;">
             </form>
         </li>
     </ul>
