@@ -13,8 +13,7 @@ class ReserveController extends Controller
      */
     public function index()
     {
-        // $this->middleware('auth');
-        return view('reserves/index');
+        return view('reserves.index');
     }
 
     /**
@@ -24,7 +23,7 @@ class ReserveController extends Controller
      */
     public function create()
     {
-        return view('reserves/create');
+        return view('reserves.create');
     }
 
     /**
@@ -35,7 +34,7 @@ class ReserveController extends Controller
      */
     public function store(Request $request)
     {
-        return redirect(route('reserves/index'));
+        return redirect(route('reserves.index'));
     }
 
     /**
@@ -46,7 +45,7 @@ class ReserveController extends Controller
      */
     public function show($id)
     {
-        return view('stores.reserves.show');
+        return view('reserves.show');
     }
 
     /**
@@ -57,7 +56,7 @@ class ReserveController extends Controller
      */
     public function edit($id)
     {
-        return view('stores.reserves.edit');
+        return view('reserves.edit');
     }
 
     /**
@@ -69,7 +68,7 @@ class ReserveController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return redirect(route('reserves/index'));
+        return redirect(route('reserves.index'));
     }
 
     /**
@@ -80,6 +79,6 @@ class ReserveController extends Controller
      */
     public function destroy($id)
     {
-        return redirect(route('reserves/index'));
+        return redirect(route('reserves.index'));
     }
 }
