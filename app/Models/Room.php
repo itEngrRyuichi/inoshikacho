@@ -25,8 +25,8 @@ class Room extends Model
     {
         return $this->belongsTo(Image::class);
     }
-    public function provide()
+    public function provides()
     {
-        return $this->belongsTo(Provide::class);
+        return $this->hasMany(Provide::class);
     }
 }

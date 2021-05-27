@@ -7,8 +7,13 @@ use App\Models\Area;
 use App\Models\StoreType;
 use App\Models\Image;
 use App\Models\Room;
+use App\Models\Provide;
+use App\Models\Price;
+use App\Models\PersonType;
+use \App\Models\Plan;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class StoreController extends Controller
 {
@@ -103,7 +108,19 @@ class StoreController extends Controller
         $store = Store::find($id);
         $rooms = Room::where('store_id', '=', $id)->get();
         $images = Image::where('store_id', '=', $id)->get();
-        return view('stores.show', ['store' => $store, 'rooms' => $rooms, 'images' => $images]);
+
+        // プラン一覧
+        $provides = Provide::where('store_id', '=', $id)->get();
+
+        // 各プランの部屋写真とプラン写真
+        foreach ($provides as $provide) {
+            $provide = Provide::find($provide->id);
+        }
+
+        // 各プランのアメニティー
+
+        // 各プランの値段
+        return view('stores.show', ['store' => $store, 'rooms' => $rooms, 'images' => $images, 'provides' => $provides]);
     }
 
     /**

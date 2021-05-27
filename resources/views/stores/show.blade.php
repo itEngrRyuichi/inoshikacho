@@ -155,218 +155,7 @@
         </div>
         </div>
     </div>
-    {{-- <p class="pt-4 sub-title">プラン一覧</p>
-    <div class="row plan-wrapper mx-0 mb-2 py-4">
-        <div class="col-4">
-            <div id="carouselRoom1" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-bs-target="#carouselRoom1" data-bs-slide-to="0" class="active"></li>
-                    <li data-bs-target="#carouselRoom1" data-bs-slide-to="1"></li>
-                </ol>
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="{{ asset('images/rooms/room1.jpg') }}" class="store-pic" alt="store-pic">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="{{ asset('images/rooms/room2.jpg') }}" class="store-pic" alt="store-pic">
-                  </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselRoom1" role="button" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselRoom1" role="button" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </a>
-            </div>
-        </div>
-        <div class="col-8">
-            <div class="mx-0 mb-2 d-block">
-                <span class="text2">洋室 スイート 素泊まり プラン</span>
-            </div>
-            <div class="mx-0 d-inline">
-                <span class="text-muted type">4人部屋</span>
-            </div>
-            <div class="mb-2 mx-0 d-block">
-                <p class="text1">
-                    <span class="amenity d-inline-block"><i class="fas fa-bed"></i> シングルベッド</span>
-                    <span class="amenity d-inline-block"><i class="fas fa-wifi"></i> 無料wifi</span>
-                    <span class="amenity d-inline-block"><i class="fas fa-tshirt"></i> ナイトウェア、パジャマ</span>
-                    <span class="amenity d-inline-block"><img src="{{ asset('images/icons/towel.png') }}" alt="towel"> バスタオル、フェイスタオル</span>
-                    <span class="amenity d-inline-block"><i class="fas fa-pump-soap"></i> シャンプー</span>
-                    <span class="amenity d-inline-block"><i class="fas fa-pump-soap"></i> コンディショナー</span>
-                    <span class="amenity d-inline-block"><i class="fas fa-pump-soap"></i> ボディーソープ</span>
-                    <span class="amenity d-inline-block"><img src="{{ asset('images/icons/toothbrush.png') }}" alt="toothbrush"> 歯ブラシ</span>
-                    <span class="amenity d-inline-block"><img src="{{ asset('images/icons/comb.png') }}" alt="comb"> くし</span>
-                </p>
-            </div>
-            <div class="mb-2 mx-0 d-flex">
-                <span class="text2">良質なお部屋です。ゆったりとした時をお過ごし下さい。</span>
-            </div>
-            <div class="row mb-2">
-                <div class=" col-6 mx-0 d-inline-block">
-                    <span class="text4 d-block">残り3室</span>
-                    <label for="price" class="text-muted"><i class="fas fa-yen-sign"></i> 大人1名/1泊 税込 合計</label>
-                    <p class="text3">10,050<span class="text2">円</span></p>
-                </div>
-                <div class="col-6 d-flex mt-auto mb-3 justify-content-end">
-                    <form action="/reserves/create">
-                        <input type="hidden" name="store_id" value="asumahotel">
-                        <button class="btn btn-outline-primary btn-sm">予約</button>
-                    </form>
-                    <a href="#" class="btn btn-outline-success btn-sm">編集</a>
 
-                    <a href="/stores/1/plans/1/delete" class="btn btn-outline-danger btn-sm">削除</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row plan-wrapper mx-0 mb-2 py-4">
-        <div class="col-4">
-            <div id="carouselRoom2" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-bs-target="#carouselRoom2" data-bs-slide-to="0" class="active"></li>
-                    <li data-bs-target="#carouselRoom2" data-bs-slide-to="1"></li>
-                    <li data-bs-target="#carouselRoom2" data-bs-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="{{ asset('images/rooms/room1.jpg') }}" class="store-pic" alt="store-pic">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="{{ asset('images/rooms/room2.jpg') }}" class="store-pic" alt="store-pic">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="{{ asset('images/rooms/breakfast.jpg') }}" class="store-pic" alt="store-pic">
-                  </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselRoom2" role="button" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselRoom2" role="button" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </a>
-            </div>
-        </div>
-        <div class="col-8">
-            <div class="mx-0 mb-2 d-block">
-                <span class="text2">洋室 スイート 朝食付き プラン</span>
-            </div>
-            <div class="mx-0 d-inline">
-                <span class="text-muted type">4人部屋</span>
-                <span class="text-muted type">朝食付き</span>
-            </div>
-            <div class="mb-3 mx-0 d-block">
-                <p class="text1">
-                    <span class="amenity d-inline-block"><i class="fas fa-bed"></i> シングルベッド</span>
-                    <span class="amenity d-inline-block"><i class="fas fa-wifi"></i> 無料wifi</span>
-                    <span class="amenity d-inline-block"><i class="fas fa-tshirt"></i> ナイトウェア、パジャマ</span>
-                    <span class="amenity d-inline-block"><img src="{{ asset('images/icons/towel.png') }}" alt="towel"> バスタオル、フェイスタオル</span>
-                    <span class="amenity d-inline-block"><i class="fas fa-pump-soap"></i> シャンプー</span>
-                    <span class="amenity d-inline-block"><i class="fas fa-pump-soap"></i> コンディショナー</span>
-                    <span class="amenity d-inline-block"><i class="fas fa-pump-soap"></i> ボディーソープ</span>
-                    <span class="amenity d-inline-block"><img src="{{ asset('images/icons/toothbrush.png') }}" alt="toothbrush"> 歯ブラシ</span>
-                    <span class="amenity d-inline-block"><img src="{{ asset('images/icons/comb.png') }}" alt="comb"> くし</span>
-                </p>
-            </div>
-            <div class="mb-3 mx-0 d-flex">
-                <span class="text2">良質なお部屋です。ゆったりとした時をお過ごし下さい。</span>
-            </div>
-            <div class="row mb-2">
-                <div class=" col-6 mx-0 d-inline-block">
-                    <span class="text4 d-block">残り3室</span>
-                    <label for="price" class="text-muted"><i class="fas fa-yen-sign"></i> 大人1名/1泊 税込 合計</label>
-                    <p class="text3">15,050<span class="text2">円</span></p>
-                </div>
-                <div class="col-6 d-flex mt-auto mb-3 justify-content-end">
-                    <form action="/reserves/create">
-                        <input type="hidden" name="store_id" value="asumahotel">
-                        <button class="btn btn-outline-primary btn-sm">予約</button>
-                    </form>
-                    <a href="/stores/1/plans/1/edit" class="btn btn-outline-success btn-sm">編集</a>
-                    <a href="/stores/1/plans/1/delete" class="btn btn-outline-danger btn-sm">削除</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row plan-wrapper mx-0 mb-2 py-4">
-        <div class="col-4">
-            <div id="carouselRoom3" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-bs-target="#carouselRoom3" data-bs-slide-to="0" class="active"></li>
-                    <li data-bs-target="#carouselRoom3" data-bs-slide-to="1"></li>
-                    <li data-bs-target="#carouselRoom3" data-bs-slide-to="2"></li>
-                    <li data-bs-target="#carouselRoom3" data-bs-slide-to="3"></li>
-                </ol>
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="{{ asset('images/rooms/room1.jpg') }}" class="store-pic" alt="store-pic">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="{{ asset('images/rooms/room2.jpg') }}" class="store-pic" alt="store-pic">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="{{ asset('images/rooms/dinner.jpg') }}" class="store-pic" alt="store-pic">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="{{ asset('images/rooms/breakfast.jpg') }}" class="store-pic" alt="store-pic">
-                  </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselRoom3" role="button" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselRoom3" role="button" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </a>
-            </div>
-        </div>
-        <div class="col-8">
-            <div class="mx-0 mb-2 d-block">
-                <span class="text2">洋室 スイート 朝夕食付き プラン</span>
-            </div>
-            <div class="mx-0 d-inline">
-                <span class="text-muted type">4人部屋</span>
-                <span class="text-muted type">朝食付き</span>
-                <span class="text-muted type">夕食付き</span>
-            </div>
-            <div class="mb-3 mx-0 d-block">
-                <p class="text1">
-                    <span class="amenity d-inline-block"><i class="fas fa-bed"></i> シングルベッド</span>
-                    <span class="amenity d-inline-block"><i class="fas fa-wifi"></i> 無料wifi</span>
-                    <span class="amenity d-inline-block"><i class="fas fa-tshirt"></i> ナイトウェア、パジャマ</span>
-                    <span class="amenity d-inline-block"><img src="{{ asset('images/icons/towel.png') }}" alt="towel"> バスタオル、フェイスタオル</span>
-                    <span class="amenity d-inline-block"><i class="fas fa-pump-soap"></i> シャンプー</span>
-                    <span class="amenity d-inline-block"><i class="fas fa-pump-soap"></i> コンディショナー</span>
-                    <span class="amenity d-inline-block"><i class="fas fa-pump-soap"></i> ボディーソープ</span>
-                    <span class="amenity d-inline-block"><img src="{{ asset('images/icons/toothbrush.png') }}" alt="toothbrush"> 歯ブラシ</span>
-                    <span class="amenity d-inline-block"><img src="{{ asset('images/icons/comb.png') }}" alt="comb"> くし</span>
-                </p>
-            </div>
-            <div class="mb-3 mx-0 d-flex">
-                <span class="text2">良質なお部屋です。ゆったりとした時をお過ごし下さい。</span>
-            </div>
-            <div class="row mb-2">
-                <div class=" col-6 mx-0 d-inline-block">
-                    <span class="text4 d-block">残り3室</span>
-                    <label for="price" class="text-muted"><i class="fas fa-yen-sign"></i> 大人1名/1泊 税込 合計</label>
-                    <p class="text3">20,350<span class="text2">円</span></p>
-                </div>
-                <div class="col-6 d-flex mt-auto mb-3 justify-content-end">
-                    <form action="/reserves/create">
-                        <input type="hidden" name="store_id" value="asumahotel">
-                        <button class="btn btn-outline-primary btn-sm">予約</button>
-                    </form>
-                    <a href="/stores/1/plans/1/edit" class="btn btn-outline-success btn-sm">編集</a>
-                    <a href="/stores/1/plans/1/delete" class="btn btn-outline-danger btn-sm">削除</a>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="row plan-wrapper mx-0 mb-2 py-4">
         <div class="col-4">
             <div id="carouselRoom4" class="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -434,139 +223,81 @@
                     </form>
                     <a href="/stores/1/plans/1/edit" class="btn btn-outline-success btn-sm">編集</a>
                     <a href="/stores/1/plans/1/delete" class="btn btn-outline-danger btn-sm">削除</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row plan-wrapper mx-0 mb-2 py-4">
-        <div class="col-4">
-            <div id="carouselRoom5" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-bs-target="#carouselRoom5" data-bs-slide-to="0" class="active"></li>
-                    <li data-bs-target="#carouselRoom5" data-bs-slide-to="1"></li>
-                </ol>
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="{{ asset('images/rooms/room3.jpg') }}" class="store-pic" alt="store-pic">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="{{ asset('images/rooms/breakfast.jpg') }}" class="store-pic" alt="store-pic">
-                  </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselRoom5" role="button" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselRoom5" role="button" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </a>
-            </div>
-        </div>
-        <div class="col-8">
-            <div class="mx-0 mb-2 d-block">
-                <span class="text2">洋室 スタンダード 朝食付き プラン</span>
-            </div>
-            <div class="mx-0 d-inline">
-                <span class="text-muted type">2人部屋</span>
-                <span class="text-muted type">朝食付き</span>
-            </div>
-            <div class="mb-3 mx-0 d-block">
-                <p class="text1">
-                    <span class="amenity d-inline-block"><i class="fas fa-bed"></i> ダブルベッド</span>
-                    <span class="amenity d-inline-block"><i class="fas fa-wifi"></i> 無料wifi</span>
-                    <span class="amenity d-inline-block"><i class="fas fa-tshirt"></i> ナイトウェア、パジャマ</span>
-                    <span class="amenity d-inline-block"><img src="{{ asset('images/icons/towel.png') }}" alt="towel"> バスタオル、フェイスタオル</span>
-                    <span class="amenity d-inline-block"><i class="fas fa-pump-soap"></i> シャンプー</span>
-                    <span class="amenity d-inline-block"><i class="fas fa-pump-soap"></i> コンディショナー</span>
-                    <span class="amenity d-inline-block"><i class="fas fa-pump-soap"></i> ボディーソープ</span>
-                    <span class="amenity d-inline-block"><img src="{{ asset('images/icons/toothbrush.png') }}" alt="toothbrush"> 歯ブラシ</span>
-                    <span class="amenity d-inline-block"><img src="{{ asset('images/icons/comb.png') }}" alt="comb"> くし</span>
-                </p>
-            </div>
-            <div class="mb-3 mx-0 d-flex">
-                <span class="text2">素敵なお部屋です。ゆったりとした時をお過ごし下さい。</span>
-            </div>
 
-            <div class="row mb-2">
-                <div class=" col-6 mx-0 d-inline-block">
-                    <span class="text4 d-block">残り1室</span>
-                    <label for="price" class="text-muted"><i class="fas fa-yen-sign"></i> 大人1名/1泊 税込 合計</label>
-                    <p class="text3">6,350<span class="text2">円</span></p>
+    <p class="pt-4 sub-title">プラン一覧</p>
+    @foreach ($provides as $provide)
+        @foreach ($provide->room->with('images') as $image)
+            {{$image->url}}
+        @endforeach
+        <div class="row plan-wrapper mx-0 mb-2 py-4">
+            <div class="col-4">
+                <div id="carouselRoom1" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-bs-target="#carouselRoom1" data-bs-slide-to="0" class="active"></li>
+                        <li data-bs-target="#carouselRoom1" data-bs-slide-to="1"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="{{ asset('images/rooms/room1.jpg') }}" class="store-pic" alt="store-pic">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="{{ asset('images/rooms/room2.jpg') }}" class="store-pic" alt="store-pic">
+                      </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselRoom1" role="button" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselRoom1" role="button" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </a>
                 </div>
-                <div class="col-6 d-flex mt-auto mb-3 justify-content-end">
-                    <form action="/reserves/create">
-                        <input type="hidden" name="store_id" value="asumahotel">
-                        <button class="btn btn-outline-primary btn-sm">予約</button>
-                    </form>
-                    <a href="/stores/1/plans/1/edit" class="btn btn-outline-success btn-sm">編集</a>
-                    <a href="/stores/1/plans/1/delete" class="btn btn-outline-danger btn-sm">削除</a>
+            </div>
+            <div class="col-8">
+                <div class="mx-0 mb-2 d-block">
+                    <span class="text2">{{$provide->plan->plan_name}}</span>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="row plan-wrapper mx-0 mb-2 py-4">
-        <div class="col-4">
-            <div id="carouselRoom6" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-bs-target="#carouselRoom6" data-bs-slide-to="0" class="active"></li>
-                </ol>
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="{{ asset('images/rooms/room3.jpg') }}" class="store-pic" alt="store-pic">
-                  </div>
+                <div class="mx-0 d-inline">
+                    <span class="text-muted type">{{$provide->room->capacity}}部屋</span>
                 </div>
-                <a class="carousel-control-prev" href="#carouselRoom6" role="button" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselRoom6" role="button" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </a>
-            </div>
-        </div>
-        <div class="col-8">
-            <div class="mx-0 mb-2 d-block">
-                <span class="text2">洋室 スタンダード 素泊まり プラン</span>
-            </div>
-            <div class="mx-0 d-inline">
-                <span class="text-muted type">2人部屋</span>
-                <span class="text-muted type">素泊まり</span>
-            </div>
-            <div class="mb-3 mx-0 d-block">
-                <p class="text1">
-                    <span class="amenity d-inline-block"><i class="fas fa-bed"></i> ダブルベッド</span>
-                    <span class="amenity d-inline-block"><i class="fas fa-wifi"></i> 無料wifi</span>
-                    <span class="amenity d-inline-block"><i class="fas fa-tshirt"></i> ナイトウェア、パジャマ</span>
-                    <span class="amenity d-inline-block"><img src="{{ asset('images/icons/towel.png') }}" alt="towel"> バスタオル、フェイスタオル</span>
-                    <span class="amenity d-inline-block"><i class="fas fa-pump-soap"></i> シャンプー</span>
-                    <span class="amenity d-inline-block"><i class="fas fa-pump-soap"></i> コンディショナー</span>
-                    <span class="amenity d-inline-block"><i class="fas fa-pump-soap"></i> ボディーソープ</span>
-                    <span class="amenity d-inline-block"><img src="{{ asset('images/icons/toothbrush.png') }}" alt="toothbrush"> 歯ブラシ</span>
-                    <span class="amenity d-inline-block"><img src="{{ asset('images/icons/comb.png') }}" alt="comb"> くし</span>
-                </p>
-            </div>
-            <div class="mb-3 mx-0 d-flex">
-                <span class="text2">素敵なお部屋です。ゆったりとした時をお過ごし下さい。</span>
-            </div>
+                <div class="mb-2 mx-0 d-block">
+                    <p class="text1">
+                        <span class="amenity d-inline-block"><i class="fas fa-bed"></i> シングルベッド</span>
+                        <span class="amenity d-inline-block"><i class="fas fa-wifi"></i> 無料wifi</span>
+                        <span class="amenity d-inline-block"><i class="fas fa-tshirt"></i> ナイトウェア、パジャマ</span>
+                        <span class="amenity d-inline-block"><img src="{{ asset('images/icons/towel.png') }}" alt="towel"> バスタオル、フェイスタオル</span>
+                        <span class="amenity d-inline-block"><i class="fas fa-pump-soap"></i> シャンプー</span>
+                        <span class="amenity d-inline-block"><i class="fas fa-pump-soap"></i> コンディショナー</span>
+                        <span class="amenity d-inline-block"><i class="fas fa-pump-soap"></i> ボディーソープ</span>
+                        <span class="amenity d-inline-block"><img src="{{ asset('images/icons/toothbrush.png') }}" alt="toothbrush"> 歯ブラシ</span>
+                        <span class="amenity d-inline-block"><img src="{{ asset('images/icons/comb.png') }}" alt="comb"> くし</span>
+                    </p>
+                </div>
+                <div class="mb-2 mx-0 d-flex">
+                    <span class="text2">{{$provide->plan->plan_description}}</span>
+                </div>
+                <div class="row mb-2">
+                    <div class=" col-6 mx-0 d-inline-block">
+                        <span class="text4 d-block">残り3室</span>
+                        <label for="price" class="text-muted"><i class="fas fa-yen-sign"></i> 大人1名/1泊 税込 合計</label>
+                        <p class="text3">10,050<span class="text2">円</span></p>
+                    </div>
+                    <div class="col-6 d-flex mt-auto mb-3 justify-content-end">
+                        <form action="/reserves/create">
+                            <input type="hidden" name="store_id" value="asumahotel">
+                            <button class="btn btn-outline-primary btn-sm">予約</button>
+                        </form>
+                        <a href="#" class="btn btn-outline-success btn-sm">編集</a>
 
-            <div class="row mb-2">
-                <div class=" col-6 mx-0 d-inline-block">
-                    <span class="text4 d-block">満室</span>
-                    <label for="price" class="text-muted"><i class="fas fa-yen-sign"></i> 大人1名/1泊 税込 合計</label>
-                    <p class="text3">6,050<span class="text2">円</span></p>
-                </div>
-                <div class="col-6 d-flex mt-auto mb-3 justify-content-end">
-                    <a href="/reserves/create" class="btn btn-outline-primary btn-sm">キャンセル待ち予約</a>
-                    <a href="/stores/1/plans/1/edit" class="btn btn-outline-success btn-sm">編集</a>
-                    <a href="/stores/1/plans/1/delete" class="btn btn-outline-danger btn-sm">削除</a>
+                        <a href="/stores/1/plans/1/delete" class="btn btn-outline-danger btn-sm">削除</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div> --}}
+    @endforeach
 
-    <div class="comment-wrapper mx-0 mb-4 py-4 row">
+    {{-- <div class="comment-wrapper mx-0 mb-4 py-4 row">
         <p class="pt-4 sub-title" id="comment">口コミ</p>
         <form action="#" class="py-4">
             <p class="text2">コメントする</p>
@@ -614,7 +345,7 @@
                 <a href="/stores/1/comment/delete" class="btn btn-outline-danger btn-sm">削除</a>
             </div>
         </div>
-    </div>
+    </div> --}}
 </div>
 
 @endsection

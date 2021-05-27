@@ -41,7 +41,6 @@ class StoreRoomController extends Controller
             foreach($amenities as $item){
                 $amenity = New Amenity;
                 $amenity->room_id = $room->id;
-                $amenity->store_id = $request->store_id;
                 switch($item){
                     case "1":
                         $amenity->amenity_name = 'シングルベッド';
