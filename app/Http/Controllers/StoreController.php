@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Amenity;
 use App\Models\Store;
 use App\Models\Area;
 use App\Models\StoreType;
@@ -109,18 +110,59 @@ class StoreController extends Controller
         $rooms = Room::where('store_id', '=', $id)->get();
         $images = Image::where('store_id', '=', $id)->get();
 
-        // プラン一覧
-        $provides = Provide::where('store_id', '=', $id)->get();
+        $plans = DB::table('plans')
+                        ->join('provides', 'plans.id', '=', 'provides.plan_id')
+                        ->join('rooms', 'provides.room_id', '=', 'rooms.id')
+                        ->select(
+                            'plans.id',
+                            'plans.plan_name',
+                            'plans.plan_description',
+                            'provides.room_id'
+                        )
+                        ->get();
 
-        // 各プランの部屋写真とプラン写真
-        foreach ($provides as $provide) {
-            $provide = Provide::find($provide->id);
+
+        for ($i=0; $i < count($plans); $i++) {
+            // 各プランの部屋数を取得
+            $count_rooms = DB::table('provides')
+                                ->where('provides.plan_id', '=', $plans[$i]->id)
+                                ->join('rooms', 'rooms.id', '=', 'provides.room_id')
+                                ->count('rooms.id');
+            $plans[$i]->count_rooms = $count_rooms;
+            // 各プランの部屋写真を取得
+            $room_images = DB::table('images')->where('room_id', '=', $plans[$i]->room_id)->get();
+            $plans[$i]->room_images = $room_images;
+            // 各プランのプラン写真を取得
+            $plan_images = DB::table('images')->where('plan_id', '=', $plans[$i]->id)->get();
+            $plans[$i]->plan_images = $plan_images;
+            // 各プランの部屋の収容人数
+            $capacity = DB::table('rooms')->where('id', '=', $plans[$i]->room_id)->select('rooms.capacity')->first();
+            $plans[$i]->room_capacity = $capacity;
+            // 各プランの部屋のアメニティー
+            $amenities = DB::table('amenities')->where('amenities.room_id', '=', $plans[$i]->room_id)->get();
+            $plans[$i]->room_amenities = $amenities;
+            // 各プランの値段
+            $adult_price = DB::table('prices')->where('prices.plan_id', '=', $plans[$i]->id)->where('prices.person_type_id', '=', 1)->first();
+            $middle_price = DB::table('prices')->where('prices.plan_id', '=', $plans[$i]->id)->where('prices.person_type_id', '=', 2)->first();
+            $child_price = DB::table('prices')->where('prices.plan_id', '=', $plans[$i]->id)->where('prices.person_type_id', '=', 3)->first();
+            $baby_price = DB::table('prices')->where('prices.plan_id', '=', $plans[$i]->id)->where('prices.person_type_id', '=', 4)->first();
+            $plans[$i]->adult_price = $adult_price;
+            $plans[$i]->middle_price = $middle_price;
+            $plans[$i]->child_price = $child_price;
+            $plans[$i]->baby_price = $baby_price;
+
         }
 
-        // 各プランのアメニティー
+        $results = [
+            'store' => $store,
+            'rooms' => $rooms,
+            'images' => $images,
+            'plans' => $plans
+            ];
+
 
         // 各プランの値段
-        return view('stores.show', ['store' => $store, 'rooms' => $rooms, 'images' => $images, 'provides' => $provides]);
+        return view('stores.show', $results);
     }
 
     /**
