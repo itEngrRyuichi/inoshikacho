@@ -51,7 +51,7 @@ Route::delete('stores/{store_id}/comments/{id}', 'StoreCommentController@destroy
 
 /* ----- 予約関係 ----- */
 /* 宿泊予約一覧 / 宿泊履歴(サイト管理側) */
-Route::resource('reserves', 'ReserveController');
+Route::resource('reserves', 'ReserveController')->middleware('auth:admin');;
 /* 宿泊予約履歴 / 宿泊履歴(会員側) */
 Route::get('users/{user_id}/reserves', 'UserReserveController@index')->name('users.reserves.index');
 /* 宿泊予約履歴 / 宿泊履歴(店舗側) */
