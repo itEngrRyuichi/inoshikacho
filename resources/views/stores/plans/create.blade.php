@@ -4,7 +4,7 @@
 
 <div class="container content plan-create-container pb-4">
     <p class="py-4 text-center title">プランを追加する</p>
-    <form class="plan-content-wrapper row" action="{{route('stores.plans.store',$store_id)}}" method="POST" enctype="multipart/form-data">
+    <form class="plan-content-wrapper row" action="{{route('stores.plans.store', $store_id)}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="col-7">
             <div class="mb-3">

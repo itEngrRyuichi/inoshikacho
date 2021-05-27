@@ -110,14 +110,14 @@ class StoreController extends Controller
         $rooms = Room::where('store_id', '=', $id)->get();
         $images = Image::where('store_id', '=', $id)->get();
 
-        $plans = DB::table('plans')
-                        ->join('provides', 'plans.id', '=', 'provides.plan_id')
+        $plans = Plan::join('provides', 'plans.id', '=', 'provides.plan_id')
                         ->join('rooms', 'provides.room_id', '=', 'rooms.id')
                         ->select(
                             'plans.id',
                             'plans.plan_name',
                             'plans.plan_description',
-                            'provides.room_id'
+                            'provides.room_id',
+                            'rooms.room_name',
                         )
                         ->get();
 
@@ -152,7 +152,7 @@ class StoreController extends Controller
             $plans[$i]->baby_price = $baby_price;
 
         }
-
+        /* dd($plans); */
         $results = [
             'store' => $store,
             'rooms' => $rooms,

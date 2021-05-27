@@ -277,14 +277,9 @@ class StoreRoomController extends Controller
      */
     public function destroy($store_id, $id)
     {
-        $images = Image::where('room_id', '=', $id);
-        $images->delete();
-
-        $amenities = Amenity::where('room_id', '=', $id);
-        $amenities->delete();
-
-        $room = Room::find($id);
-        $room->delete();
+        Image::where('room_id', '=', $id)->delete();
+        Amenity::where('room_id', '=', $id)->delete();
+        Room::find($id)->delete();
 
 
         return redirect(route('stores.show', $store_id));

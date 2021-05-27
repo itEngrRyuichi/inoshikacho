@@ -205,6 +205,7 @@
                 </div>
                 <div class="mx-0 d-inline">
                     <span class="text-muted type">{{$plan->room_capacity->capacity}}部屋</span>
+                    <span class="text-muted type">{{$plan->room_name}}</span>
                 </div>
                 <div class="mb-2 mx-0 d-block">
                     <p class="text1">
@@ -236,9 +237,24 @@
                             <input type="hidden" name="store_id" value="asumahotel">
                             <button class="btn btn-outline-primary btn-sm">予約</button>
                         </form>
-                        <a href="#" class="btn btn-outline-success btn-sm">編集</a>
-
-                        <a href="/stores/1/plans/1/delete" class="btn btn-outline-danger btn-sm">削除</a>
+                        <a href="{{route('stores.plans.edit', ['store_id' => $store->id, 'id' => $plan->id])}}" type="submit" class="btn btn-outline-success btn-sm">編集</a>
+                        {{--<a href="#"  class="btn btn-outline-danger btn-sm" id="btn_delete_plan{{$plan->room_id.$plan->id}}">削除</a> --}}
+                        <form action="{{ route('stores.plans.destroy', ['store_id' => $store->id, 'id' => $plan->id]) }}" id="delete-form{{$plan->room_id.$plan->id}}" method="post">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="btn btn-outline-danger btn-sm">削除</a>
+                        </form>
+                        {{-- <script type="text/javascript">
+                            const name = '{{$plan}}';
+                            const delete_btn = document.getElementsByClassName('btn_delete_plan'+name);
+                            const delete_form = document.getElementsByClassName('delete-form'+name);
+                            delete_btn.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                if(window.confirm('本当に削除しますか？')){
+                                delete_form.submit();
+                            }
+                            });
+                    </script> --}}
                     </div>
                 </div>
             </div>
