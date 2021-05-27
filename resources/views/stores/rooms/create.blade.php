@@ -51,19 +51,19 @@
                     <label class="from-check-label" for="9"><i class="fas fa-pump-soap"></i> シャンプー</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="10" id="10" name="amenities[]">>
+                    <input class="form-check-input" type="checkbox" value="10" id="10" name="amenities[]">
                     <label class="from-check-label" for="10"><i class="fas fa-pump-soap"></i> コンディショナー</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="11" id="11" name="amenities[]">>
+                    <input class="form-check-input" type="checkbox" value="11" id="11" name="amenities[]">
                     <label class="from-check-label" for="11"><i class="fas fa-pump-soap"></i> ボディーソープ</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="12" id="12" name="amenities[]">>
+                    <input class="form-check-input" type="checkbox" value="12" id="12" name="amenities[]">
                     <label class="from-check-label" for="12"><img src="{{ asset('images/icons/toothbrush.png') }}" alt="toothbrush"> 歯ブラシ</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="13" id="13" name="amenities[]">>
+                    <input class="form-check-input" type="checkbox" value="13" id="13" name="amenities[]">
                     <label class="from-check-label" for="13"><img src="{{ asset('images/icons/comb.png') }}" alt="comb"> くし</label>
                 </div>
             </div>
