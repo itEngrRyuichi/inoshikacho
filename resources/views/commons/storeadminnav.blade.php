@@ -15,6 +15,10 @@
         <li class="account-list"><a class="dropdown-item" href="/users/user_id/stores/"><i class="fas fa-list"></i> 管理店舗一覧</a></li>
         <li class="account-list"><a class="dropdown-item" href="/stores/create"><i class="far fa-plus-square"></i> 新規店舗登録</a></li>
         <li class="account-list"><hr class="dropdown-divider"></li>
-        <li class="account-list"><a class="dropdown-item" href="{{route('logout')}}"><i class="fas fa-sign-out-alt"></i> ログアウト</a></li>
+        <li class="account-list">
+            <form action="{{route('logout')}}">
+                <i class="fas fa-sign-out-alt"></i> <input type="submit" value="ログアウト">
+            </form>
+        </li>
     </ul>
 </ul>

@@ -16,6 +16,11 @@
         <li class="account-list"><a class="dropdown-item" href="/users/user_id/reserves"><i class="fas fa-history"></i> キャンセル待ち</a></li>
         <li class="account-list"><a class="dropdown-item" href="/users/user_id/reserves"><i class="fas fa-person-booth"></i> 宿泊履歴</a></li>
         <li class="account-list"><hr class="dropdown-divider"></li>
-        <li class="account-list"><a class="dropdown-item" href="{{route('logout')}}"><i class="fas fa-sign-out-alt"></i> ログアウト</a></li>
+        <li class="account-list">
+            <form action="{{route('logout')}}" method="POST">
+                @csrf
+                <i class="fas fa-sign-out-alt"></i> <input type="submit" value="ログアウト">
+            </form>
+        </li>
     </ul>
 </ul>
