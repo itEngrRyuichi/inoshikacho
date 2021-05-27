@@ -12,7 +12,7 @@
         <li class="account-list"><span class="dropdown-item text-muted user-type">店舗管理:</span></li>
         <li class="account-list"><a class="dropdown-item user-name" href="/profile">{{Auth::user()->name}}</a></li>
         <li class="account-list"><hr class="dropdown-divider"></li>
-        <li class="account-list"><a class="dropdown-item" href="/users/user_id/stores/"><i class="fas fa-list"></i> 管理店舗一覧</a></li>
+        <li class="account-list"><a class="dropdown-item" href="/users/{{Auth::user()->id}}/stores/"><i class="fas fa-list"></i> 管理店舗一覧</a></li>
         <li class="account-list"><a class="dropdown-item" href="/stores/create"><i class="far fa-plus-square"></i> 新規店舗登録</a></li>
         <li class="account-list"><hr class="dropdown-divider"></li>
         <li class="account-list">
