@@ -13,6 +13,7 @@ class ReserveController extends Controller
      */
     public function index()
     {
+        // $this->middleware('auth');
         return view('reserves/index');
     }
 
