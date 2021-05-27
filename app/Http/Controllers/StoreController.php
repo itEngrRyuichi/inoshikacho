@@ -8,6 +8,7 @@ use App\Models\Area;
 use App\Models\StoreType;
 use App\Models\Image;
 use App\Models\Room;
+use App\Models\Comment;
 use App\Models\Provide;
 use App\Models\Price;
 use App\Models\PersonType;
@@ -109,6 +110,7 @@ class StoreController extends Controller
         $store = Store::find($id);
         $rooms = Room::where('store_id', '=', $id)->get();
         $images = Image::where('store_id', '=', $id)->get();
+        $comments = Comment::where('store_id', '=', $id)->get();
 
         $plans = Plan::join('provides', 'plans.id', '=', 'provides.plan_id')
                         ->join('rooms', 'provides.room_id', '=', 'rooms.id')
@@ -157,7 +159,8 @@ class StoreController extends Controller
             'store' => $store,
             'rooms' => $rooms,
             'images' => $images,
-            'plans' => $plans
+            'plans' => $plans,
+            'comments' => $comments
             ];
 
 

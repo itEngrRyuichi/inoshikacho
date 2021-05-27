@@ -9,30 +9,30 @@ use App\Models\Comment;
 class StoreCommentController extends Controller
 {
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-        return view('stores.comments.create');
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $store_id)
     {
-        //
         $comment = new Comment;
         $comment->comment = $request->comment;
-        $comment->store_id = 0;
-        $comment->user_id = 9;
+        $comment->store_id = $store_id;
+        $comment->user_id = 1;
         $comment->save();
-        return redirect(route('stores.show'));
+        return redirect(route('stores.show', $store_id));
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($store_id, $id)
+    {
+        Comment::find($id)->delete();
+        return redirect(route('stores.show', $store_id));
     }
 }

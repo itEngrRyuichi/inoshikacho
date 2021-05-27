@@ -261,55 +261,38 @@
         </div>
     @endforeach
 
-    {{-- <div class="comment-wrapper mx-0 mb-4 py-4 row">
+    <div class="comment-wrapper mx-0 mb-4 py-4 row">
         <p class="pt-4 sub-title" id="comment">口コミ</p>
-        <form action="#" class="py-4">
+        <form action="{{ route('stores.comments.store', $store->id)}}" method="post" class="py-4">
+            @csrf
             <p class="text2">コメントする</p>
             <div class="form-floating">
-                <textarea class="form-control" id="description" name="description"></textarea>
+                <textarea class="form-control" id="description" name="comment"></textarea>
                 <label for="description" class="form-label">ご感想を入力してください</label>
             </div>
             <div class="d-flex justify-content-center mt-4">
                 <button class="btn btn-outline-primary" type="submit">投稿</button>
             </div>
         </form>
+        @foreach ($comments as $comment)
         <div class="row comments">
-            <div class="col-4">
+            <div class="col-3">
                 <img src="{{asset('images/users/asuma.png')}}" class="rounded-circle" alt="user-image">
-                <span class="mx-2 text1">猿飛 アスマ</span>
+                <span class="mx-2 text1">{{$comment->user->name}}</span>
             </div>
-            <div class="col-6">
-                <p  class="text1">温泉気持ちよかったです。また、任務の帰りに寄りたいなと思います。</p>
-            </div>
-            <div class="col-2">
-                <a href="/stores/1/comment/delete" class="btn btn-outline-danger btn-sm">削除</a>
-            </div>
-        </div>
-        <div class="row comments">
-            <div class="col-4">
-                <img src="{{asset('images/users/naruto.png')}}" class="rounded-circle" alt="user-image">
-                <span class="mx-2 text1">うずまき ナルト</span>
-            </div>
-            <div class="col-6">
-                <p  class="text1">また、俺の師匠が女湯覗いてたってばよ。皆も気を付けるってばよ。</p>
+            <div class="col-7">
+                <p class="text1">{{$comment->comment}}</p>
             </div>
             <div class="col-2">
-                <a href="/stores/1/comment/delete" class="btn btn-outline-danger btn-sm">削除</a>
+                <form action="{{ route('stores.comments.destroy', ['store_id' => $store->id, 'id' => $comment->id]) }}" id="delete-form" method="post">
+                    @csrf
+                    @method('delete')
+                    <button type="submit" class="btn btn-outline-danger btn-sm">削除</a>
+                </form>
             </div>
         </div>
-        <div class="row comments">
-            <div class="col-4">
-                <img src="{{asset('images/users/shikamaru.jpg')}}" class="rounded-circle" alt="user-image">
-                <span class="mx-2 text1">奈良 シカマル</span>
-            </div>
-            <div class="col-6">
-                <p  class="text1">ここまで来るのは正直めんどくせぇけど、来たかいのあるホテルって感じがしていいんじゃないかな</p>
-            </div>
-            <div class="col-2">
-                <a href="/stores/1/comment/delete" class="btn btn-outline-danger btn-sm">削除</a>
-            </div>
-        </div>
-    </div> --}}
+        @endforeach
+    </div>
 </div>
 
 @endsection
