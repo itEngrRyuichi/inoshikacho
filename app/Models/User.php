@@ -45,9 +45,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    protected $dates = [
-        'birthday'
-    ];
+
+    public function store()
+    {
+        return $this->hasMany(Comment::class);
+    }
     public function comments()
     {
         return $this->hasMany(Comment::class);
@@ -60,5 +62,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Image::class);
     }
+    protected $dates = [
+        'birthday'
+    ];
 
 }

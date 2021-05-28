@@ -24,10 +24,12 @@ class CreateStoresTable extends Migration
             $table->text('access', 1000)->nullable();
             $table->bigInteger('store_type_id')->unsigned()->index();
             $table->bigInteger('area_id')->unsigned()->index();
+            $table->bigInteger('user_id')->unsigned()->index();
             $table->timestamps();
 
             $table->foreign('store_type_id')->references('id')->on('store_types')->onDelete('cascade');
             $table->foreign('area_id')->references('id')->on('areas')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

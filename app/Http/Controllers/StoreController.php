@@ -2,13 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+use App\Models\Amenity;
 use App\Models\Store;
 use App\Models\Area;
 use App\Models\StoreType;
 use App\Models\Image;
 use App\Models\Room;
+use App\Models\Comment;
+use App\Models\Provide;
+use App\Models\Price;
+use App\Models\PersonType;
+use \App\Models\Plan;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class StoreController extends Controller
 {
@@ -21,6 +29,30 @@ class StoreController extends Controller
     {
         $stores = Store::with('images')->get();
         $areas = Area::all();
+
+        for ($s=0; $s < count($stores); $s++) {
+            $plan_ids = Provide::where('store_id', $stores[$s]->id)->select('plan_id')->get();
+            for ($i=0; $i < count($plan_ids); $i++) {
+                $prices = price::where('plan_id', $plan_ids[$i]->plan_id)->get();
+                $plan_ids[$i]->prices = $prices;
+            }
+            $prices_array = [];
+            for ($i=0; $i < count($plan_ids); $i++) {
+                $amount = $plan_ids[$i]->prices[0]->price;
+                array_push($prices_array, $amount);
+            }
+            if (empty($prices_array)) {
+                $stores[$s]->max_price = 0;
+                $stores[$s]->min_price = 0;
+            } else {
+                $max_price = max($prices_array);
+                $min_price = min($prices_array);
+                $stores[$s]->max_price = $max_price;
+                $stores[$s]->min_price = $min_price;
+            }
+
+        }
+
         return view('stores.index', ['stores' => $stores, 'areas' => $areas]);
     }
 
@@ -47,6 +79,7 @@ class StoreController extends Controller
         // 店舗追加
         $store = new Store;
         $store->store_name = $request->store_name;
+        $store->user_id = Auth::user()->id;
         $store->postal = $request->postal;
         $store->address = $request->address;
         $store->phone = $request->phone;
@@ -103,7 +136,86 @@ class StoreController extends Controller
         $store = Store::find($id);
         $rooms = Room::where('store_id', '=', $id)->get();
         $images = Image::where('store_id', '=', $id)->get();
-        return view('stores.show', ['store' => $store, 'rooms' => $rooms, 'images' => $images]);
+        $comments = Comment::where('comments.store_id', '=', $id)
+                        ->join('users', 'comments.user_id', '=', 'users.id')
+                        ->join('images', 'users.id', '=', 'images.user_id')
+                        ->get();
+
+        $plan_ids = Provide::where('store_id', $id)->select('plan_id')->get();
+        for ($i=0; $i < count($plan_ids); $i++) {
+            $prices = price::where('plan_id', $plan_ids[$i]->plan_id)->get();
+            $plan_ids[$i]->prices = $prices;
+        }
+
+        $prices_array = [];
+        for ($i=0; $i < count($plan_ids); $i++) {
+            $amount = $plan_ids[$i]->prices[0]->price;
+            array_push($prices_array, $amount);
+        }
+        if (empty($prices_array)) {
+            $store->max_price = 0;
+            $store->min_price = 0;
+        } else {
+            $max_price = max($prices_array);
+            $min_price = min($prices_array);
+            $store->max_price = $max_price;
+            $store->min_price = $min_price;
+        }
+
+        $plans = Plan::join('provides', 'plans.id', '=', 'provides.plan_id')
+                        ->join('rooms', 'provides.room_id', '=', 'rooms.id')
+                        ->select(
+                            'plans.id',
+                            'plans.plan_name',
+                            'plans.plan_description',
+                            'provides.room_id',
+                            'rooms.room_name',
+                        )
+                        ->get();
+
+
+        for ($i=0; $i < count($plans); $i++) {
+            // 各プランの部屋数を取得
+            $count_rooms = DB::table('provides')
+                                ->where('provides.plan_id', '=', $plans[$i]->id)
+                                ->join('rooms', 'rooms.id', '=', 'provides.room_id')
+                                ->count('rooms.id');
+            $plans[$i]->count_rooms = $count_rooms;
+            // 各プランの部屋写真を取得
+            $room_images = DB::table('images')->where('room_id', '=', $plans[$i]->room_id)->get();
+            $plans[$i]->room_images = $room_images;
+            // 各プランのプラン写真を取得
+            $plan_images = DB::table('images')->where('plan_id', '=', $plans[$i]->id)->get();
+            $plans[$i]->plan_images = $plan_images;
+            // 各プランの部屋の収容人数
+            $capacity = DB::table('rooms')->where('id', '=', $plans[$i]->room_id)->select('rooms.capacity')->first();
+            $plans[$i]->room_capacity = $capacity;
+            // 各プランの部屋のアメニティー
+            $amenities = DB::table('amenities')->where('amenities.room_id', '=', $plans[$i]->room_id)->get();
+            $plans[$i]->room_amenities = $amenities;
+            // 各プランの値段
+            $adult_price = DB::table('prices')->where('prices.plan_id', '=', $plans[$i]->id)->where('prices.person_type_id', '=', 1)->first();
+            $middle_price = DB::table('prices')->where('prices.plan_id', '=', $plans[$i]->id)->where('prices.person_type_id', '=', 2)->first();
+            $child_price = DB::table('prices')->where('prices.plan_id', '=', $plans[$i]->id)->where('prices.person_type_id', '=', 3)->first();
+            $baby_price = DB::table('prices')->where('prices.plan_id', '=', $plans[$i]->id)->where('prices.person_type_id', '=', 4)->first();
+            $plans[$i]->adult_price = $adult_price;
+            $plans[$i]->middle_price = $middle_price;
+            $plans[$i]->child_price = $child_price;
+            $plans[$i]->baby_price = $baby_price;
+
+        }
+        /* dd($plans); */
+        $results = [
+            'store' => $store,
+            'rooms' => $rooms,
+            'images' => $images,
+            'plans' => $plans,
+            'comments' => $comments
+            ];
+
+
+        // 各プランの値段
+        return view('stores.show', $results);
     }
 
     /**
