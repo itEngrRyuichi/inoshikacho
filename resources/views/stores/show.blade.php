@@ -67,9 +67,11 @@
             <p class="text3 mb-4 mx-0 d-flex justify-content-end">{{number_format($store->min_pric)}}<span class="text2 pt-2">円～</span> {{number_format($store->max_price)}}<span class="text2 pt-2">円</span></p>
             <div class="d-flex mt-auto mb-3 justify-content-end">
                 <a href="/stores/{{$store->id}}#comment" class="btn btn-outline-primary btn-sm">口コミを見る</a>
-                @if ($store->user_id === Auth::user()->id)
-                    <a href="/stores/{{$store->id}}/edit" class="btn btn-outline-success btn-sm">編集</a>
-                    <a href="/stores/{{$store->id}}/delete" class="btn btn-outline-danger btn-sm">削除</a>
+                @if(Auth::check())
+                    @if ($store->user_id === Auth::user()->id)
+                        <a href="/stores/{{$store->id}}/edit" class="btn btn-outline-success btn-sm">編集</a>
+                        <a href="/stores/{{$store->id}}/delete" class="btn btn-outline-danger btn-sm">削除</a>
+                    @endif
                 @endif
             </div>
         </div>
@@ -104,6 +106,7 @@
             <button type="submit" class="btn btn-outline-primary">検索する</button>
         </div>
     </form>
+    @if(Auth::check())
     @if ($store->user_id === Auth::user()->id)
     <p class="pt-4 sub-title">店舗管理</p>
     <div class="add-action-wrapper mx-0 mb-4 py-4 d-block">
@@ -164,6 +167,7 @@
         </div>
         </div>
     </div>
+    @endif
     @endif
 
     <p class="pt-4 sub-title">プラン一覧</p>
@@ -244,17 +248,21 @@
                     </div>
                     <div class="col-6 d-flex mt-auto mb-3 justify-content-end">
 
-                        @if (Auth::user()->type === 3)
-                        <a href="{{route('reserves.create', ['store_id' => $store->id, 'plan_id' => $plan->id, 'room_id'=>$room->id])}}" type="submit" class="btn btn-outline-success btn-sm">予約</a>
-                        @endif
-                        @if ($store->user_id === Auth::user()->id)
+                        @if(Auth::check())
+                            @if (Auth::user()->type === 3)
+                                <a href="{{route('reserves.create', ['store_id' => $store->id, 'plan_id' => $plan->id, 'room_id'=>$room->id])}}" type="submit" class="btn btn-outline-success btn-sm">予約</a>
+                            @endif
+                            @if ($store->user_id === Auth::user()->id)
 
-                        <a href="{{route('stores.plans.edit', ['store_id' => $store->id, 'id' => $plan->id])}}" type="submit" class="btn btn-outline-success btn-sm">編集</a>
-                        <form action="{{ route('stores.plans.destroy', ['store_id' => $store->id, 'id' => $plan->id]) }}" id="delete-form{{$plan->room_id.$plan->id}}" method="post">
-                            @csrf
-                            @method('delete')
-                            <button type="submit" class="btn btn-outline-danger btn-sm">削除</a>
-                        </form>
+                                <a href="{{route('stores.plans.edit', ['store_id' => $store->id, 'id' => $plan->id])}}" type="submit" class="btn btn-outline-success btn-sm">編集</a>
+                            <form action="{{ route('stores.plans.destroy', ['store_id' => $store->id, 'id' => $plan->id]) }}" id="delete-form{{$plan->room_id.$plan->id}}" method="post">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="btn btn-outline-danger btn-sm">削除</a>
+                            </form>
+                            @endif
+                        @else
+                                <a href="{{route('reserves.create', ['store_id' => $store->id, 'plan_id' => $plan->id, 'room_id'=>$room->id])}}" type="submit" class="btn btn-outline-success btn-sm">予約</a>
                         @endif
                     </div>
                 </div>
@@ -264,6 +272,7 @@
 
     <div class="comment-wrapper mx-0 mb-4 py-4 row">
         <p class="pt-4 sub-title" id="comment">口コミ</p>
+        @if(Auth::check())
         @if (Auth::user()->type === 3)
         <form action="{{ route('stores.comments.store', $store->id)}}" method="post" class="py-4">
             @csrf
@@ -276,6 +285,7 @@
                 <button class="btn btn-outline-primary" type="submit">投稿</button>
             </div>
         </form>
+        @endif
         @endif
         @foreach ($comments as $comment)
         <div class="row comments">
