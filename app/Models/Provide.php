@@ -9,12 +9,12 @@ class Provide extends Model
 {
     use HasFactory;
 
-    public function rooms()
+    public function room()
     {
-        return $this->hasMany(Room::class);
+        return $this->belongsTo(Room::class);
     }
-    public function plans()
+    public function plan()
     {
-        return $this->hasMany(Plan::class);
+        return $this->belongsTo(Plan::class);
     }
 }

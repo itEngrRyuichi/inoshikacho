@@ -41,7 +41,6 @@ class StoreRoomController extends Controller
             foreach($amenities as $item){
                 $amenity = New Amenity;
                 $amenity->room_id = $room->id;
-                $amenity->store_id = $request->store_id;
                 switch($item){
                     case "1":
                         $amenity->amenity_name = 'シングルベッド';
@@ -278,14 +277,9 @@ class StoreRoomController extends Controller
      */
     public function destroy($store_id, $id)
     {
-        $images = Image::where('room_id', '=', $id);
-        $images->delete();
-
-        $amenities = Amenity::where('room_id', '=', $id);
-        $amenities->delete();
-
-        $room = Room::find($id);
-        $room->delete();
+        Image::where('room_id', '=', $id)->delete();
+        Amenity::where('room_id', '=', $id)->delete();
+        Room::find($id)->delete();
 
 
         return redirect(route('stores.show', $store_id));

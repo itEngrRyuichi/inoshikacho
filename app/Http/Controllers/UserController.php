@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Image;
 use Illuminate\Database\Query\JoinClause;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -18,6 +19,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::with('images')->get();
+        // $users = DB::table('users')->select('users.*', 'images.url')->join('images', 'users.id', '=', 'images.user_id')->get();
         return view('users.index', ['users' => $users]);
     }
 

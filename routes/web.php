@@ -18,6 +18,8 @@ Route::get('/', 'HomeController@index')->name('index');
 
 /* ----- ログイン画面 ----- */
 Route::get('login', 'LoginController@index')->name('login.index');
+Route::post('login', 'LoginController@login')->name('login');
+Route::post('logout', 'LoginController@logout')->name('logout');
 
 /* ----- ユーザー関係 ----- */
 Route::resource('users', 'UserController');

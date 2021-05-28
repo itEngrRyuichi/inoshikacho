@@ -18,9 +18,9 @@ class Plan extends Model
         return $this->hasMany(Image::class);
     }
 
-    public function provide()
+    public function provides()
     {
-        return $this->belongsTo(Provide::class);
+        return $this->hasMany(Provide::class);
     }
 
 }
