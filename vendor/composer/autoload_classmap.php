@@ -38,10 +38,7 @@ return array(
     'App\\Models\\PersonType' => $baseDir . '/app/Models/PersonType.php',
     'App\\Models\\Plan' => $baseDir . '/app/Models/Plan.php',
     'App\\Models\\Price' => $baseDir . '/app/Models/Price.php',
-<<<<<<< HEAD
-=======
     'App\\Models\\Provide' => $baseDir . '/app/Models/Provide.php',
->>>>>>> master
     'App\\Models\\Reserve' => $baseDir . '/app/Models/Reserve.php',
     'App\\Models\\Room' => $baseDir . '/app/Models/Room.php',
     'App\\Models\\Store' => $baseDir . '/app/Models/Store.php',
