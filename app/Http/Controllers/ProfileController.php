@@ -50,6 +50,17 @@ class ProfileController extends Controller
         $user->email = $request->email;
         $user->password = $request->password;
         $user->save();
+
+        $image = $request->file('select-image');
+        $user_image = Image::where('user_id', '=', $id)->first();
+        $recentPath = $user_image->url;
+
+        if( isset($image) === true ){
+            Storage::delete('/images/users' . $recentPath);
+            $user_image->url = $image->store('images/users', 'public');
+        }
+        $user_image->save();
+
         return redirect(route('profile', ['user' => $user, 'page' => $page]));
     }
 }

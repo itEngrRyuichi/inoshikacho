@@ -11,7 +11,6 @@ return array(
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\LoginController' => $baseDir . '/app/Http/Controllers/LoginController.php',
-    'App\\Http\\Controllers\\PeopleController' => $baseDir . '/app/Http/Controllers/PeopleController.php',
     'App\\Http\\Controllers\\ProfileController' => $baseDir . '/app/Http/Controllers/ProfileController.php',
     'App\\Http\\Controllers\\ReserveController' => $baseDir . '/app/Http/Controllers/ReserveController.php',
     'App\\Http\\Controllers\\StoreCommentController' => $baseDir . '/app/Http/Controllers/StoreCommentController.php',
@@ -39,6 +38,10 @@ return array(
     'App\\Models\\PersonType' => $baseDir . '/app/Models/PersonType.php',
     'App\\Models\\Plan' => $baseDir . '/app/Models/Plan.php',
     'App\\Models\\Price' => $baseDir . '/app/Models/Price.php',
+<<<<<<< HEAD
+=======
+    'App\\Models\\Provide' => $baseDir . '/app/Models/Provide.php',
+>>>>>>> master
     'App\\Models\\Reserve' => $baseDir . '/app/Models/Reserve.php',
     'App\\Models\\Room' => $baseDir . '/app/Models/Room.php',
     'App\\Models\\Store' => $baseDir . '/app/Models/Store.php',

@@ -28,7 +28,7 @@
             </form>
             <table class="table table-striped">
                 <thead>
-                    <tr onclick="frameClick(1)">
+                    <tr>
                         <th scope="col">ID</th>
                         <th scope="col">種類</th>
                         <th scope="col">名前</th>
@@ -54,7 +54,7 @@
                             @endif
                         </td>
                         <td>
-                            <img src="{{ asset('storage/'.$user->url) }}" class="rounded-circle" alt="user-image">
+                            <img src="{{ asset('storage/'.$user->images[0]->url) }}" class="rounded-circle" alt="user-image">
                             <span class="mx-2">{{$user->name}}</span>
                         </td>
                         <td>{{ $user->birthday->format('Y年m月d日') }}</td>

@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Image;
 use Illuminate\Database\Query\JoinClause;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -17,12 +18,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::
-                    select('users.id', 'users.name', 'users.birthday', 'users.address', 'users.phone', 'users.email', 'images.url')
-                    ->orderBy('users.id' , 'asc')
-                    ->join('images','images.user_id','=','users.id')
-                    ->get();
-        return view('users/index', ['users' => $users]);
+        $users = User::with('images')->get();
+        // $users = DB::table('users')->select('users.*', 'images.url')->join('images', 'users.id', '=', 'images.user_id')->get();
+        return view('users.index', ['users' => $users]);
     }
 
     /**
@@ -36,7 +34,7 @@ class UserController extends Controller
         $pagetype = 'create';
         $user = new User;
         $image = new Image;
-        return view('users/create', ['user' => $user, 'image' => $image, 'title' => $title, 'pagetype' => $pagetype]);
+        return view('users.create', ['user' => $user, 'image' => $image, 'title' => $title, 'pagetype' => $pagetype]);
     }
 
     /**
@@ -84,7 +82,7 @@ class UserController extends Controller
         $page = 'show';
         $user = User::find($id);
         $image = Image::where('user_id', '=', $id)->first();
-        return view('users/show', ['user' => $user, 'page' => $page, 'image' => $image]);
+        return view('users.show', ['user' => $user, 'page' => $page, 'image' => $image]);
     }
      /**
      * Show the form for editing the specified resource.
@@ -126,7 +124,6 @@ class UserController extends Controller
         $recentPath = $user_image->url;
 
         if( isset($image) === true ){
-            Storage::delete('/images/users' . $recentPath);
             $user_image->url = $image->store('images/users', 'public');
         }
         $user_image->save();
@@ -143,8 +140,6 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user_image = Image::where('user_id', '=', $id)->first();
-        $recentPath = $user_image->url;
-        Storage::delete('/images/users' . $recentPath);
         $user_image->delete();
 
         $user = User::find($id);
