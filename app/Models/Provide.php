@@ -17,4 +17,8 @@ class Provide extends Model
     {
         return $this->belongsTo(Plan::class);
     }
+
+    public function reserve(){
+        return $this->belongsTo(Reserve::class);
+    }
 }
