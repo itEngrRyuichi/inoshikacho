@@ -110,8 +110,10 @@
                     <p class="text3 mb-4 mx-0 d-flex justify-content-end">6,050<span class="text2 pt-2">円～</span> 20,350<span class="text2 pt-2">円</span></p>
 
                     <div class="d-flex mt-auto mb-3 justify-content-end">
-                        <a href="/stores/{{$store->id}}/edit" class="btn btn-outline-success btn-sm">編集</a>
-                        <a href="#" class="btn btn-outline-danger btn-sm" id="btn_delete_store">削除</a>
+                        @if ($store->user_id === Auth::user()->id)
+                            <a href="/stores/{{$store->id}}/edit" class="btn btn-outline-success btn-sm">編集</a>
+                            <a href="#" class="btn btn-outline-danger btn-sm" id="btn_delete_store">削除</a>
+                        @endif
                         <form action="{{ route('stores.destroy', $store->id) }}" method="post" id="delete-form">
                             @csrf
                             @method('delete')
