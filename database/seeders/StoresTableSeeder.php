@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 
 class StoresTableSeeder extends Seeder
@@ -31,5 +31,25 @@ class StoresTableSeeder extends Seeder
             ['store_name'=>'星隠れの里','postal'=>'8340201','address'=>'福岡県八女市星野村10828-1','phone'=>'0489295555','email'=>'hosi@naruto.jp','description'=>'里には忍術を発動するためのエネルギーである“チャクラ”を増幅させる星が200年前に墜落していて、その星を他国の忍に狙われることもしばしば。','access'=>'星隠れの里駅前より徒歩10分。プラネタリウム付きバスが周回していますのでご利用ください。','store_type_id'=>'2','area_id'=>'12'],
             ['store_name'=>'石隠れの里','postal'=>'8115107','address'=>'長崎県壱岐市郷ノ浦町新田触870-3','phone'=>'0489296666','email'=>'isi@naruto.jp','description'=>'石隠れ(いしがくれ)の里は、土の国と風の国の間に位置する里です。','access'=>'石隠れの里駅前より徒歩15分。駅から当館まで石が続いていますので飛びながらお越しください。','store_type_id'=>'4','area_id'=>'12'],
         ];
+        for ($i=0; $i < count($stores); $i++) {
+            DB::table('users')->insert([
+                $stores
+            ]);
+        }
+        $store_image = [
+            'images/stores/hotel1.jpg',
+            'images/stores/hotel1.jpg',
+            'images/stores/hotel1.jpg',
+            'images/stores/hotel1.jpg',
+            'images/stores/hotel1.jpg',
+            'images/stores/hotel1.jpg',
+            'images/stores/hotel1.jpg'
+        ];
+        for ($i=0; $i < 15; $i++) {
+            DB::table('images')->insert([
+                $store_image
+            ]);
+        }
+
     }
 }
