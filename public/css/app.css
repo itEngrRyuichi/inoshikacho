@@ -15454,7 +15454,6 @@ label.select-img {
 
 main {
   background-image: url(/images/background.jpg?325479824bcf752c14c38e4b18aed9da);
-  /* background-repeat: repeat-y; */
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
@@ -15478,6 +15477,65 @@ main {
 }
 
 .bg-default {
+  background-color: #3e2723;
+}
+
+.pagination-wrapper .text1 {
+  font-size: 13px;
+  color: #fff8e1;
+  font-family: "Kosugi Maru", sans-serif;
+  text-decoration: none;
+}
+.pagination-wrapper .btn_other {
+  text-align: center;
+  width: 26px;
+  height: 26px;
+  margin-right: 2px;
+  margin-left: 2px;
+  padding-bottom: 8px;
+  border-radius: 50%;
+  background: #8d6e63;
+  cursor: pointer;
+}
+.pagination-wrapper .btn_current {
+  text-align: center;
+  width: 26px;
+  height: 26px;
+  margin-right: 2px;
+  margin-left: 2px;
+  padding-bottom: 8px;
+  border-radius: 50%;
+  background: #f57f17;
+  cursor: default;
+}
+.pagination-wrapper .btn_current a {
+  cursor: default;
+}
+.pagination-wrapper .btn_previous {
+  text-align: center;
+  height: 26px;
+  margin-right: 2px;
+  margin-left: 2px;
+  padding-right: 10px;
+  padding-left: 15px;
+  padding-bottom: 8px;
+  border-radius: 13px 0 0 13px;
+  background: #8d6e63;
+  cursor: pointer;
+}
+.pagination-wrapper .btn_next {
+  text-align: center;
+  height: 26px;
+  margin-right: 2px;
+  margin-left: 2px;
+  padding-right: 15px;
+  padding-left: 10px;
+  padding-bottom: 8px;
+  border-radius: 0 13px 13px 0;
+  background: #8d6e63;
+  cursor: pointer;
+}
+.pagination-wrapper .btn_previous:hover, .pagination-wrapper .btn_other:hover, .pagination-wrapper .btn_next:hover {
   background-color: #3e2723;
 }
 

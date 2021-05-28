@@ -18,8 +18,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::with('images')->get();
-        // $users = DB::table('users')->select('users.*', 'images.url')->join('images', 'users.id', '=', 'images.user_id')->get();
+        $users = User::with('images')->simplePaginate(10);
         return view('users.index', ['users' => $users]);
     }
 

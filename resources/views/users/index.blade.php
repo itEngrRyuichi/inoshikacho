@@ -1,6 +1,6 @@
 @extends('layout.app')
 @section('content')
-<div class="container content users-container">
+<div class="container content users-container py-4">
     <p class="pt-4 text-center title">ユーザ一覧</p>
     <div class="row my-4">
         <div class="col-10 offset-1">
@@ -65,6 +65,7 @@
                     @endforeach
                 </tbody>
             </table>
+            @include('commons.pagination')
         </div>
     </div>
 </div>
