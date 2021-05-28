@@ -233,10 +233,11 @@
                         <p class="text3">{{$plan->adult_price->price}}<span class="text2">円</span></p>
                     </div>
                     <div class="col-6 d-flex mt-auto mb-3 justify-content-end">
-                        <form action="/reserves/create">
+                        <a href="{{route('reserves.create', ['store_id' => $store->id, 'plan_id' => $plan->id, 'room_id'=>$room->id])}}" type="submit" class="btn btn-outline-success btn-sm">予約</a>
+                        {{-- <form action="{{route('reserves.create',['plan_id'=>$plan->id])}}">
                             <input type="hidden" name="store_id" value="asumahotel">
                             <button class="btn btn-outline-primary btn-sm">予約</button>
-                        </form>
+                        </form> --}}
                         <a href="{{route('stores.plans.edit', ['store_id' => $store->id, 'id' => $plan->id])}}" type="submit" class="btn btn-outline-success btn-sm">編集</a>
                         {{--<a href="#"  class="btn btn-outline-danger btn-sm" id="btn_delete_plan{{$plan->room_id.$plan->id}}">削除</a> --}}
                         <form action="{{ route('stores.plans.destroy', ['store_id' => $store->id, 'id' => $plan->id]) }}" id="delete-form{{$plan->room_id.$plan->id}}" method="post">

@@ -16,17 +16,14 @@ class CreateReservesTable extends Migration
         Schema::create('reserves', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned()->index();
-            $table->bigInteger('store_id')->unsigned()->index();
-            $table->bigInteger('plan_id')->unsigned()->index();
-            $table->bigInteger('room_id')->unsigned()->index();
+            $table->bigInteger('provide_id')->unsigned()->index();
             $table->date('check_in');
             $table->date('check_out');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade');
-            $table->foreign('plan_id')->references('id')->on('plans')->onDelete('cascade');
-            $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade');
+            $table->foreign('provide_id')->references('id')->on('provides')->onDelete('cascade');
+            
         });
     }
 

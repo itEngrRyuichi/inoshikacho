@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Provide;
+use App\Models\Reserve;
+use App\Models\Plan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ReserveController extends Controller
 {
@@ -13,7 +17,8 @@ class ReserveController extends Controller
      */
     public function index()
     {
-        return view('reserves.index');
+        $reserves = Reserve::find(Auth::user()->id);
+        return view('reserves.index',['reserves'=>$reserves]);
     }
 
     /**
@@ -21,9 +26,12 @@ class ReserveController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('reserves.create');
+        $provide = Provide::where('store_id',$request->store_id)->where('plan_id',$request->plan_id)->where('room_id',$request->room_id)->get();
+        // dd($provide[0]);
+        $plan = Plan::find($request->plan_id);
+        return view('reserves.create',['provide'=>$provide[0],'plan'=>$plan]);
     }
 
     /**
@@ -34,6 +42,12 @@ class ReserveController extends Controller
      */
     public function store(Request $request)
     {
+        $reserve = New Reserve;
+        $reserve->user_id = Auth::user()->id;
+        $reserve->provide_id = $request->provide_id;
+        $reserve->check_in = $request->checkin;
+        $reserve->check_out = $request->checkout;
+        $reserve->save();
         return redirect(route('reserves.index'));
     }
 
