@@ -37,7 +37,7 @@ class UsersTableSeeder extends Seeder
             $name_alpha = $name_1_alpha[$i];
             $year=rand(1990,2010);
             $month=rand(1,12);
-            $date=rand(1,30);
+            $date=rand(1,28);
             $phone_1=rand(1000,1999);
             $phone_2=rand(1000,1999);
             $address_1=rand(1,10);
@@ -50,6 +50,12 @@ class UsersTableSeeder extends Seeder
                 'phone'=>"080-$phone_1-$phone_2",
                 'password'=>$name_alpha,
                 'address'=>"東京都新宿区$address_1-$address_2-$address_3",
+            ]);
+        }
+        for ($i=0; $i <count($name_1_images) ; $i++) { 
+            DB::table('images')->insert([
+                'user_id'=> $i+1,
+                'url'=>$name_1_images[$i],
             ]);
         }
 
@@ -76,7 +82,7 @@ class UsersTableSeeder extends Seeder
             $name_alpha = $name_2_alpha[$i];
             $year=rand(1990,2010);
             $month=rand(1,12);
-            $date=rand(1,30);
+            $date=rand(1,28);
             $phone_1=rand(1000,1999);
             $phone_2=rand(1000,1999);
             $address_1=rand(1,10);
@@ -92,7 +98,12 @@ class UsersTableSeeder extends Seeder
                                     'address'=>"東京都渋谷区$address_1-$address_2-$address_3",
         ]);
         }
-
+        for ($i=0; $i <count($name_2_images) ; $i++) { 
+            DB::table('images')->insert([
+                'user_id'=> $i+11,
+                'url'=>$name_2_images[$i],
+            ]);
+        }
 
         //会員ユーザ
         $name_3 =['猿飛ヒルゼン', '波風ミナト', '綱手', '志村ダンゾウ', 'シズネ',
@@ -128,7 +139,7 @@ class UsersTableSeeder extends Seeder
         'abumi', 'nagato', 'konan', 'itachi','kisame',
         'sasori', 'deidara', 'hidan', 'kakuto', 'zetsu',
     ];
-    $name_2_images = [
+    $name_3_images = [
         'images/users/NARUTO21-猿飛ヒルゼン.jpg',
         'images/users/NARUTO22-波風ミナト.jpg',
         'images/users/NARUTO23-綱手.png',
@@ -218,7 +229,7 @@ class UsersTableSeeder extends Seeder
             $name_alpha = $name_3_alpha[$i];
             $year=rand(1990,2010);
             $month=rand(1,12);
-            $date=rand(1,30);
+            $date=rand(1,28);
             $phone_1=rand(1000,1999);
             $phone_2=rand(1000,1999);
             $address_1=rand(1,10);
@@ -233,6 +244,12 @@ class UsersTableSeeder extends Seeder
                                     'password'=>$name_alpha,
                                     'address'=>"東京都千代田区$address_1-$address_2-$address_3",
         ]);
+        }
+        for ($i=0; $i <count($name_3_images) ; $i++) { 
+            DB::table('images')->insert([
+                'user_id'=> $i+21,
+                'url'=>$name_3_images[$i],
+            ]);
         }
     }
 }
