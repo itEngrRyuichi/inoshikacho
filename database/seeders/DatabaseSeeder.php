@@ -18,12 +18,12 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             StoreTypesTableSeeder::class,
             AreaTableSeeder::class,
-            PlansTableSeeder::class,
             PersonTypesTableSeeder::class,
             AmenityTableSeeder::class,
             StoresTableSeeder::class,
             StoreImagesTableSeeder::class,
             RoomsTableSeeder::class,
+            PlansTableSeeder::class,
         ]);
     }
 }
