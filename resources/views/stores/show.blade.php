@@ -64,7 +64,7 @@
                 </span>
             </div>
             <label for="price" class="text-muted mx-0 d-flex justify-content-end"><i class="fas fa-yen-sign pt-1"></i> 大人1名/1泊 税込 合計</label>
-            <p class="text3 mb-4 mx-0 d-flex justify-content-end">6,050<span class="text2 pt-2">円～</span> 20,350<span class="text2 pt-2">円</span></p>
+            <p class="text3 mb-4 mx-0 d-flex justify-content-end">{{number_format($store->min_pric)}}<span class="text2 pt-2">円～</span> {{number_format($store->max_price)}}<span class="text2 pt-2">円</span></p>
             <div class="d-flex mt-auto mb-3 justify-content-end">
                 <a href="/stores/{{$store->id}}#comment" class="btn btn-outline-primary btn-sm">口コミを見る</a>
                 @if ($store->user_id === Auth::user()->id)
@@ -234,7 +234,7 @@
                     <div class=" col-6 mx-0 d-inline-block">
                         <span class="text4 d-block">残り{{$plan->count_rooms}}室</span>
                         <label for="price" class="text-muted"><i class="fas fa-yen-sign"></i> 大人1名/1泊 税込 合計</label>
-                        <p class="text3">{{$plan->adult_price->price}}<span class="text2">円</span></p>
+                        <p class="text3">{{number_format($plan->adult_price->price)}}<span class="text2">円</span></p>
                     </div>
                     <div class="col-6 d-flex mt-auto mb-3 justify-content-end">
                         @if (Auth::user()->type === 3)
