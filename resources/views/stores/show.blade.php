@@ -67,8 +67,10 @@
             <p class="text3 mb-4 mx-0 d-flex justify-content-end">6,050<span class="text2 pt-2">円～</span> 20,350<span class="text2 pt-2">円</span></p>
             <div class="d-flex mt-auto mb-3 justify-content-end">
                 <a href="/stores/{{$store->id}}#comment" class="btn btn-outline-primary btn-sm">口コミを見る</a>
-                <a href="/stores/{{$store->id}}/edit" class="btn btn-outline-success btn-sm">編集</a>
-                <a href="/stores/{{$store->id}}/delete" class="btn btn-outline-danger btn-sm">削除</a>
+                @if ($store->user_id === Auth::user()->id)
+                    <a href="/stores/{{$store->id}}/edit" class="btn btn-outline-success btn-sm">編集</a>
+                    <a href="/stores/{{$store->id}}/delete" class="btn btn-outline-danger btn-sm">削除</a>
+                @endif
             </div>
         </div>
     </div>
@@ -102,6 +104,7 @@
             <button type="submit" class="btn btn-outline-primary">検索する</button>
         </div>
     </form>
+    @if ($store->user_id === Auth::user()->id)
     <p class="pt-4 sub-title">店舗管理</p>
     <div class="add-action-wrapper mx-0 mb-4 py-4 d-block">
         <a href="{{route('stores.rooms.create', $store->id)}}" class="btn btn-outline-primary d-inline">部屋を追加する</a>
@@ -155,6 +158,7 @@
         </div>
         </div>
     </div>
+    @endif
 
     <p class="pt-4 sub-title">プラン一覧</p>
     @foreach ($plans as $plan)
@@ -233,11 +237,16 @@
                         <p class="text3">{{$plan->adult_price->price}}<span class="text2">円</span></p>
                     </div>
                     <div class="col-6 d-flex mt-auto mb-3 justify-content-end">
-                        <a href="{{route('reserves.create', ['store_id' => $store->id, 'plan_id' => $plan->id, 'room_id'=>$room->id])}}" type="submit" class="btn btn-outline-success btn-sm">予約</a>
-                        {{-- <form action="{{route('reserves.create',['plan_id'=>$plan->id])}}">
+
+                        @if (Auth::user()->type === 3)
+                        {{-- <form action="/reserves/create">
                             <input type="hidden" name="store_id" value="asumahotel">
                             <button class="btn btn-outline-primary btn-sm">予約</button>
                         </form> --}}
+                        <a href="{{route('reserves.create', ['store_id' => $store->id, 'plan_id' => $plan->id, 'room_id'=>$room->id])}}" type="submit" class="btn btn-outline-success btn-sm">予約</a>
+                        @endif
+                        @if ($store->user_id === Auth::user()->id)
+
                         <a href="{{route('stores.plans.edit', ['store_id' => $store->id, 'id' => $plan->id])}}" type="submit" class="btn btn-outline-success btn-sm">編集</a>
                         {{--<a href="#"  class="btn btn-outline-danger btn-sm" id="btn_delete_plan{{$plan->room_id.$plan->id}}">削除</a> --}}
                         <form action="{{ route('stores.plans.destroy', ['store_id' => $store->id, 'id' => $plan->id]) }}" id="delete-form{{$plan->room_id.$plan->id}}" method="post">
@@ -256,6 +265,7 @@
                             }
                             });
                     </script> --}}
+                        @endif
                     </div>
                 </div>
             </div>
@@ -264,6 +274,7 @@
 
     <div class="comment-wrapper mx-0 mb-4 py-4 row">
         <p class="pt-4 sub-title" id="comment">口コミ</p>
+        @if (Auth::user()->type === 3)
         <form action="{{ route('stores.comments.store', $store->id)}}" method="post" class="py-4">
             @csrf
             <p class="text2">コメントする</p>
@@ -275,10 +286,11 @@
                 <button class="btn btn-outline-primary" type="submit">投稿</button>
             </div>
         </form>
+        @endif
         @foreach ($comments as $comment)
         <div class="row comments">
             <div class="col-3">
-                <img src="{{asset('images/users/asuma.png')}}" class="rounded-circle" alt="user-image">
+                <img src="{{ asset('storage/'.$comment->url) }}" class="rounded-circle" alt="user-image">
                 <span class="mx-2 text1">{{$comment->user->name}}</span>
             </div>
             <div class="col-7">

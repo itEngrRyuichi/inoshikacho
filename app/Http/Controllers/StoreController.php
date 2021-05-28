@@ -112,7 +112,10 @@ class StoreController extends Controller
         $store = Store::find($id);
         $rooms = Room::where('store_id', '=', $id)->get();
         $images = Image::where('store_id', '=', $id)->get();
-        $comments = Comment::where('store_id', '=', $id)->get();
+        $comments = Comment::where('comments.store_id', '=', $id)
+                        ->join('users', 'comments.user_id', '=', 'users.id')
+                        ->join('images', 'users.id', '=', 'images.user_id')
+                        ->get();
 
         $plans = Plan::join('provides', 'plans.id', '=', 'provides.plan_id')
                         ->join('rooms', 'provides.room_id', '=', 'rooms.id')
