@@ -2,18 +2,25 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< HEAD
+=======
 use Illuminate\Support\Facades\Auth;
+>>>>>>> seeder
 use App\Models\Amenity;
 use App\Models\Store;
 use App\Models\Area;
 use App\Models\StoreType;
 use App\Models\Image;
 use App\Models\Room;
+<<<<<<< HEAD
+use App\Models\Plan;
+=======
 use App\Models\Comment;
 use App\Models\Provide;
 use App\Models\Price;
 use App\Models\PersonType;
 use \App\Models\Plan;
+>>>>>>> seeder
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -215,7 +222,11 @@ class StoreController extends Controller
 
 
         // 各プランの値段
+<<<<<<< HEAD
+        return view('stores.show', $answer);
+=======
         return view('stores.show', $results);
+>>>>>>> seeder
     }
 
     /**

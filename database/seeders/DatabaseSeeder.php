@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
             PlansTableSeeder::class,
             PersonTypesTableSeeder::class,
             AmenityTableSeeder::class,
+            StoresTableSeeder::class,
+            StoreImagesTableSeeder::class,
         ]);
     }
 }
