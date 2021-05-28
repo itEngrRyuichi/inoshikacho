@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 use App\Models\Comment;
 
 class StoreCommentController extends Controller
@@ -19,7 +19,7 @@ class StoreCommentController extends Controller
         $comment = new Comment;
         $comment->comment = $request->comment;
         $comment->store_id = $store_id;
-        $comment->user_id = 1;
+        $comment->user_id = Auth::user()->id;
         $comment->save();
         return redirect(route('stores.show', $store_id));
     }

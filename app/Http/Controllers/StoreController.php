@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use App\Models\Amenity;
 use App\Models\Store;
 use App\Models\Area;
@@ -54,6 +55,7 @@ class StoreController extends Controller
         // 店舗追加
         $store = new Store;
         $store->store_name = $request->store_name;
+        $store->user_id = Auth::user()->id;
         $store->postal = $request->postal;
         $store->address = $request->address;
         $store->phone = $request->phone;
