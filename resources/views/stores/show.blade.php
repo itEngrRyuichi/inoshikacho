@@ -112,7 +112,8 @@
             部屋一覧
         </button>
         <a href="{{route('stores.plans.create', $store->id)}}" class="btn btn-outline-primary d-inline">プランを追加する</a>
-
+        <a href="{{route('stores.reserves.index', $store->id)}}" class="btn btn-outline-primary d-inline">予約一覧</a>
+        
         <div class="modal fade" id="roomsModal" tabindex="-1" aria-labelledby="roomsModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -137,7 +138,12 @@
                                 <th scope="row">{{$room->id}}</th>
                                 <td>{{$room->room_name}}</td>
                                 <td>{{$room->capacity}}</td>
-                                <td>{{$room->created_at->format('Y年m月d日')}}</td>
+                                @if ($room->created_at!=null)
+                                    <td>{{$room->created_at->format('Y年m月d日')}}</td>
+                                @else
+                                    <td>{{$room->created_at}}</td>
+                                @endif
+                                
                                 <td>
                                     <a href="/stores/{{$store->id}}/rooms/{{$room->id}}/edit" class="btn btn-outline-success btn-sm">編集</a>
                                     <form action="{{ route('stores.rooms.destroy', ['store_id' => $store->id, 'id' => $room->id]) }}" method="post" id="delete-form">
@@ -304,12 +310,7 @@
                 </form>
             </div>
         </div>
-<<<<<<< HEAD
     </div> --}}
-=======
-        @endforeach
-    </div>
->>>>>>> seeder
 </div>
 
 @endsection
