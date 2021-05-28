@@ -269,7 +269,7 @@
         </div>
     @endforeach
 
-    <div class="comment-wrapper mx-0 mb-4 py-4 row">
+    {{-- <div class="comment-wrapper mx-0 mb-4 py-4 row">
         <p class="pt-4 sub-title" id="comment">口コミ</p>
         @if (Auth::user()->type === 3)
         <form action="{{ route('stores.comments.store', $store->id)}}" method="post" class="py-4">
@@ -301,8 +301,12 @@
                 </form>
             </div>
         </div>
+<<<<<<< HEAD
+    </div> --}}
+=======
         @endforeach
     </div>
+>>>>>>> seeder
 </div>
 
 @endsection
