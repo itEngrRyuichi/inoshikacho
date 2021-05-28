@@ -33,7 +33,7 @@
             @foreach ($person_types as $person_type)
                 <div class="input-group mb-3 row">
                     <span class="input-group-text col-8" id="type{{$person_type->id}}">{{$person_type->person_types}}</span>
-                    <input type="number" class="form-control col-4" name="type{{$person_type->id}}">
+                    <input type="number" class="form-control col-4" name="type{{$person_type->id}}" required>
                 </div>
             @endforeach
         </div>

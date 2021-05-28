@@ -17,7 +17,15 @@ class ReserveController extends Controller
      */
     public function index()
     {
-        $reserves = Reserve::find(Auth::user()->id);
+        // サイト管理ユーザ
+        $reserves = Reserve::join('provides', 'provides.id', '=', 'reserves.provide_id')
+                            ->join('peoples', 'reserves.id','=','peoples.reserve_id')
+                            ->join('users', 'reserves.user_id','=','users.id')
+                            ->with('store')
+                            // ->where('user_id',Auth::id())
+                            ->get();
+        
+        // dd($reserves);
         return view('reserves.index',['reserves'=>$reserves]);
     }
 

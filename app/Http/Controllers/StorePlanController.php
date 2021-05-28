@@ -19,7 +19,7 @@ class StorePlanController extends Controller
      */
     public function create($store_id)
     {
-        $rooms = Room::where('store_id', $store_id)->get();
+        $rooms = Room::where('store_id', $store_id)->orderBy('room_name','asc')->get();
         $person_types = PersonType::all();
         return view('stores.plans.create', ['store_id' => $store_id, 'rooms' => $rooms, 'person_types' => $person_types]);
     }

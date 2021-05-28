@@ -134,7 +134,7 @@ class StoreController extends Controller
     public function show($id)
     {
         $store = Store::find($id);
-        $rooms = Room::where('store_id', '=', $id)->get();
+        $rooms = Room::where('store_id', '=', $id)->orderBy('room_name','asc')->get();
         $images = Image::where('store_id', '=', $id)->get();
         $comments = Comment::where('comments.store_id', '=', $id)
                         ->join('users', 'comments.user_id', '=', 'users.id')
@@ -212,7 +212,6 @@ class StoreController extends Controller
             'plans' => $plans,
             'comments' => $comments
             ];
-
 
         // 各プランの値段
         return view('stores.show', $results);
