@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 
 class RoomsTableSeeder extends Seeder
@@ -14,33 +14,33 @@ class RoomsTableSeeder extends Seeder
     public function run()
     {
         $rooms=[
-            ['room_name'=>'シングルルーム'],
-            ['room_name'=>'ダブルルーム'],
-            ['room_name'=>'ツインルーム'],
-            ['room_name'=>'トリプルルーム'],
-            ['room_name'=>'クアッドルーム'],
-            ['room_name'=>'和室'],
-            ['room_name'=>'洋室'],
-            ['room_name'=>'和洋室'],
+            'シングルルーム',
+            'ダブルルーム',
+            'ツインルーム',
+            'トリプルルーム',
+            'クアッドルーム',
+            '和室',
+            '洋室',
+            '和洋室',
         ];
         $capacities=[
-            ['capacity'=>'1'],
-            ['capacity'=>'2'],
-            ['capacity'=>'2'],
-            ['capacity'=>'3'],
-            ['capacity'=>'4'],
-            ['capacity'=>'4'],
-            ['capacity'=>'5'],
-            ['capacity'=>'6'],
+            '1',
+            '2',
+            '2',
+            '3',
+            '4',
+            '4',
+            '5',
+            '6',
         ];
         for ($x=0; $x <1 ; $x++) { 
             for ($y=0; $y <5 ; $y++) { 
                 $room_number = $y+101;
                 for ($i=0; $i < count($rooms); $i++) {
                     DB::table('rooms')->insert([
-                        'room_id'=>$x+1,
-                        $capacities[$i],
-                        'room_name' => "$rooms[$i] $room_number"
+                        'store_id'=>$x+1,
+                        'capacity'=>$capacities[$i],
+                        'room_name' => "$rooms[$i] $room_number 号室"
                     ]);
                 }
             }
