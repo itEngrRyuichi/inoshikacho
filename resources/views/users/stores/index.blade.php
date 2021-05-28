@@ -14,13 +14,13 @@
                 </ol>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img src="{{ asset('images/stores/hotel1.jpg') }}" class="store-pic" alt="store-pic">
+                    <img src="{{ asset('storage/images/stores/hotel1.jpg') }}" class="store-pic" alt="store-pic">
                   </div>
                   <div class="carousel-item">
-                    <img src="{{ asset('images/stores/hotel2.jpg') }}" class="store-pic" alt="store-pic">
+                    <img src="{{ asset('storage/images/stores/hotel2.jpg') }}" class="store-pic" alt="store-pic">
                   </div>
                   <div class="carousel-item">
-                    <img src="{{ asset('images/stores/hotel3.jpg') }}" class="store-pic" alt="store-pic">
+                    <img src="{{ asset('storage/images/stores/hotel3.jpg') }}" class="store-pic" alt="store-pic">
                   </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselStore" role="button" data-bs-slide="prev">

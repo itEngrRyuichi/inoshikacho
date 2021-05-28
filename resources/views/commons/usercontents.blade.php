@@ -1,6 +1,6 @@
 
     <div class="mb-3 row justify-content-center">
-        <img src="{{asset('images/users/shikamaru.jpg')}}" class="rounded-circle" alt="user-image">
+        <img src="{{asset('storage/'.Auth::user()->images[0]->url)}}" class="rounded-circle" alt="user-image">
         <span class="text-muted user-type text-center">会員ユーザー</span>
     </div>
     <div class="mb-3 col-6 offset-3 row">

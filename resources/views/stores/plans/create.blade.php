@@ -40,15 +40,15 @@
         <div class="img-plan-wrapper row">
             <div class="col-4">
                 <label for="select-image1" class="text1 text-center select-label">画像を選択してください <input type="file" id="select-image1" multiple accept="image/*" class="d-none" name="select-image1"></label>
-                <img src="{{ asset('images/no-img.png') }}" alt="plan-pic1" class="plan-pic" id="file-preview1">
+                <img src="{{ asset('storage/images/no-img.png') }}" alt="plan-pic1" class="plan-pic" id="file-preview1">
             </div>
             <div class="col-4">
                 <label for="select-image2" class="text1 text-center select-label">画像を選択してください <input type="file" id="select-image2" multiple accept="image/*" class="d-none" name="select-image2"></label>
-                <img src="{{ asset('images/no-img.png') }}" alt="plan-pic2" class="plan-pic" id="file-preview2">
+                <img src="{{ asset('storage/images/no-img.png') }}" alt="plan-pic2" class="plan-pic" id="file-preview2">
             </div>
             <div class="col-4">
                 <label for="select-image3" class="text1 text-center select-label">画像を選択してください <input type="file" id="select-image3" multiple accept="image/*" class="d-none" name="select-image3"></label>
-                <img src="{{ asset('images/no-img.png') }}" alt="plan-pic3" class="plan-pic" id="file-preview3">
+                <img src="{{ asset('storage/images/no-img.png') }}" alt="plan-pic3" class="plan-pic" id="file-preview3">
             </div>
         </div>
         <script type="text/javascript">

@@ -239,32 +239,16 @@
                     <div class="col-6 d-flex mt-auto mb-3 justify-content-end">
 
                         @if (Auth::user()->type === 3)
-                        {{-- <form action="/reserves/create">
-                            <input type="hidden" name="store_id" value="asumahotel">
-                            <button class="btn btn-outline-primary btn-sm">予約</button>
-                        </form> --}}
                         <a href="{{route('reserves.create', ['store_id' => $store->id, 'plan_id' => $plan->id, 'room_id'=>$room->id])}}" type="submit" class="btn btn-outline-success btn-sm">予約</a>
                         @endif
                         @if ($store->user_id === Auth::user()->id)
 
                         <a href="{{route('stores.plans.edit', ['store_id' => $store->id, 'id' => $plan->id])}}" type="submit" class="btn btn-outline-success btn-sm">編集</a>
-                        {{--<a href="#"  class="btn btn-outline-danger btn-sm" id="btn_delete_plan{{$plan->room_id.$plan->id}}">削除</a> --}}
                         <form action="{{ route('stores.plans.destroy', ['store_id' => $store->id, 'id' => $plan->id]) }}" id="delete-form{{$plan->room_id.$plan->id}}" method="post">
                             @csrf
                             @method('delete')
                             <button type="submit" class="btn btn-outline-danger btn-sm">削除</a>
                         </form>
-                        {{-- <script type="text/javascript">
-                            const name = '{{$plan}}';
-                            const delete_btn = document.getElementsByClassName('btn_delete_plan'+name);
-                            const delete_form = document.getElementsByClassName('delete-form'+name);
-                            delete_btn.addEventListener('click', (e) => {
-                                e.preventDefault();
-                                if(window.confirm('本当に削除しますか？')){
-                                delete_form.submit();
-                            }
-                            });
-                    </script> --}}
                         @endif
                     </div>
                 </div>
@@ -272,7 +256,7 @@
         </div>
     @endforeach
 
-    {{-- <div class="comment-wrapper mx-0 mb-4 py-4 row">
+    <div class="comment-wrapper mx-0 mb-4 py-4 row">
         <p class="pt-4 sub-title" id="comment">口コミ</p>
         @if (Auth::user()->type === 3)
         <form action="{{ route('stores.comments.store', $store->id)}}" method="post" class="py-4">
@@ -304,12 +288,8 @@
                 </form>
             </div>
         </div>
-<<<<<<< HEAD
-    </div> --}}
-=======
         @endforeach
     </div>
->>>>>>> seeder
 </div>
 
 @endsection

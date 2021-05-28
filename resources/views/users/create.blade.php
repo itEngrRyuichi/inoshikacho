@@ -42,7 +42,6 @@
             </div>
             <div class="input-group mb-3 row">
                 @if ($pagetype =='create')
-                    {{-- Auth ログインされてたら表示 --}}
                     @auth
                         <select name="type" id="type" class="form-select" required>
                             <option value=""></option>

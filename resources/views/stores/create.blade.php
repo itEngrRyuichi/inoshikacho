@@ -35,14 +35,14 @@
             <div class="mb-3 row px-0">
                 <div class="col-8 px-0">
                     <label for="select-image" class="text1 text-center select-label">画像を選択してください <input type="file" id="select-image" multiple accept="image/*" class="d-none" name="select-image"></label>
-                    <img src="{{ asset('images/no-img.png') }}" alt="main-store-pic" class="main-store-pic" id="file-preview">
+                    <img src="{{ asset('storage/images/no-img.png') }}" alt="main-store-pic" class="main-store-pic" id="file-preview">
                 </div>
                 <div class="col-4 pr-0">
                     <label for="select-image1" class="text1 text-center select-label">画像を選択してください <input type="file" id="select-image1" multiple accept="image/*" class="d-none" name="select-image1"></label>
-                    <img src="{{ asset('images/no-img.png') }}" alt="sub1-store-pic" class="sub-store-pic" id="file-preview1">
+                    <img src="{{ asset('storage/images/no-img.png') }}" alt="sub1-store-pic" class="sub-store-pic" id="file-preview1">
 
                     <label for="select-image2" class="text1 text-center select-label">画像を選択してください <input type="file" id="select-image2" multiple accept="image/*" class="d-none" name="select-image2"></label>
-                    <img src="{{ asset('images/no-img.png') }}" alt="sub1-store-pic" class="sub-store-pic" id="file-preview2">
+                    <img src="{{ asset('storage/images/no-img.png') }}" alt="sub1-store-pic" class="sub-store-pic" id="file-preview2">
                 </div>
                 <script type="text/javascript">
                     document.getElementById('select-image').addEventListener('change', function (e) {
