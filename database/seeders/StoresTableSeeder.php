@@ -37,13 +37,7 @@ class StoresTableSeeder extends Seeder
             ]);
         }
         $store_image = [
-            'images/stores/hotel1.jpg',
-            'images/stores/hotel1.jpg',
-            'images/stores/hotel1.jpg',
-            'images/stores/hotel1.jpg',
-            'images/stores/hotel1.jpg',
-            'images/stores/hotel1.jpg',
-            'images/stores/hotel1.jpg'
+            ['images/stores/hotel1.jpg', 'images/stores/hotel2.jpg', 'images/stores/hotel3.jpg']
         ];
         for ($i=0; $i < 15; $i++) {
             DB::table('images')->insert([
