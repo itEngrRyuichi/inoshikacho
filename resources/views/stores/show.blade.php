@@ -214,7 +214,7 @@
                     <span class="text2">{{$plan->plan_name}}</span>
                 </div>
                 <div class="mx-0 d-inline">
-                    <span class="text-muted type">{{$plan->room_capacity->capacity}}部屋</span>
+                    <span class="text-muted type">大人{{$plan->room_capacity->capacity}}人まで</span>
                     <span class="text-muted type">{{$plan->room_name}}</span>
                 </div>
                 <div class="mb-2 mx-0 d-block">
@@ -245,7 +245,7 @@
                     <div class="col-6 d-flex mt-auto mb-3 justify-content-end">
 
                         @if (Auth::user()->type === 3)
-                        <a href="{{route('reserves.create', ['store_id' => $store->id, 'plan_id' => $plan->id, 'room_id'=>$room->id])}}" type="submit" class="btn btn-outline-success btn-sm">予約</a>
+                        <a href="{{route('reserves.create', ['store_id' => $store->id, 'plan_id' => $plan->id, 'room_id'=>$plan->room_id])}}" type="submit" class="btn btn-outline-success btn-sm">予約</a>
                         @endif
                         @if ($store->user_id === Auth::user()->id)
 

@@ -156,10 +156,8 @@ class StoreController extends Controller
             $store->max_price = 0;
             $store->min_price = 0;
         } else {
-            $max_price = max($prices_array);
-            $min_price = min($prices_array);
-            $store->max_price = $max_price;
-            $store->min_price = $min_price;
+            $store->max_price = max($prices_array);
+            $store->min_price = min($prices_array);
         }
 
         $plans = Plan::join('provides', 'plans.id', '=', 'provides.plan_id')
