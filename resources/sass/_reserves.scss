@@ -1,0 +1,27 @@
+.create-reserve-container{
+    label, .text1, .text2, .text3, .text4, .area-type, tr, td{
+        font-family: $default-nihongo-fontfamily;
+    }
+    .text1, .text2, .text3, tr, td, label{
+        color: $default-dark-color !important;
+    }
+    input, .type, tr, td{
+        font-size: 12px;
+    }
+    .text1{
+        font-size: 13px;
+    }
+    .text2{
+        font-size: 15px;
+    }
+    .text3{
+        font-size: 25px;
+    }
+    .text4{
+        color: #e57373;
+        font-size: 15px;
+    }
+    label{
+        font-size: 13px;
+    }
+}

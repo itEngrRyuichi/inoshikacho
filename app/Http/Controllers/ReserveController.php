@@ -2,11 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Provide;
-use App\Models\Reserve;
-use App\Models\Plan;
-use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Auth;
+use App\Models\Reserve;
+use App\Models\Amenity;
+use App\Models\Store;
+use App\Models\Area;
+use App\Models\StoreType;
+use App\Models\Image;
+use App\Models\Room;
+use App\Models\Comment;
+use App\Models\Provide;
+use App\Models\Price;
+use App\Models\PersonType;
+use \App\Models\Plan;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class ReserveController extends Controller
 {
@@ -24,7 +37,7 @@ class ReserveController extends Controller
                             ->with('store')
                             // ->where('user_id',Auth::id())
                             ->get();
-        
+
         // dd($reserves);
         return view('reserves.index',['reserves'=>$reserves]);
     }
@@ -36,10 +49,21 @@ class ReserveController extends Controller
      */
     public function create(Request $request)
     {
-        $provide = Provide::where('store_id',$request->store_id)->where('plan_id',$request->plan_id)->where('room_id',$request->room_id)->get();
-        // dd($provide[0]);
+        $provide = Provide::where('store_id', $request->store_id)->where('plan_id', $request->plan_id)->where('room_id', $request->room_id)->first();
+        $store = Store::find($request->store_id);
         $plan = Plan::find($request->plan_id);
-        return view('reserves.create',['provide'=>$provide[0],'plan'=>$plan]);
+        $room = Room::find($request->room_id);
+        $amenities = Amenity::where('room_id', $request->room_id)->get();
+        $person_types = PersonType::all();
+        $results = [
+            'provide' => $provide,
+            'store' => $store,
+            'plan' => $plan,
+            'room' => $room,
+            'amenities' => $amenities,
+            'person_types' => $person_types
+        ];
+        return view('reserves.create', $results);
     }
 
     /**

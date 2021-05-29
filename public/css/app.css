@@ -15990,6 +15990,32 @@ nav .profileDropdown ul.dropdown-menu .dropdown-item.user-type:hover {
   height: 13px;
 }
 
+.create-reserve-container label, .create-reserve-container .text1, .create-reserve-container .text2, .create-reserve-container .text3, .create-reserve-container .text4, .create-reserve-container .area-type, .create-reserve-container tr, .create-reserve-container td {
+  font-family: "Kosugi Maru", sans-serif;
+}
+.create-reserve-container .text1, .create-reserve-container .text2, .create-reserve-container .text3, .create-reserve-container tr, .create-reserve-container td, .create-reserve-container label {
+  color: #3e2723 !important;
+}
+.create-reserve-container input, .create-reserve-container .type, .create-reserve-container tr, .create-reserve-container td {
+  font-size: 12px;
+}
+.create-reserve-container .text1 {
+  font-size: 13px;
+}
+.create-reserve-container .text2 {
+  font-size: 15px;
+}
+.create-reserve-container .text3 {
+  font-size: 25px;
+}
+.create-reserve-container .text4 {
+  color: #e57373;
+  font-size: 15px;
+}
+.create-reserve-container label {
+  font-size: 13px;
+}
+
 footer.footer {
   text-align: center;
 }
