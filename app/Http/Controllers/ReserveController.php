@@ -12,6 +12,7 @@ use App\Models\StoreType;
 use App\Models\Image;
 use App\Models\Room;
 use App\Models\Comment;
+use App\Models\People;
 use App\Models\Provide;
 use App\Models\Price;
 use App\Models\PersonType;
@@ -55,13 +56,33 @@ class ReserveController extends Controller
         $room = Room::find($request->room_id);
         $amenities = Amenity::where('room_id', $request->room_id)->get();
         $person_types = PersonType::all();
+        $check_in = date("Y-m-d", strtotime("+1 day"));
+        $check_out = date("Y-m-d", strtotime("+2 day"));
+        $adult_number = 2;
+        $middle_number = 0;
+        $child_number = 0;
+        $baby_number = 0;
+        $adult_price = Price::where('plan_id', $request->plan_id)->where('person_type_id', 1)->first();
+        $middle_price = Price::where('plan_id', $request->plan_id)->where('person_type_id', 2)->first();
+        $child_price = Price::where('plan_id', $request->plan_id)->where('person_type_id', 3)->first();
+        $baby_price = Price::where('plan_id', $request->plan_id)->where('person_type_id', 4)->first();
         $results = [
             'provide' => $provide,
             'store' => $store,
             'plan' => $plan,
             'room' => $room,
             'amenities' => $amenities,
-            'person_types' => $person_types
+            'person_types' => $person_types,
+            'adult_number' => $adult_number,
+            'middle_number' => $middle_number,
+            'child_number' => $child_number,
+            'baby_number' => $baby_number,
+            'adult_price' => $adult_price,
+            'middle_price' => $middle_price,
+            'child_price' => $child_price,
+            'baby_price' => $baby_price,
+            'check_in' => $check_in,
+            'check_out' => $check_out
         ];
         return view('reserves.create', $results);
     }
@@ -80,7 +101,32 @@ class ReserveController extends Controller
         $reserve->check_in = $request->checkin;
         $reserve->check_out = $request->checkout;
         $reserve->save();
-        return redirect(route('reserves.index'));
+
+        $adult = New People;
+        $adult->reserve_id = $reserve->id;
+        $adult->person_type_id = 1;
+        $adult->number = $request->adult_number;
+        $adult->save();
+
+        $middle = New People;
+        $middle->reserve_id = $reserve->id;
+        $middle->person_type_id = 2;
+        $middle->number = $request->middle_number;
+        $middle->save();
+
+        $child = New People;
+        $child->reserve_id = $reserve->id;
+        $child->person_type_id = 3;
+        $child->number = $request->child_number;
+        $child->save();
+
+        $baby = New People;
+        $baby->reserve_id = $reserve->id;
+        $baby->person_type_id = 4;
+        $baby->number = $request->baby_number;
+        $baby->save();
+
+        return redirect(route('stores.index'));
     }
 
     /**
