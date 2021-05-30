@@ -21,5 +21,12 @@
             </div>
         </div>
     </form>
+    <script type="text/javascript">
+        ScrollReveal().reveal('.login-container', {
+            duration: 1600,
+            origin: 'right',
+            distance: '150px',
+        });
+    </script>
 </div>
 @endsection

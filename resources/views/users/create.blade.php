@@ -121,6 +121,13 @@
         </div>
     </form>
 </div>
+<script type="text/javascript">
+    ScrollReveal().reveal('.create-user-container', {
+        duration: 1600,
+        origin: 'right',
+        distance: '150px',
+    });
+</script>
 @endsection
 
 

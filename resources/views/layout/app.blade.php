@@ -7,6 +7,7 @@
     <title>{{ config('app.name') }}</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 <body>
     @include('commons.nav')

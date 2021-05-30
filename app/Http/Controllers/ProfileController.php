@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Models\Image;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -56,7 +57,6 @@ class ProfileController extends Controller
         $recentPath = $user_image->url;
 
         if( isset($image) === true ){
-            Storage::delete('/images/users' . $recentPath);
             $user_image->url = $image->store('images/users', 'public');
         }
         $user_image->save();

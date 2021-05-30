@@ -76,6 +76,19 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        ScrollReveal().reveal('.store-wrapper', {
+            duration: 1600,
+            origin: 'right',
+            distance: '150px',
+        });
+        ScrollReveal().reveal('.carousel', {
+            duration: 1800,
+        });
+        ScrollReveal().reveal('.store-contents', {
+            duration: 1800,
+        });
+    </script>
     <p class="pt-4 sub-title">アスマホテルの宿泊プランを探す</p>
     <form class="reserve-search-wrapper mx-0 mb-4 py-4 px-2 row">
         <div class="col-2 offset-1">
@@ -106,6 +119,14 @@
             <button type="submit" class="btn btn-outline-primary">検索する</button>
         </div>
     </form>
+    <script type="text/javascript">
+        ScrollReveal().reveal('.reserve-search-wrapper', {
+            duration: 1600,
+            origin: 'right',
+            distance: '150px',
+            reset: true
+        });
+    </script>
     @if(Auth::check())
     @if ($store->user_id === Auth::user()->id)
     <p class="pt-4 sub-title">店舗管理</p>
@@ -170,7 +191,6 @@
     </div>
     @endif
     @endif
-
     <p class="pt-4 sub-title">プラン一覧</p>
     @include('commons.pagination3')
     @foreach ($plans as $plan)
@@ -215,7 +235,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-8">
+            <div class="col-8 plan-contents">
                 <div class="mx-0 mb-2 d-block">
                     <span class="text2">{{$plan->plan_name}}</span>
                 </div>
@@ -267,7 +287,19 @@
         </div>
         @endforeach
     @include('commons.pagination3')
-
+    <script type="text/javascript">
+        ScrollReveal().reveal('.plan-wrapper', {
+            duration: 1600,
+            origin: 'right',
+            distance: '150px',
+        });
+        ScrollReveal().reveal('.carousel', {
+            duration: 1800,
+        });
+        ScrollReveal().reveal('.plan-contents', {
+            duration: 1800,
+        });
+    </script>
     <div class="comment-wrapper mx-0 mb-4 py-4 row">
         <p class="pt-4 sub-title" id="comment">口コミ</p>
         @if(Auth::check())

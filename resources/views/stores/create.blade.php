@@ -104,5 +104,12 @@
     </div>
 
 </div>
+<script type="text/javascript">
+    ScrollReveal().reveal('.create-store-container', {
+        duration: 1600,
+        origin: 'right',
+        distance: '150px',
+    });
+</script>
 
 @endsection

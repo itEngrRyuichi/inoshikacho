@@ -15754,7 +15754,6 @@ nav .profileDropdown ul.dropdown-menu .dropdown-item.user-type:hover {
   border-radius: 10px;
   min-height: 58vh;
   max-height: 58vh;
-  overflow-y: scroll;
   cursor: pointer;
 }
 .store-index-container .store-wrapper a {

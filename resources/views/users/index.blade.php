@@ -40,7 +40,7 @@
                 </thead>
                 <tbody>
                     @foreach($users as $user)
-                    <tr onclick="frameClick({{$user->id}})">
+                    <tr onclick="frameClick({{$user->id}})" class="user">
                         <th scope="row">{{$user->id}}</th>
                         <td>
                             @if ($user->type == 1)
@@ -73,5 +73,11 @@
     function frameClick($user_id) {
       document.location.href = "/users/" + $user_id;
     }
+    ScrollReveal().reveal('.user', {
+        duration: 1600,
+        origin: 'right',
+        distance: '150px',
+    });
 </script>
+
 @endsection

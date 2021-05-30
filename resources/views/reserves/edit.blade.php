@@ -199,5 +199,12 @@
             <button class="btn btn-outline-primary" type="submit">編集</button>
         </div>
     </form>
+    <script type="text/javascript">
+        ScrollReveal().reveal('.create-reserve-container', {
+            duration: 1600,
+            origin: 'right',
+            distance: '150px',
+        });
+    </script>
 </div>
 @endsection

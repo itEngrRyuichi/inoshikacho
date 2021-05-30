@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container content plan-create-container pb-4">
-    <p class="py-4 text-center title">プランを追加する</p>
+    <p class="py-4 text-center title">プランを編集する</p>
     <form class="plan-content-wrapper row" action="{{route('stores.plans.update', ['store_id' => $store_id, 'id' => $plan->id])}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('put')
@@ -89,4 +89,11 @@
         </div>
     </form>
 </div>
+<script type="text/javascript">
+    ScrollReveal().reveal('.plan-create-container', {
+        duration: 1600,
+        origin: 'right',
+        distance: '150px',
+    });
+</script>
 @endsection

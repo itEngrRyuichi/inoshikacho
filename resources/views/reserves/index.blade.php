@@ -16,7 +16,7 @@
         </thead>
         <tbody>
             @foreach($reserves as $reserve)
-                <tr>
+                <tr class="reserve">
                     <td>{{$reserve->reserve_id}}</td>
                     <td><a href="users/{{$reserve->user_id}}" class="text1">
                         <img src="{{ asset('storage/'.$reserve->url) }}" class="rounded-circle" alt="user-image">
@@ -37,5 +37,15 @@
             @endforeach
         </tbody>
     </table>
+    <script type="text/javascript">
+        function frameClick($user_id) {
+          document.location.href = "/users/" + $user_id;
+        }
+        ScrollReveal().reveal('.reserve', {
+            duration: 1600,
+            origin: 'right',
+            distance: '150px',
+        });
+    </script>
 </div>
 @endsection

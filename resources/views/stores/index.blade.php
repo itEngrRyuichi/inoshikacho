@@ -44,6 +44,14 @@
             <button class="btn btn-outline-secondary" type="submit">検索</button>
         </div>
     </form>
+    <script type="text/javascript">
+        ScrollReveal().reveal('.store-search-wrapper', {
+            duration: 1600,
+            origin: 'right',
+            distance: '150px',
+            reset: true
+        });
+    </script>
     @foreach ($stores as $store)
         <div class="row store-wrapper mx-0 mb-2 py-4">
             <div class="col-6 mx-0">
@@ -75,7 +83,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-6 mx-0">
+            <div class="col-6 mx-0 store-contents">
                 <div class="mx-0 d-block">
                     <span class="text-muted type">{{$store->area->area_name}}</span>
                     <span class="text-muted type">{{$store->storeType->store_type_name}}</span>
@@ -134,6 +142,19 @@
             </div>
         </div>
     @endforeach
+    <script type="text/javascript">
+        ScrollReveal().reveal('.store-wrapper', {
+            duration: 1600,
+            origin: 'right',
+            distance: '150px',
+        });
+        ScrollReveal().reveal('.carousel', {
+            duration: 1800,
+        });
+        ScrollReveal().reveal('.store-contents', {
+            duration: 1800,
+        });
+    </script>
 
 </div>
 

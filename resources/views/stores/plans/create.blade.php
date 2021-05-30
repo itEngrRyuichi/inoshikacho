@@ -70,6 +70,11 @@
                 var img = document.getElementById('file-preview3');
                 img.src = blobUrl;
             });
+            ScrollReveal().reveal('.plan-create-container', {
+                duration: 1600,
+                origin: 'right',
+                distance: '150px',
+            });
         </script>
         <div class="d-flex justify-content-center mt-4">
             <button class="btn btn-outline-primary" type="submit">作成</button>

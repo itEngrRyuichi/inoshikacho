@@ -102,8 +102,14 @@
         <div class="col-2 offset-5 my-4">
             <button class="btn btn-outline-success w-100" type="submit">編集</button>
         </div>
-    </div>
-
+    </form>
+    <script type="text/javascript">
+        ScrollReveal().reveal('.create-store-container', {
+            duration: 1600,
+            origin: 'right',
+            distance: '150px',
+        });
+    </script>
 </div>
 
 @endsection

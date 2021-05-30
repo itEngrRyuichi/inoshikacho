@@ -100,6 +100,11 @@
             delete_form.submit();
         }
         });
+        ScrollReveal().reveal('.create-reserve-container', {
+            duration: 1600,
+            origin: 'right',
+            distance: '150px',
+        });
 </script>
 </div>
 @endsection

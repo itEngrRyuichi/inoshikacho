@@ -20,5 +20,12 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        ScrollReveal().reveal('.inoshikacho-wrapper', {
+            duration: 1600,
+            origin: 'right',
+            distance: '150px',
+        });
+    </script>
 </div>
 @endsection

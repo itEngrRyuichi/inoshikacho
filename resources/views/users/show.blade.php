@@ -13,7 +13,12 @@
     <div class="row">
 
     <div class="mb-3 row justify-content-center">
-        <img src="{{ asset('storage/'.$image->url) }}" class="rounded-circle" alt="user-image">
+        @if ($page == 'profile')
+        <img src="{{ asset('storage/'.Auth::user()->images[0]->url) }}" class="rounded-circle" alt="user-image">
+        @endif
+        @if ($page == 'show')
+            <img src="{{ asset('storage/'.$image->url) }}" class="rounded-circle" alt="user-image">
+        @endif
         <span class="text-muted user-type text-center type">
             <td>
                 @if ($user->type == 1)
@@ -96,4 +101,11 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    ScrollReveal().reveal('.show-user-container', {
+        duration: 1600,
+        origin: 'right',
+        distance: '150px',
+    });
+</script>
 @endsection
