@@ -281,9 +281,6 @@
                                 <button type="submit" class="btn btn-outline-danger btn-sm">削除</a>
                             </form>
                         @endif
-                        @else
-                        <a href="{{route('reserves.create', ['store_id' => $store->id, 'plan_id' => $plan->id, 'room_id'=>$plan->room_id])}}" type="submit" class="btn btn-outline-success btn-sm">予約</a>
-                        @endif
 
                     </div>
                 </div>
