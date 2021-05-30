@@ -15480,6 +15480,10 @@ main {
   background-color: #3e2723;
 }
 
+.pagination-wrapper {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 .pagination-wrapper .text1 {
   font-size: 13px;
   color: #fff8e1;
@@ -15891,8 +15895,8 @@ nav .profileDropdown ul.dropdown-menu .dropdown-item.user-type:hover {
   background-color: #fff8e1;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 10px;
-  min-height: 38vh;
-  max-height: 38vh;
+  min-height: 42vh;
+  max-height: 42vh;
 }
 .show-store-container .plan-wrapper .carousel-inner {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -15900,7 +15904,7 @@ nav .profileDropdown ul.dropdown-menu .dropdown-item.user-type:hover {
 .show-store-container .plan-wrapper .carousel-inner img.store-pic {
   display: block;
   width: 100%;
-  height: 30vh;
+  height: 35vh;
 }
 .show-store-container .comment-wrapper {
   padding-right: 15vw;

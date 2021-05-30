@@ -172,6 +172,7 @@
     @endif
 
     <p class="pt-4 sub-title">プラン一覧</p>
+    @include('commons.pagination3')
     @foreach ($plans as $plan)
         <div class="row plan-wrapper mx-0 mb-2 py-4">
             <div class="col-4">
@@ -264,7 +265,8 @@
                 </div>
             </div>
         </div>
-    @endforeach
+        @endforeach
+    @include('commons.pagination3')
 
     <div class="comment-wrapper mx-0 mb-4 py-4 row">
         <p class="pt-4 sub-title" id="comment">口コミ</p>

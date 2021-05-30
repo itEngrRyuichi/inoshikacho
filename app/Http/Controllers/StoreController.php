@@ -173,7 +173,12 @@ class StoreController extends Controller
                             'rooms.room_name',
                         )
                         ->orderBy('rooms.room_name', 'asc')
-                        ->get();
+                        ->paginate(10);
+        $plans_count = Plan::where('provides.store_id', $id)
+                        ->join('provides', 'plans.id', '=', 'provides.plan_id')
+                        ->join('rooms', 'provides.room_id', '=', 'rooms.id')
+                        ->count();
+        $table_pages1 =  floor($plans_count / 10) + 1;
 
 
         for ($i=0; $i < count($plans); $i++) {
@@ -206,11 +211,11 @@ class StoreController extends Controller
             $plans[$i]->baby_price = $baby_price;
 
         }
-        /* dd($plans); */
         $results = [
             'store' => $store,
             'rooms' => $rooms,
             'table_pages' => $table_pages,
+            'table_pages1' => $table_pages1,
             'images' => $images,
             'plans' => $plans,
             'comments' => $comments
