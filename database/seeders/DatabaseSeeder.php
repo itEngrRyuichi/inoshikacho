@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             StoreImagesTableSeeder::class,
             RoomsTableSeeder::class,
             PlansTableSeeder::class,
+            ProvidesTableSeeder::class,
         ]);
     }
 }
