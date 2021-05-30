@@ -13,7 +13,7 @@ class CreatePeoplesTable extends Migration
      */
     public function up()
     {
-        Schema::create('peoples', function (Blueprint $table) {
+        Schema::create('people', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->Integer('number');
             $table->bigInteger('person_type_id')->unsigned()->index();

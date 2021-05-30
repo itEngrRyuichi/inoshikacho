@@ -160,7 +160,8 @@ class StoreController extends Controller
             $store->min_price = min($prices_array);
         }
 
-        $plans = Plan::join('provides', 'plans.id', '=', 'provides.plan_id')
+        $plans = Plan::where('provides.store_id', $id)
+                        ->join('provides', 'plans.id', '=', 'provides.plan_id')
                         ->join('rooms', 'provides.room_id', '=', 'rooms.id')
                         ->select(
                             'plans.id',
