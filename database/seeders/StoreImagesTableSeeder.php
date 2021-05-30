@@ -18,27 +18,27 @@ class StoreImagesTableSeeder extends Seeder
             ['images/stores/滝隠れの里１.jpg', 'images/stores/滝隠れの里２.jpg', 'images/stores/滝隠れの里３.jpg'],
             ['images/stores/木の葉隠れの里１.jpg', 'images/stores/木の葉隠れの里２.jpg', 'images/stores/木の葉隠れの里３.jpg'],
             ['images/stores/砂隠れの里１.jpg', 'images/stores/砂隠れの里２.jpg', 'images/stores/砂隠れの里３.jpg'],
-            ['images/stores/草隠れの里１.jpg', 'images/stores/草隠れの里２.jpg', 'images/stores/草隠れの里３.jpg'],
+            ['images/stores/草隠れの里.jpeg', 'images/stores/草隠れの里２.jpeg', 'images/stores/草隠れの里３.jpg'],
             ['images/stores/霧隠れの里１.jpg', 'images/stores/霧隠れの里２.jpg', 'images/stores/霧隠れの里３.jpg'],
 
             ['images/stores/砂隠れの里１.jpg', 'images/stores/砂隠れの里２.jpg', 'images/stores/砂隠れの里３.jpg'],
             ['images/stores/霧隠れの里１.jpg', 'images/stores/霧隠れの里２.jpg', 'images/stores/霧隠れの里３.jpg'],
             ['images/stores/滝隠れの里１.jpg', 'images/stores/滝隠れの里２.jpg', 'images/stores/滝隠れの里３.jpg'],
-            ['images/stores/草隠れの里１.jpg', 'images/stores/草隠れの里２.jpg', 'images/stores/草隠れの里３.jpg'],
+            ['images/stores/草隠れの里.jpeg', 'images/stores/草隠れの里２.jpeg', 'images/stores/草隠れの里３.jpg'],
             ['images/stores/霧隠れの里１.jpg', 'images/stores/霧隠れの里２.jpg', 'images/stores/霧隠れの里３.jpg'],
-            ['images/stores/草隠れの里１.jpg', 'images/stores/草隠れの里２.jpg', 'images/stores/草隠れの里３.jpg'],
+            ['images/stores/草隠れの里.jpeg', 'images/stores/草隠れの里２.jpeg', 'images/stores/草隠れの里３.jpg'],
             ['images/stores/霧隠れの里１.jpg', 'images/stores/霧隠れの里２.jpg', 'images/stores/霧隠れの里３.jpg'],
             ['images/stores/滝隠れの里１.jpg', 'images/stores/滝隠れの里２.jpg', 'images/stores/滝隠れの里３.jpg'],
             ['images/stores/木の葉隠れの里１.jpg', 'images/stores/木の葉隠れの里２.jpg', 'images/stores/木の葉隠れの里３.jpg'],
             ['images/stores/砂隠れの里１.jpg', 'images/stores/砂隠れの里２.jpg', 'images/stores/砂隠れの里３.jpg'],
         ];
         for ($i=0; $i < count($store_image); $i++) {
-            for ($x=0; $x < count($store_image[$i]); $x++) { 
+            for ($x=0; $x < count($store_image[$i]); $x++) {
                 DB::table('images')->insert([
                     'store_id'=>$i+1,
                     'url'=>$store_image[$i][$x],
                 ]);
             }
-        } 
+        }
     }
 }
