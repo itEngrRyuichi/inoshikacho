@@ -65,7 +65,7 @@
                     @endforeach
                 </tbody>
             </table>
-            @include('commons.pagination')
+            @include('commons.pagination1')
         </div>
     </div>
 </div>
