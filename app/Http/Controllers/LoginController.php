@@ -14,15 +14,16 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('login/index');
+        // dd($request->url);
+        return view('login/index',['url'=>$request->url]);
     }
 
     public function login(Request $request)
     {
 
-        // dd($request);
+        
         $credentials = $request->only('name','password');
 
         if(Auth::attempt($credentials)){
@@ -34,7 +35,7 @@ class LoginController extends Controller
             // dd($user[0]['id']);
             if(count($user)==1){
                 Auth::loginUsingId($user[0]['id']);
-                return redirect(route('index'));
+                return redirect($request->url);
             }
         }
         
