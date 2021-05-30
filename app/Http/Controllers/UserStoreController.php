@@ -28,6 +28,28 @@ class UserStoreController extends Controller
     {
         $stores = Store::where('user_id', $user_id)->with('images')->get();
         $areas = Area::all();
+        for ($s=0; $s < count($stores); $s++) {
+            $plan_ids = Provide::where('store_id', $stores[$s]->id)->select('plan_id')->get();
+            for ($i=0; $i < count($plan_ids); $i++) {
+                $prices = price::where('plan_id', $plan_ids[$i]->plan_id)->get();
+                $plan_ids[$i]->prices = $prices;
+            }
+            $prices_array = [];
+            for ($i=0; $i < count($plan_ids); $i++) {
+                $amount = $plan_ids[$i]->prices[0]->price;
+                array_push($prices_array, $amount);
+            }
+            if (empty($prices_array)) {
+                $stores[$s]->max_price = 0;
+                $stores[$s]->min_price = 0;
+            } else {
+                $max_price = max($prices_array);
+                $min_price = min($prices_array);
+                $stores[$s]->max_price = $max_price;
+                $stores[$s]->min_price = $min_price;
+            }
+
+        }
         return view('stores.index', ['stores' => $stores, 'areas' => $areas]);
     }
 }
