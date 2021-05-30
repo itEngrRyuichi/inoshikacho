@@ -69,7 +69,7 @@ class UserController extends Controller
         $image->url = $path;
         $image->save();
 
-        return redirect(route('users.index'));
+        return redirect(route('index'));
     }
 
     /**
