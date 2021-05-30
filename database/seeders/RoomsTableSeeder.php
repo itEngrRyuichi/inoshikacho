@@ -81,7 +81,7 @@ class RoomsTableSeeder extends Seeder
             }
         }
         for ($i=0; $i < 3; $i++) {
-            $room_id = $i + 4;
+            $room_id = $i + 7;
             for ($x=0; $x < count($images_washitsu2); $x++) {
                 DB::table('images')->insert([
                     'room_id'=> $room_id,
@@ -101,7 +101,7 @@ class RoomsTableSeeder extends Seeder
             }
         }
         for ($i=0; $i < 3; $i++) {
-            $room_id = $i + 7;
+            $room_id = $i + 4;
             for ($x=0; $x < count($images_youshitsu1); $x++) {
                 DB::table('images')->insert([
                     'room_id'=> $room_id,

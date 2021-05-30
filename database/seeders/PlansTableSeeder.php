@@ -57,11 +57,13 @@ class PlansTableSeeder extends Seeder
         ];
 
         // plans
-        for ($i=0; $i <count($plans_names) ; $i++) {
-            DB::table('plans')->insert([
-                'plan_name'=> $plans_names[$i],
-                'plan_description' => $plan_descs[$i],
-            ]);
+        for ($x=0; $x < 2; $x++) {
+            for ($i=0; $i <count($plans_names) ; $i++) {
+                DB::table('plans')->insert([
+                    'plan_name'=> $plans_names[$i],
+                    'plan_description' => $plan_descs[$i],
+                ]);
+            }
         }
         // images
         for ($x=0; $x < 3; $x++) {
@@ -73,9 +75,23 @@ class PlansTableSeeder extends Seeder
                 ]);
             }
             $plan_id2 = $x + 4;
-            for ($images=0; $images < count($youshitsu_images[$x]); $images++) {
+            for ($images=0; $images < count($washitsu_images[$x]); $images++) {
                 DB::table('images')->insert([
                     'plan_id'=> $plan_id2,
+                    'url' => $washitsu_images[$x][$images],
+                ]);
+            }
+            $plan_id3 = $x + 7;
+            for ($images=0; $images < count($youshitsu_images[$x]); $images++) {
+                DB::table('images')->insert([
+                    'plan_id'=> $plan_id3,
+                    'url' => $youshitsu_images[$x][$images],
+                ]);
+            }
+            $plan_id4 = $x + 10;
+            for ($images=0; $images < count($youshitsu_images[$x]); $images++) {
+                DB::table('images')->insert([
+                    'plan_id'=> $plan_id4,
                     'url' => $youshitsu_images[$x][$images],
                 ]);
             }
@@ -83,6 +99,56 @@ class PlansTableSeeder extends Seeder
 
 
         // prices
+        // youshitsu
+        for ($i=0; $i <count($price_pattern1) ; $i++) {
+            $person_type_id = $i + 1;
+            DB::table('prices')->insert([
+                'plan_id' => 12,
+                'person_type_id' => $person_type_id,
+                'price' => $price_pattern1[$i],
+            ]);
+        }
+        for ($i=0; $i <count($price_pattern2) ; $i++) {
+            $person_type_id = $i + 1;
+            DB::table('prices')->insert([
+                'plan_id' => 11,
+                'person_type_id' => $person_type_id,
+                'price' => $price_pattern2[$i],
+            ]);
+        }
+        for ($i=0; $i <count($price_pattern3) ; $i++) {
+            $person_type_id = $i + 1;
+            DB::table('prices')->insert([
+                'plan_id' => 10,
+                'person_type_id' => $person_type_id,
+                'price' => $price_pattern3[$i],
+            ]);
+        }
+        for ($i=0; $i <count($price_pattern4) ; $i++) {
+            $person_type_id = $i + 1;
+            DB::table('prices')->insert([
+                'plan_id' => 9,
+                'person_type_id' => $person_type_id,
+                'price' => $price_pattern4[$i],
+            ]);
+        }
+        for ($i=0; $i <count($price_pattern5) ; $i++) {
+            $person_type_id = $i + 1;
+            DB::table('prices')->insert([
+                'plan_id' => 8,
+                'person_type_id' => $person_type_id,
+                'price' => $price_pattern5[$i],
+            ]);
+        }
+        for ($i=0; $i <count($price_pattern6) ; $i++) {
+            $person_type_id = $i + 1;
+            DB::table('prices')->insert([
+                'plan_id' => 7,
+                'person_type_id' => $person_type_id,
+                'price' => $price_pattern6[$i],
+            ]);
+        }
+        // washitsu
         for ($i=0; $i <count($price_pattern1) ; $i++) {
             $person_type_id = $i + 1;
             DB::table('prices')->insert([
