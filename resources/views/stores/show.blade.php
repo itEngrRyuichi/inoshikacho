@@ -281,12 +281,12 @@
                                 <button type="submit" class="btn btn-outline-danger btn-sm">削除</a>
                             </form>
                         @endif
-
+                        @endif
                     </div>
                 </div>
             </div>
         </div>
-        @endforeach
+    @endforeach
     @include('commons.pagination3')
     <script type="text/javascript">
         ScrollReveal().reveal('.plan-wrapper', {
