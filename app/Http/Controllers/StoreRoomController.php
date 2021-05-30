@@ -64,11 +64,11 @@ class StoreRoomController extends Controller
                         break;
                     case "6":
                         $amenity->amenity_name = '無料wifi';
-                        $amenity->icon = "fas fa-bed";
+                        $amenity->icon = "fas fa-wifi";
                         break;
                     case "7":
                         $amenity->amenity_name = 'ナイトウェア、パジャマ';
-                        $amenity->icon = "fas fa-bed";
+                        $amenity->icon = "fas fa-tshirt";
                         break;
                     case "8":
                         $amenity->amenity_name = 'バスタオル、フェイスタオル';
@@ -200,11 +200,11 @@ class StoreRoomController extends Controller
                         break;
                     case "6":
                         $amenity->amenity_name = '無料wifi';
-                        $amenity->icon = "fas fa-bed";
+                        $amenity->icon = "fas fa-wifi";
                         break;
                     case "7":
                         $amenity->amenity_name = 'ナイトウェア、パジャマ';
-                        $amenity->icon = "fas fa-bed";
+                        $amenity->icon = "fas fa-tshirt";
                         break;
                     case "8":
                         $amenity->amenity_name = 'バスタオル、フェイスタオル';
