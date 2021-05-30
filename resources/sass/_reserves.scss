@@ -29,6 +29,11 @@
 .index-reserves-container{
     padding-left: 10vw;
     padding-right: 10vw;
+    img{
+        height: 25px;
+        width: 25px;
+        border: $default-dark-border;
+    }
     label, .text1, .text2, .text3, .text4, .area-type, th, tr, td{
         font-family: $default-nihongo-fontfamily;
     }

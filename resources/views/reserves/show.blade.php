@@ -83,5 +83,23 @@
             </table>
         </div>
     </div>
+    <div class="btn-group col-4 offset-4 py-4" role="group">
+        <a href="{{route('reserves.edit', $reserve->id)}}" class="btn btn-outline-success">編集する</a>
+        <a href="#"  class="btn btn-outline-danger" id="btn_delete_reserve" >予約キャンセルする</a>
+        <form action="{{ route('reserves.destroy', $reserve->id) }}" method="post" id="delete-form">
+            @csrf
+            @method('delete')
+        </form>
+    </div>
+    <script type="text/javascript">
+        const delete_btn = document.getElementById('btn_delete_reserve');
+        const delete_form = document.getElementById('delete-form');
+        delete_btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if(window.confirm('本当に予約をキャンセルしますか？')){
+            delete_form.submit();
+        }
+        });
+</script>
 </div>
 @endsection

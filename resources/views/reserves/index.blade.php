@@ -18,7 +18,11 @@
             @foreach($reserves as $reserve)
                 <tr>
                     <td>{{$reserve->reserve_id}}</td>
-                    <td><a href="users/{{$reserve->user_id}}" class="text1">{{$reserve->reserver}}</a></td>
+                    <td><a href="users/{{$reserve->user_id}}" class="text1">
+                        <img src="{{ asset('storage/'.$reserve->url) }}" class="rounded-circle" alt="user-image">
+                        <span class="mx-2">
+                        {{$reserve->reserver}}</span></a>
+                    </td>
                     <td><a href="stores/{{$reserve->store_id}}" class="text1">{{$reserve->store_name}}</a></td>
                     <td>{{
                         $reserve->adult_no->number +
@@ -28,7 +32,7 @@
                         }} 名様</td>
                     <td>{{$reserve->check_in->format('Y年m月d日')}}</td>
                     <td>{{$reserve->check_out->format('Y年m月d日')}}</td>
-                    <td><a href="reserves/{{$reserve->reserve_id}}" class="btn btn-outline-primary btn-sm">詳細</a></td>
+                    <td><a href="/reserves/{{$reserve->reserve_id}}" class="btn btn-outline-primary btn-sm">詳細</a></td>
                 </tr>
             @endforeach
         </tbody>

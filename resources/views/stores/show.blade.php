@@ -115,7 +115,7 @@
             部屋一覧
         </button>
         <a href="{{route('stores.plans.create', $store->id)}}" class="btn btn-outline-primary d-inline">プランを追加する</a>
-        <a href="{{route('stores.reserves.index', $store->id)}}" class="btn btn-outline-primary d-inline">予約一覧</a>
+        <a href="{{route('stores.reserves.index', ['store_id' => $store->id])}}" class="btn btn-outline-primary d-inline">予約一覧</a>
 
         <div class="modal fade" id="roomsModal" tabindex="-1" aria-labelledby="roomsModalLabel" aria-hidden="true">
         <div class="modal-dialog">

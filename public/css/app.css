@@ -16012,6 +16012,11 @@ nav .profileDropdown ul.dropdown-menu .dropdown-item.user-type:hover {
   padding-left: 10vw;
   padding-right: 10vw;
 }
+.index-reserves-container img {
+  height: 25px;
+  width: 25px;
+  border: 2px solid #546e7a;
+}
 .index-reserves-container label, .index-reserves-container .text1, .index-reserves-container .text2, .index-reserves-container .text3, .index-reserves-container .text4, .index-reserves-container .area-type, .index-reserves-container th, .index-reserves-container tr, .index-reserves-container td {
   font-family: "Kosugi Maru", sans-serif;
 }

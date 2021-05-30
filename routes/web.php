@@ -52,12 +52,12 @@ Route::delete('stores/{store_id}/comments/{id}', 'StoreCommentController@destroy
 /* ----- 予約関係 ----- */
 Route::get('reserves/create', 'ReserveController@create')->name('reserves.create')->middleware('member');
 Route::post('reserves', 'ReserveController@store')->name('reserves.store')->middleware('member');
-Route::get('reserves/{reserf}', 'ReserveController@edit')->name('reserves.edit')->middleware('auth');
-Route::put('reserves/{reserf}', 'ReserveController@update')->name('reserves.update')->middleware('auth');
-Route::get('reserves/{reserf}', 'ReserveController@show')->name('reserves.show')->middleware('auth');
+Route::get('reserves/{id}', 'ReserveController@show')->name('reserves.show');
+Route::get('reserves/{id}/edit', 'ReserveController@edit')->name('reserves.edit');
+Route::put('reserves/{id}', 'ReserveController@update')->name('reserves.update');
+Route::delete('reserves/{id}', 'ReserveController@destroy')->name('reserves.destroy');
 
 /* 宿泊予約一覧 / 宿泊履歴(サイト管理側) */
-// Route::resource('reserves', 'ReserveController')->middleware('admin');
 Route::get('reserves', 'ReserveController@index')->name('reserves.index')->middleware('admin');
 /* 宿泊予約履歴 / 宿泊履歴(会員側) */
 Route::get('users/{user_id}/reserves', 'UserReserveController@index')->name('users.reserves.index')->middleware('member');

@@ -2,23 +2,24 @@
 @section('content')
 <div class="container content create-reserve-container pb-4">
     <p class="pt-4 text-center title">予約確認</p>
-    <form action="{{route('reserves.store')}}" method="POST">
+    <form action="{{route('reserves.update', $reserve->id)}}" method="POST">
         @csrf
+        @method('put')
         <input type="hidden" name="provide_id" value="{{$provide->id}}">
         <div class="row customer-info-wrapper justify-content-center">
             <div class="col-4 mb-3">
                 <p class="pt-4 sub-title">お客様情報</p>
-                <label for="name" class="d-flex">お名前 :　<span class="text2">{{Auth::user()->name}}</span> 様</label>
-                <label for="address" class="d-flex">ご住所 :　<span class="text2">{{Auth::user()->address}}</span></label>
-                <label for="phone" class="d-flex">お電話 :　<span class="text2">{{Auth::user()->phone}}</span></label>
+                <label for="name" class="d-flex">お名前 :　<span class="text2">{{$user->name}}</span> 様</label>
+                <label for="address" class="d-flex">ご住所 :　<span class="text2">{{$user->address}}</span></label>
+                <label for="phone" class="d-flex">お電話 :　<span class="text2">{{$user->phone}}</span></label>
             </div>
             <div class="col-2 mb-3 pt-3">
                 <label for="checkin" class="form-label">チェックイン日時</label>
-                <input id="checkin" class="form-control" type="date" name='checkin' value="{{$check_in}}">
+                <input id="checkin" class="form-control" type="date" name='checkin' value="{{$check_in->format('Y-m-d')}}">
             </div>
             <div class="col-2 mb-3 pt-3">
                 <label for="checkout" class="form-label">チェックアウト日時</label>
-                <input id="checkout" class="form-control" type="date" name='checkout' value="{{$check_out}}">
+                <input id="checkout" class="form-control" type="date" name='checkout' value="{{$check_out->format('Y-m-d')}}">
             </div>
         </div>
         <div class="row store-info-wrapper justify-content-center">
@@ -53,40 +54,40 @@
                         <tr class="row">
                             <td class="col-3">{{$person_types[0]->person_types}}</td>
                             <td class="col-1">
-                                <input class="form-control" type="number" name="number" id="adult_number_input" value="{{$adult_number}}">
+                                <input class="form-control" type="number" name="adult_number" id="adult_number_input" value="{{$adult_number}}">
                             </td>
                             <td class="col-1">名様</td>
-                            <td class="col-2 text-end"><span id="adult_price">{{$adult_price->price}}</span> 円</td>
+                            <td class="col-2 text-end"><span id="adult_price">{{$adult_price}}</span> 円</td>
                             <td class="col-3 text-center">× <span id="adult_number"></span> 名 ×  <span id="adult_duration"></span> 泊 =</td>
                             <td class="col-2 text-end"><span id="adult_total"></span> 円</td>
                         </tr>
                         <tr class="row">
                             <td class="col-3">{{$person_types[1]->person_types}}</td>
                             <td class="col-1">
-                                <input class="form-control" type="number" name="number" id="middle_number_input" value="{{$middle_number}}">
+                                <input class="form-control" type="number" name="middle_number" id="middle_number_input" value="{{$middle_number}}">
                             </td>
                             <td class="col-1">名様</td>
-                            <td class="col-2 text-end"><span id="middle_price">{{$middle_price->price}}</span> 円</td>
+                            <td class="col-2 text-end"><span id="middle_price">{{$middle_price}}</span> 円</td>
                             <td class="col-3 text-center">× <span id="middle_number"></span> 名 ×  <span id="middle_duration"></span> 泊 =</td>
                             <td class="col-2 text-end"><span id="middle_total"></span> 円</td>
                         </tr>
                         <tr class="row">
                             <td class="col-3">{{$person_types[2]->person_types}}</td>
                             <td class="col-1">
-                                <input class="form-control" type="number" name="number" id="child_number_input" value="{{$child_number}}">
+                                <input class="form-control" type="number" name="child_number" id="child_number_input" value="{{$child_number}}">
                             </td>
                             <td class="col-1">名様</td>
-                            <td class="col-2 text-end"><span id="child_price">{{$child_price->price}}</span> 円</td>
+                            <td class="col-2 text-end"><span id="child_price">{{$child_price}}</span> 円</td>
                             <td class="col-3 text-center">× <span id="child_number"></span> 名 ×  <span id="child_duration"></span> 泊 =</td>
                             <td class="col-2 text-end"><span id="child_total"></span> 円</td>
                         </tr>
                         <tr class="row">
                             <td class="col-3">{{$person_types[3]->person_types}}</td>
                             <td class="col-1">
-                                <input class="form-control" type="number" name="number" id="baby_number_input" value="{{$baby_number}}">
+                                <input class="form-control" type="number" name="baby_number" id="baby_number_input" value="{{$baby_number}}">
                             </td>
                             <td class="col-1">名様</td>
-                            <td class="col-2 text-end"><span id="baby_price">{{$baby_price->price}}</span> 円</td>
+                            <td class="col-2 text-end"><span id="baby_price">{{$baby_price}}</span> 円</td>
                             <td class="col-3 text-center">× <span id="baby_number"></span> 名 ×  <span id="baby_duration"></span> 泊 =</td>
                             <td class="col-2 text-end"><span id="baby_total"></span> 円</td>
                         </tr>
@@ -195,7 +196,7 @@
 
         </script>
         <div class="d-flex justify-content-center mt-4">
-            <button class="btn btn-outline-primary" type="submit">予約</button>
+            <button class="btn btn-outline-primary" type="submit">編集</button>
         </div>
     </form>
 </div>
