@@ -141,8 +141,8 @@
                                 <th scope="row">{{$room->id}}</th>
                                 <td>{{$room->room_name}}</td>
                                 <td>{{$room->capacity}}</td>
-                                @if ($room->created_at!=null)
-                                    <td>{{$room->created_at->format('Y年m月d日')}}</td>
+                                @if ($room->created_at === null)
+                                    <td>データがありません</td>
                                 @else
                                     <td>{{$room->created_at}}</td>
                                 @endif
@@ -186,24 +186,24 @@
                         <li data-bs-target="#carouselRoom{{$plan->room_id.$plan->id}}" data-bs-slide-to="5"></li>
                     </ol>
                     <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <img src="{{ asset('storage/'.$plan->room_images[0]->url) }}" class="store-pic" alt="store-pic{{$plan->room_id.$plan->id}}">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="{{ asset('storage/'.$plan->room_images[1]->url) }}" class="store-pic" alt="store-pic{{$plan->room_id.$plan->id}}">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="{{ asset('storage/'.$plan->room_images[2]->url) }}" class="store-pic" alt="store-pic{{$plan->room_id.$plan->id}}">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="{{ asset('storage/'.$plan->plan_images[0]->url) }}" class="store-pic" alt="store-pic{{$plan->room_id.$plan->id}}">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="{{ asset('storage/'.$plan->plan_images[1]->url) }}" class="store-pic" alt="store-pic{{$plan->room_id.$plan->id}}">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="{{ asset('storage/'.$plan->plan_images[2]->url) }}" class="store-pic" alt="store-pic{{$plan->room_id.$plan->id}}">
-                      </div>
+                            <div class="carousel-item active">
+                                <img src="{{ asset('storage/'.$plan->plan_images[0]->url) }}" class="store-pic" alt="store-pic{{$plan->room_id.$plan->id}}">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{ asset('storage/'.$plan->plan_images[1]->url) }}" class="store-pic" alt="store-pic{{$plan->room_id.$plan->id}}">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{ asset('storage/'.$plan->plan_images[2]->url) }}" class="store-pic" alt="store-pic{{$plan->room_id.$plan->id}}">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{ asset('storage/'.$plan->room_images[0]->url) }}" class="store-pic" alt="store-pic{{$plan->room_id.$plan->id}}">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{ asset('storage/'.$plan->room_images[1]->url) }}" class="store-pic" alt="store-pic{{$plan->room_id.$plan->id}}">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{ asset('storage/'.$plan->room_images[2]->url) }}" class="store-pic" alt="store-pic{{$plan->room_id.$plan->id}}">
+                            </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselRoom{{$plan->room_id.$plan->id}}" role="button" data-bs-slide="prev">
                       <span class="carousel-control-prev-icon" aria-hidden="true"></span>

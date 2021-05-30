@@ -33,14 +33,32 @@ class ReserveController extends Controller
     {
         // サイト管理ユーザ
         $reserves = Reserve::join('provides', 'provides.id', '=', 'reserves.provide_id')
-                            ->join('peoples', 'reserves.id','=','peoples.reserve_id')
                             ->join('users', 'reserves.user_id','=','users.id')
-                            ->with('store')
-                            // ->where('user_id',Auth::id())
+                            ->join('stores', 'provides.store_id', '=', 'stores.id')
+                            ->select(
+                                'provides.id as provide_id',
+                                'reserves.id as reserve_id',
+                                'users.id as user_id',
+                                'users.name as reserver',
+                                'stores.id as store_id',
+                                'stores.store_name',
+                                'reserves.check_in',
+                                'reserves.check_out'
+                                )
                             ->get();
+        for ($i=0; $i < count($reserves); $i++) {
+            $reserve_id = $reserves[$i]->reserve_id;
+            $adult_no = People::where('reserve_id', $reserve_id)->where('person_type_id', 1)->first();
+            $middle_no = People::where('reserve_id', $reserve_id)->where('person_type_id', 2)->first();
+            $child_no = People::where('reserve_id', $reserve_id)->where('person_type_id', 3)->first();
+            $baby_no = People::where('reserve_id', $reserve_id)->where('person_type_id', 4)->first();
+            $reserves[$i]->adult_no = $adult_no;
+            $reserves[$i]->middle_no = $middle_no;
+            $reserves[$i]->child_no = $child_no;
+            $reserves[$i]->baby_no = $baby_no;
 
-        // dd($reserves);
-        return view('reserves.index',['reserves'=>$reserves]);
+        }
+        return view('reserves.index', ['reserves'=>$reserves]);
     }
 
     /**

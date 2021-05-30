@@ -136,7 +136,7 @@ class StoreController extends Controller
         $store = Store::find($id);
         $rooms = Room::where('store_id', '=', $id)->orderBy('id','asc')->paginate(5);
         $rooms_count = Room::where('store_id', '=', $id)->count();
-        $table_pages =  floor($rooms_count / 5);
+        $table_pages =  floor($rooms_count / 5) + 1;
         $images = Image::where('store_id', '=', $id)->get();
         $comments = Comment::where('comments.store_id', '=', $id)
                         ->join('users', 'comments.user_id', '=', 'users.id')

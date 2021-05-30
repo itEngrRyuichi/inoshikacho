@@ -25,4 +25,7 @@ class Reserve extends Model
     {
         return $this->hasMany(People::class);
     }
+    protected $dates = [
+        'check_in', 'check_out'
+    ];
 }

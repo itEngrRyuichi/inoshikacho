@@ -16008,6 +16008,39 @@ nav .profileDropdown ul.dropdown-menu .dropdown-item.user-type:hover {
   font-size: 13px;
 }
 
+.index-reserves-container {
+  padding-left: 10vw;
+  padding-right: 10vw;
+}
+.index-reserves-container label, .index-reserves-container .text1, .index-reserves-container .text2, .index-reserves-container .text3, .index-reserves-container .text4, .index-reserves-container .area-type, .index-reserves-container th, .index-reserves-container tr, .index-reserves-container td {
+  font-family: "Kosugi Maru", sans-serif;
+}
+.index-reserves-container .text1, .index-reserves-container .text2, .index-reserves-container .text3, .index-reserves-container tr, .index-reserves-container td, .index-reserves-container label {
+  color: #3e2723 !important;
+}
+.index-reserves-container input, .index-reserves-container .type, .index-reserves-container tr, .index-reserves-container td {
+  font-size: 12px;
+}
+.index-reserves-container .text1 {
+  font-size: 13px;
+}
+.index-reserves-container .text2 {
+  font-size: 15px;
+}
+.index-reserves-container .text3 {
+  font-size: 25px;
+}
+.index-reserves-container .text4 {
+  color: #e57373;
+  font-size: 15px;
+}
+.index-reserves-container label {
+  font-size: 13px;
+}
+.index-reserves-container a {
+  text-decoration: none;
+}
+
 footer.footer {
   text-align: center;
 }

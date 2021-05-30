@@ -14,6 +14,7 @@
         <li class="account-list"><hr class="dropdown-divider"></li>
         <li class="account-list"><a class="dropdown-item" href="/stores"><i class="fas fa-list"></i> 全店舗一覧</a></li>
         <li class="account-list"><a class="dropdown-item" href="/users"><i class="fas fa-list"></i> 全ユーザ一覧</a></li>
+        <li class="account-list"><a class="dropdown-item" href="/reserves"><i class="fas fa-list"></i> 全予約一覧</a></li>
         <li class="account-list"><hr class="dropdown-divider"></li>
         <li class="account-list">
             <form action="{{route('logout')}}" method="POST">
