@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Reserve;
 use App\Models\Amenity;
 use App\Models\Store;
+use App\Models\User;
 use App\Models\Area;
 use App\Models\StoreType;
 use App\Models\Image;
@@ -155,7 +156,59 @@ class ReserveController extends Controller
      */
     public function show($id)
     {
-        return view('reserves.show');
+        $reserve = Reserve::find($id);
+        $user = User::find($reserve->user_id);
+        $provide = Provide::find($reserve->provide_id);
+        $store = Store::find($provide->store_id);
+        $plan = Plan::find($provide->plan_id);
+        $room = Room::find($provide->room_id);
+        $amenities = Amenity::where('room_id', $provide->room_id)->get();
+        $person_types = PersonType::all();
+        $check_in = date("Y-m-d", strtotime("+1 day"));
+        $check_out = date("Y-m-d", strtotime("+2 day"));
+        $adult_number = People::where('reserve_id', $reserve->id)->where('person_type_id', 1)->first()->number;
+        $middle_number = People::where('reserve_id', $reserve->id)->where('person_type_id', 2)->first()->number;
+        $child_number = People::where('reserve_id', $reserve->id)->where('person_type_id', 3)->first()->number;
+        $baby_number = People::where('reserve_id', $reserve->id)->where('person_type_id', 4)->first()->number;
+        $adult_price = Price::where('plan_id', $provide->plan_id)->where('person_type_id', 1)->first()->price;
+        $middle_price = Price::where('plan_id', $provide->plan_id)->where('person_type_id', 2)->first()->price;
+        $child_price = Price::where('plan_id', $provide->plan_id)->where('person_type_id', 3)->first()->price;
+        $baby_price = Price::where('plan_id', $provide->plan_id)->where('person_type_id', 4)->first()->price;
+        $check_in = $reserve->check_in;
+        $check_out = $reserve->check_out;
+        $diff = abs(strtotime($check_out) - strtotime($check_in));
+        $duration = floor($diff / (60 * 60 * 24));
+        $adult_total = $adult_number * $adult_price;
+        $middle_total = $middle_number * $middle_price;
+        $child_total = $child_number * $child_price;
+        $baby_total = $baby_number * $baby_price;
+        $total = $adult_total + $middle_total + $child_total + $baby_total;
+        $results = [
+            'user' => $user,
+            'provide' => $provide,
+            'store' => $store,
+            'plan' => $plan,
+            'room' => $room,
+            'amenities' => $amenities,
+            'person_types' => $person_types,
+            'adult_number' => $adult_number,
+            'middle_number' => $middle_number,
+            'child_number' => $child_number,
+            'baby_number' => $baby_number,
+            'adult_price' => $adult_price,
+            'middle_price' => $middle_price,
+            'child_price' => $child_price,
+            'baby_price' => $baby_price,
+            'adult_total' => $adult_total,
+            'middle_total' => $middle_total,
+            'child_total' => $child_total,
+            'baby_total' => $baby_total,
+            'total' => $total,
+            'check_in' => $check_in,
+            'check_out' => $check_out,
+            'duration' => $duration,
+        ];
+        return view('reserves.show', $results);
     }
 
     /**
