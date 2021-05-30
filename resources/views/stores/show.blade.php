@@ -233,7 +233,7 @@
                                 @else
                                     <i class="{{$amenity->icon}}"></i>
                                 @endif
-                                 {{$amenity->amenity_name}}
+                                    {{$amenity->amenity_name}}
                             </span>
                         @endforeach
                     </p>

@@ -172,6 +172,7 @@ class StoreController extends Controller
                             'provides.room_id',
                             'rooms.room_name',
                         )
+                        ->orderBy('rooms.room_name', 'asc')
                         ->get();
 
 

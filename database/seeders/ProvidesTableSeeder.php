@@ -19,69 +19,19 @@ class ProvidesTableSeeder extends Seeder
         // スタンダードプラン
         for ($plans=0; $plans < 3; $plans++) {
             $plan_id = $plans + 1;
-            for ($rooms=0; $rooms < 5; $rooms++) {
+            for ($rooms=0; $rooms < 6; $rooms++) {
                 $room_id = $rooms + 1;
                 DB::table('provides')->insert([
                     'plan_id' => $plan_id,
                     'store_id' => $store_id,
                     'room_id' => $room_id,
                 ]);
-                $room_id = $rooms + 6;
-                DB::table('provides')->insert([
-                    'plan_id' => $plan_id,
-                    'store_id' => $store_id,
-                    'room_id' => $room_id,
-                ]);
             }
-        }
-        for ($plans=0; $plans < 3; $plans++) {
-            $plan_id = $plans + 4;
-            for ($rooms=0; $rooms < 5; $rooms++) {
-                $room_id = $rooms + 11;
+            $plan_id2 = $plans + 4;
+            for ($rooms=0; $rooms < 6; $rooms++) {
+                $room_id = $rooms + 7;
                 DB::table('provides')->insert([
-                    'plan_id' => $plan_id,
-                    'store_id' => $store_id,
-                    'room_id' => $room_id,
-                ]);
-                $room_id = $rooms + 16;
-                DB::table('provides')->insert([
-                    'plan_id' => $plan_id,
-                    'store_id' => $store_id,
-                    'room_id' => $room_id,
-                ]);
-            }
-        }
-        $store_id2 = 2;
-        // スタンダードプラン
-        for ($plans=0; $plans < 3; $plans++) {
-            $plan_id = $plans + 7;
-            for ($rooms=0; $rooms < 5; $rooms++) {
-                $room_id = $rooms + 21;
-                DB::table('provides')->insert([
-                    'plan_id' => $store_id2,
-                    'store_id' => $store_id,
-                    'room_id' => $room_id,
-                ]);
-                $room_id = $rooms + 26;
-                DB::table('provides')->insert([
-                    'plan_id' => $store_id2,
-                    'store_id' => $store_id,
-                    'room_id' => $room_id,
-                ]);
-            }
-        }
-        for ($plans=0; $plans < 3; $plans++) {
-            $plan_id = $plans + 10;
-            for ($rooms=0; $rooms < 5; $rooms++) {
-                $room_id = $rooms + 31;
-                DB::table('provides')->insert([
-                    'plan_id' => $store_id2,
-                    'store_id' => $store_id,
-                    'room_id' => $room_id,
-                ]);
-                $room_id = $rooms + 36;
-                DB::table('provides')->insert([
-                    'plan_id' => $store_id2,
+                    'plan_id' => $plan_id2,
                     'store_id' => $store_id,
                     'room_id' => $room_id,
                 ]);
