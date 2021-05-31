@@ -20,7 +20,7 @@ class UserController extends Controller
     {
         $users = User::with('images')->simplePaginate(10);
         $users_count = User::count();
-        $table_pages =  floor($users_count / 10);
+        $table_pages =  floor($users_count / 10) + 1;
         return view('users.index', ['users' => $users, 'table_pages' => $table_pages]);
     }
 
