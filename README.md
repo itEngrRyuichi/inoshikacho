@@ -51,7 +51,7 @@
 
 ## 工夫した点
 - UIに凝った
-    - GooglefontやBootsstrapを使用した
+    - GooglefontやBootstrapを使用した
     - 画像を多く使って見やすい画面にした
     - 宿の名前、説明などに凝った    
 - プロジェクト管理
