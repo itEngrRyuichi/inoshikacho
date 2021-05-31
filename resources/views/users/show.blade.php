@@ -40,7 +40,7 @@
 
     <div class="mb-3 col-3 offset-3">
         <label for="birthday" class="form-label">生年月日</label>
-        <input type="date" name="birthday" id="birthday" class="form-control" value="{{$user->birthday}}" readonly>
+        <input type="date" name="birthday" id="birthday" class="form-control" value="{{$user->birthday->format('Y-m-d')}}" readonly>
     </div>
 
     <div class="mb-3 col-3">

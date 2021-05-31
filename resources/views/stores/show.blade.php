@@ -328,11 +328,13 @@
                 <p class="text1">{{$comment->comment}}</p>
             </div>
             <div class="col-2">
-                <form action="{{ route('stores.comments.destroy', ['store_id' => $store->id, 'id' => $comment->id]) }}" id="delete-form" method="post">
-                    @csrf
-                    @method('delete')
-                    <button type="submit" class="btn btn-outline-danger btn-sm">削除</a>
-                </form>
+                @if (Auth::user()->id === $comment->user_id)
+                    <form action="{{ route('stores.comments.destroy', ['store_id' => $store->id, 'id' => $comment->id]) }}" id="delete-form" method="post">
+                        @csrf
+                        @method('delete')
+                        <button type="submit" class="btn btn-outline-danger btn-sm">削除</a>
+                    </form>
+                @endif
             </div>
         </div>
         @endforeach
