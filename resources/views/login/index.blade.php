@@ -15,6 +15,7 @@
                     <label class="form-label" id="password">パスワード</label>
                     <input type="password" class="form-control col-8" aria-describedby="password" value="" name="password" required>
                 </div>
+                <input type="hidden" name="url" value="{{$url}}">
             </div>
             <div class="col-2 offset-5 my-4">
                 <button class="btn btn-outline-primary w-100" type="submit">ログイン</button>
