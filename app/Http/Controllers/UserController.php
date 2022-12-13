@@ -16,12 +16,34 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::with('images')->simplePaginate(10);
-        $users_count = User::count();
+        if (isset($request->usertype) || isset($request->keyword) || isset($request->birthday)) {
+            if ($request->usertype == 'all' ) {
+                $users = User::with('images')
+                    ->simplePaginate(10);
+                $users_count = User::count();
+            } else {
+                $users = User::with('images')
+                    ->where('type', $request->usertype)
+                    ->orwhere('birthday', $request->birthday)
+                    ->orwhere('name', $request->name)
+                    ->orwhere('address', $request->name)
+                    ->orwhere('phone', $request->name)
+                    ->orwhere('email', $request->name)
+                    ->simplePaginate(10);
+                $users_count = User::count();
+            }
+        } else {
+            $users = User::with('images')
+                    ->simplePaginate(10);
+            $users_count = User::count();
+        }
         $table_pages =  floor($users_count / 10) + 1;
-        return view('users.index', ['users' => $users, 'table_pages' => $table_pages]);
+
+        $usertype = $request->usertype;
+
+        return view('users.index', ['users' => $users,'table_pages' => $table_pages, 'usertype' => $usertype]);
     }
 
     /**

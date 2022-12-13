@@ -4,7 +4,7 @@
     <p class="pt-4 text-center title">ユーザ一覧</p>
     <div class="row my-4">
         <div class="col-10 offset-1">
-            <form action="#" class="row py-4">
+            <form action="{{route('users.index')}}" class="row py-4">
                 <div class="col-4 offset-1">
                     <label for="name" class="form-label">キーワード</label>
                     <input type="text" name="name" id="name" class="form-control" placeholder="名前 / 住所 / 電話番号 / Email">
@@ -13,9 +13,9 @@
                     <label for="type" class="form-label">ユーザ種類</label>
                     <select name="usertype" id="usertype" class="form-select">
                         <option value="all">All</option>
-                        <option value="1">サイト管理</option>
-                        <option value="2">店舗管理</option>
-                        <option value="3">会員</option>
+                        <option value="1" @if ($usertype == 1) selected @endif>サイト管理</option>
+                        <option value="2" @if ($usertype == 2) selected @endif>店舗管理</option>
+                        <option value="3" @if ($usertype == 3) selected @endif>会員</option>
                     </select>
                 </div>
                 <div class="col-2">
